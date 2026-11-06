@@ -1,0 +1,22 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Generated artifacts and downloaded models
+artifacts/
+models/
+.cache/
+
+# Windows download metadata
+*:Zone.Identifier
