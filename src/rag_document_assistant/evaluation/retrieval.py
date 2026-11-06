@@ -2,9 +2,18 @@
 
 from collections import Counter
 from statistics import mean
-from typing import Any
+from typing import Any, Protocol
 
-from rag_document_assistant.retrieval.bm25 import BM25Index
+from rag_document_assistant.ingestion.pdf_loader import DocumentSection
+from rag_document_assistant.retrieval.bm25 import SearchResult
+
+
+class RetrievalIndex(Protocol):
+    """Interface shared by lexical and semantic retrieval."""
+
+    sections: tuple[DocumentSection, ...]
+
+    def search(self, query: str, *, top_k: int = 5) -> list[SearchResult]: ...
 
 
 def score_ranking(
@@ -39,7 +48,7 @@ def score_ranking(
 
 
 def evaluate_retrieval(
-    index: BM25Index,
+    index: RetrievalIndex,
     questions: list[dict[str, Any]],
     *,
     ks: tuple[int, ...] = (3, 5),

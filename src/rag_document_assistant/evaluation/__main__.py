@@ -1,11 +1,15 @@
-"""Evaluate BM25 using development questions only."""
+"""Evaluate local retrieval using development questions only."""
 
 import argparse
 import hashlib
 import json
 from pathlib import Path
+from time import perf_counter
 
-from rag_document_assistant.evaluation.retrieval import evaluate_retrieval
+from rag_document_assistant.evaluation.retrieval import (
+    RetrievalIndex,
+    evaluate_retrieval,
+)
 from rag_document_assistant.ingestion.pdf_loader import load_corpus
 from rag_document_assistant.retrieval.bm25 import BM25Index
 
@@ -14,13 +18,23 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument(
-        "--output",
-        type=Path,
-        default=Path("artifacts/evaluation/bm25-development.json"),
+        "--method",
+        choices=["bm25", "semantic"],
+        default="bm25",
     )
+    parser.add_argument(
+        "--offline",
+        action="store_true",
+        help="Load the embedding model from local files only",
+    )
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args()
 
     root = args.root.resolve()
+    output = args.output or Path(
+        f"artifacts/evaluation/{args.method}-development.json"
+    )
+
     question_path = root / "evaluation" / "development.jsonl"
     question_bytes = question_path.read_bytes()
     questions = [
@@ -34,13 +48,9 @@ def main() -> None:
     if any(question["split"] != "development" for question in questions):
         raise ValueError("Expected development questions only")
 
-    index = BM25Index(load_corpus(root))
-    report = evaluate_retrieval(index, questions)
-
-    report["configuration"] = {
-        "retriever": "bm25",
-        "k1": index.k1,
-        "b": index.b,
+    sections = load_corpus(root)
+    configuration = {
+        "retriever": args.method,
         "include_archived": False,
         "search_fields": ["title", "heading", "text"],
         "question_file": "evaluation/development.jsonl",
@@ -50,12 +60,53 @@ def main() -> None:
         ).hexdigest(),
     }
 
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(
+    index: RetrievalIndex
+    start = perf_counter()
+
+    if args.method == "semantic":
+        from rag_document_assistant.retrieval.semantic import (
+            DEFAULT_MODEL,
+            LocalSentenceEncoder,
+            SemanticIndex,
+        )
+
+        encoder = LocalSentenceEncoder(local_files_only=args.offline)
+        index = SemanticIndex(sections, encoder=encoder)
+        configuration.update(
+            model=DEFAULT_MODEL,
+            device="cpu",
+            local_files_only=args.offline,
+            similarity="cosine",
+            max_sequence_length=encoder.model.max_seq_length,
+        )
+    else:
+        index = BM25Index(sections)
+        configuration.update(k1=index.k1, b=index.b)
+
+    setup_seconds = perf_counter() - start
+
+    start = perf_counter()
+    report = evaluate_retrieval(index, questions)
+    evaluation_seconds = perf_counter() - start
+
+    report["configuration"] = configuration
+    report["timing"] = {
+        "index_setup_seconds": setup_seconds,
+        "evaluation_seconds": evaluation_seconds,
+        "note": (
+            "Setup includes model loading for semantic retrieval. "
+            "Evaluation includes query encoding and metric calculation. "
+            "These are single-run observations, not latency benchmarks."
+        ),
+    }
+
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(
         json.dumps(report, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
 
+    print(f"Retriever: {args.method}")
     print(
         f"Questions: {report['question_count']} | "
         f"Evaluated: {report['evaluated_count']} | "
@@ -77,12 +128,22 @@ def main() -> None:
         print(f"Skipped: {reason} = {count}")
 
     print("\nIncomplete evidence at the largest k:")
-    for row in report["questions"]:
-        if row["status"] == "evaluated" and row["missing_at_max_k"]:
+    incomplete = [
+        row
+        for row in report["questions"]
+        if row["status"] == "evaluated" and row["missing_at_max_k"]
+    ]
+
+    if not incomplete:
+        print("  None")
+    else:
+        for row in incomplete:
             missing = ", ".join(row["missing_at_max_k"])
             print(f"  {row['id']}: missing {missing}")
 
-    print(f"\nReport: {args.output}")
+    print(f"\nIndex setup: {setup_seconds:.2f} seconds")
+    print(f"Evaluation: {evaluation_seconds:.2f} seconds")
+    print(f"Report: {output}")
 
 
 if __name__ == "__main__":
