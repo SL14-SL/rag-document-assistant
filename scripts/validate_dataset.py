@@ -9,6 +9,9 @@ assert len(docs) == 25
 for item in manifest:
     data = (root / item["path"]).read_bytes()
     assert hashlib.sha256(data).hexdigest() == item["sha256"], item["path"]
+    pdf = (root / item["pdf_path"]).read_bytes()
+    assert pdf.startswith(b"%PDF-"), item["pdf_path"]
+    assert hashlib.sha256(pdf).hexdigest() == item["pdf_sha256"], item["pdf_path"]
 ids = set()
 count = 0
 for path in sorted((root / "evaluation").glob("*.jsonl")):
@@ -23,4 +26,4 @@ for path in sorted((root / "evaluation").glob("*.jsonl")):
             assert "## " + ref["section"] + ":" in text, ref
         count += 1
 assert count == 30
-print("OK: 25 documents, 30 unique questions; all evidence references and file hashes are valid.")
+print("OK: 25 documents, 25 PDFs, 30 unique questions; all evidence references and file hashes are valid.")
