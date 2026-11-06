@@ -12,12 +12,11 @@ from rag_document_assistant.generation.answer import (
     check_citations,
     generate_answer,
 )
-from rag_document_assistant.ingestion.pdf_loader import load_corpus
 from rag_document_assistant.retrieval.semantic import (
     DEFAULT_MODEL,
     LocalSentenceEncoder,
-    SemanticIndex,
 )
+from rag_document_assistant.retrieval.storage import load_index
 
 
 def main() -> None:
@@ -31,6 +30,11 @@ def main() -> None:
         type=Path,
         default=Path("artifacts/answers/latest.json"),
     )
+    parser.add_argument(
+        "--index",
+        type=Path,
+        default=Path("artifacts/index/semantic.npz"),
+    )
     args = parser.parse_args()
 
     if not args.question.strip():
@@ -38,9 +42,13 @@ def main() -> None:
 
     started = perf_counter()
 
-    sections = load_corpus(args.root)
     encoder = LocalSentenceEncoder(local_files_only=args.offline)
-    index = SemanticIndex(sections, encoder=encoder)
+    index = load_index(
+        args.index,
+        root=args.root,
+        model_name=DEFAULT_MODEL,
+        encoder=encoder,
+    )
     results = index.search(args.question, top_k=5)
 
     retrieval_seconds = perf_counter() - started

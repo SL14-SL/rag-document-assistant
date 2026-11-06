@@ -102,6 +102,32 @@ class SemanticIndex:
         if self.embeddings.shape[0] != len(sections):
             raise ValueError("Expected one embedding per section")
 
+    @classmethod
+    def from_embeddings(
+        cls,
+        sections: list[DocumentSection],
+        embeddings: NDArray[np.float32],
+        *,
+        encoder: TextEncoder,
+    ) -> "SemanticIndex":
+        """Restore an index without encoding document text again."""
+        if not sections:
+            raise ValueError("Cannot restore an empty corpus")
+
+        citation_ids = [section.citation_id for section in sections]
+        if len(citation_ids) != len(set(citation_ids)):
+            raise ValueError("Citation IDs must be unique")
+
+        vectors = normalize_vectors(embeddings)
+        if vectors.shape[0] != len(sections):
+            raise ValueError("Expected one embedding per section")
+
+        instance = cls.__new__(cls)
+        instance.sections = tuple(sections)
+        instance.encoder = encoder
+        instance.embeddings = vectors
+        return instance
+
     def search(self, query: str, *, top_k: int = 5) -> list[SearchResult]:
         if top_k < 1:
             raise ValueError("top_k must be at least 1")
