@@ -1,0 +1,37 @@
+{
+  "id": "Q022",
+  "question": "Can an editor initiate a full workspace export?",
+  "answerability": "answerable",
+  "answer": "According to [NL-19:S1], only administrators can initiate a full workspace export. There is no mention of editors having this permission. Therefore, the answer is no, an editor cannot initiate a full workspace export.",
+  "expected_evidence": [
+    {
+      "document_id": "NL-19",
+      "section": "S1",
+      "page": 1
+    }
+  ],
+  "required_claims": [
+    {
+      "criterion": "No",
+      "met": null
+    },
+    {
+      "criterion": "Only administrators",
+      "met": null
+    }
+  ],
+  "citation_check": {
+    "cited_ids": [
+      "NL-19:S1"
+    ],
+    "unknown_ids": [],
+    "has_citations": true
+  },
+  "manual_review": {
+    "correct": null,
+    "complete": null,
+    "claims_supported_by_sources": null,
+    "appropriate_uncertainty_or_abstention": null,
+    "notes": ""
+  }
+}

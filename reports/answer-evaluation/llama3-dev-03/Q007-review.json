@@ -1,0 +1,41 @@
+{
+  "id": "Q007",
+  "question": "I lost my MFA factor. What should I do?",
+  "answerability": "answerable",
+  "answer": "According to [NL-05:S2], if a second authentication factor is lost, you should contact the Service Desk by telephone. IT Operations will reset the factor after identity verification.",
+  "expected_evidence": [
+    {
+      "document_id": "NL-05",
+      "section": "S2",
+      "page": 1
+    }
+  ],
+  "required_claims": [
+    {
+      "criterion": "Contact Service Desk by telephone",
+      "met": null
+    },
+    {
+      "criterion": "Identity verification",
+      "met": null
+    },
+    {
+      "criterion": "IT Operations resets the factor",
+      "met": null
+    }
+  ],
+  "citation_check": {
+    "cited_ids": [
+      "NL-05:S2"
+    ],
+    "unknown_ids": [],
+    "has_citations": true
+  },
+  "manual_review": {
+    "correct": null,
+    "complete": null,
+    "claims_supported_by_sources": null,
+    "appropriate_uncertainty_or_abstention": null,
+    "notes": ""
+  }
+}

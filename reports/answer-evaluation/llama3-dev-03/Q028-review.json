@@ -1,0 +1,37 @@
+{
+  "id": "Q028",
+  "question": "Who must approve a software subscription costing EUR 15 per month?",
+  "answerability": "answerable",
+  "answer": "According to [NL-25:S1], recurring software subscriptions require approval from Finance and IT Operations regardless of amount. Since the cost of the subscription is EUR 15 per month, which is a recurring subscription, approval from Finance and IT Operations is required.",
+  "expected_evidence": [
+    {
+      "document_id": "NL-25",
+      "section": "S1",
+      "page": 1
+    }
+  ],
+  "required_claims": [
+    {
+      "criterion": "Finance and IT Operations",
+      "met": null
+    },
+    {
+      "criterion": "Regardless of amount",
+      "met": null
+    }
+  ],
+  "citation_check": {
+    "cited_ids": [
+      "NL-25:S1"
+    ],
+    "unknown_ids": [],
+    "has_citations": true
+  },
+  "manual_review": {
+    "correct": null,
+    "complete": null,
+    "claims_supported_by_sources": null,
+    "appropriate_uncertainty_or_abstention": null,
+    "notes": ""
+  }
+}

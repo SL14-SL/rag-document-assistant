@@ -1,0 +1,48 @@
+{
+  "id": "Q016",
+  "question": "May I store customer contracts in a public AI service?",
+  "answerability": "answerable",
+  "answer": "Based on the provided source passages, the answer is:\n\nNo, you may not store customer contracts in a public AI service. According to [NL-14:S1], customer contracts are classified as confidential data. According to [NL-14:S2], confidential data may only be stored in approved company systems, and publicly accessible AI services are not an approved storage location for confidential data.\n\nAdditionally, [NL-03:S1] states that personal devices must not access internal customer data, which suggests that storing customer contracts in a public AI service would be a violation of this rule.",
+  "expected_evidence": [
+    {
+      "document_id": "NL-14",
+      "section": "S1",
+      "page": 1
+    },
+    {
+      "document_id": "NL-14",
+      "section": "S2",
+      "page": 1
+    }
+  ],
+  "required_claims": [
+    {
+      "criterion": "Customer contracts are confidential",
+      "met": null
+    },
+    {
+      "criterion": "Only approved company systems may store them",
+      "met": null
+    },
+    {
+      "criterion": "Public AI services are not approved storage",
+      "met": null
+    }
+  ],
+  "citation_check": {
+    "cited_ids": [
+      "NL-03:S1",
+      "NL-14:S1",
+      "NL-14:S2"
+    ],
+    "unknown_ids": [],
+    "has_citations": true
+  },
+  "manual_review": {
+    "correct": null,
+    "complete": null,
+    "claims_supported_by_sources": null,
+    "appropriate_uncertainty_or_abstention": null,
+    "notes": ""
+  }
+}

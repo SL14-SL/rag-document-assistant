@@ -1,0 +1,51 @@
+{
+  "id": "Q013",
+  "question": "Can I automatically book a EUR 170 hotel during a trade fair?",
+  "answerability": "answerable",
+  "answer": "Based on the provided source passages, the answer is:\n\nNo, you cannot automatically book a EUR 170 hotel during a trade fair. According to NL-11:S1, if no suitable hotel within the standard limit is available, up to EUR 180 gross per night including breakfast may be approved, but this is not an automatic increase in the hotel limit. Additionally, NL-11:S2 requires two price quotations, trade fair dates, and written approvals from Finance and the manager before booking a hotel above the standard limit.",
+  "expected_evidence": [
+    {
+      "document_id": "NL-11",
+      "section": "S1",
+      "page": 1
+    },
+    {
+      "document_id": "NL-11",
+      "section": "S2",
+      "page": 1
+    }
+  ],
+  "required_claims": [
+    {
+      "criterion": "Not automatic",
+      "met": null
+    },
+    {
+      "criterion": "Up to EUR 180 only if no suitable hotel within standard limit is available",
+      "met": null
+    },
+    {
+      "criterion": "Two price quotations and trade fair dates",
+      "met": null
+    },
+    {
+      "criterion": "Manager and Finance approval before booking",
+      "met": null
+    }
+  ],
+  "citation_check": {
+    "cited_ids": [
+      "NL-11:S1",
+      "NL-11:S2"
+    ],
+    "unknown_ids": [],
+    "has_citations": true
+  },
+  "manual_review": {
+    "correct": null,
+    "complete": null,
+    "claims_supported_by_sources": null,
+    "appropriate_uncertainty_or_abstention": null,
+    "notes": ""
+  }
+}

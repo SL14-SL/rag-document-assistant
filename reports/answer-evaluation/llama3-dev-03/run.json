@@ -1,0 +1,17 @@
+{
+  "model": "llama3:latest",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "prompt_version": "grounded-v1",
+  "question_ids": [
+    "Q001",
+    "Q007",
+    "Q013",
+    "Q016",
+    "Q022",
+    "Q028"
+  ],
+  "top_k": 5,
+  "question_sha256": "aae3d5d1d44ff847f6b235fcda942ade751a343a003b404611ff278291fde3d1",
+  "index_sha256": "f004b2d974801aed73ea0ee3fa0ea600604be05bd7149cb8a6ad8f71d4c3e870",
+  "review_status": "pending_manual_review"
+}

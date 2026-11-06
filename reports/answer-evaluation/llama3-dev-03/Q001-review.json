@@ -1,0 +1,37 @@
+{
+  "id": "Q001",
+  "question": "How many days per week may I work remotely?",
+  "answerability": "answerable",
+  "answer": "According to the Remote Work Policy [NL-06:S1], up to three remote-working days per calendar week are permitted with manager agreement.",
+  "expected_evidence": [
+    {
+      "document_id": "NL-06",
+      "section": "S1",
+      "page": 1
+    }
+  ],
+  "required_claims": [
+    {
+      "criterion": "Up to three per calendar week",
+      "met": null
+    },
+    {
+      "criterion": "Manager agreement required",
+      "met": null
+    }
+  ],
+  "citation_check": {
+    "cited_ids": [
+      "NL-06:S1"
+    ],
+    "unknown_ids": [],
+    "has_citations": true
+  },
+  "manual_review": {
+    "correct": null,
+    "complete": null,
+    "claims_supported_by_sources": null,
+    "appropriate_uncertainty_or_abstention": null,
+    "notes": ""
+  }
+}
