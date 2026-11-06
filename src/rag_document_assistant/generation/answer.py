@@ -83,6 +83,8 @@ def generate_answer(
     *,
     model: str = "llama3:latest",
     timeout: float = 300,
+    response_schema: dict | None = None,
+    max_output_tokens: int = 256,
 ) -> dict:
     """Call the local Ollama chat endpoint without streaming."""
     payload = {
@@ -93,9 +95,13 @@ def generate_answer(
         "options": {
             "temperature": 0,
             "num_ctx": 4096,
-            "num_predict": 256,
+            "num_predict": max_output_tokens,
         },
     }
+    if max_output_tokens < 1:
+        raise ValueError("max_output_tokens must be positive")
+    if response_schema is not None:
+        payload["format"] = response_schema
     request = Request(
         "http://127.0.0.1:11434/api/chat",
         data=json.dumps(payload).encode("utf-8"),
