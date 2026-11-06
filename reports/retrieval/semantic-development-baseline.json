@@ -1,0 +1,712 @@
+{
+  "question_count": 24,
+  "evaluated_count": 22,
+  "skipped_count": 2,
+  "skip_reasons": {
+    "reference_evidence_outside_index": 1,
+    "unanswerable_requires_answer_evaluation": 1
+  },
+  "aggregation": "Macro average over evaluated questions",
+  "metrics": {
+    "3": {
+      "recall": 0.9772727272727273,
+      "complete_evidence": 0.9545454545454546,
+      "reciprocal_rank": 0.9545454545454546
+    },
+    "5": {
+      "recall": 1.0,
+      "complete_evidence": 1.0,
+      "reciprocal_rank": 0.9545454545454546
+    }
+  },
+  "questions": [
+    {
+      "id": "Q001",
+      "question": "How many days per week may I work remotely?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-06:S1"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-06:S1",
+        "NL-07:S1",
+        "NL-06:S2",
+        "NL-08:S1",
+        "NL-04:S2"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q002",
+      "question": "Can I carry unused remote-working days over to next week?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-06:S1"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-06:S1",
+        "NL-08:S1",
+        "NL-08:S2",
+        "NL-06:S2",
+        "NL-24:S1"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q003",
+      "question": "May I work from Spain for two weeks, and what must I arrange beforehand?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-07:S1",
+        "NL-07:S2"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-07:S1",
+        "NL-07:S2",
+        "NL-08:S1",
+        "NL-06:S1",
+        "NL-17:S1"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q004",
+      "question": "What equipment is provided as standard?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-03:S1"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-03:S1",
+        "NL-03:S2",
+        "NL-16:S1",
+        "NL-14:S1",
+        "NL-01:S1"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q006",
+      "question": "Who approves application access?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-04:S1"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-04:S1",
+        "NL-19:S2",
+        "NL-22:S1",
+        "NL-04:S2",
+        "NL-25:S1"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q007",
+      "question": "I lost my MFA factor. What should I do?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-05:S2"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-05:S2",
+        "NL-05:S1",
+        "NL-02:S2",
+        "NL-15:S1",
+        "NL-24:S1"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q008",
+      "question": "What is the minimum password length?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-05:S1"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-05:S1",
+        "NL-04:S2",
+        "NL-05:S2",
+        "NL-02:S2",
+        "NL-15:S2"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q009",
+      "question": "When must I complete security induction?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-02:S2"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-02:S2",
+        "NL-15:S1",
+        "NL-05:S1",
+        "NL-15:S2",
+        "NL-04:S2"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q011",
+      "question": "Is the hotel limit EUR 100 or EUR 120 for a new trip?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-09:S1",
+        "NL-09:S2",
+        "NL-10:S2"
+      ],
+      "status": "skipped",
+      "reason": "reference_evidence_outside_index",
+      "unavailable": [
+        "NL-10:S2"
+      ]
+    },
+    {
+      "id": "Q012",
+      "question": "What is the current deadline for submitting travel receipts?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-09:S2"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-13:S1",
+        "NL-09:S2",
+        "NL-13:S2",
+        "NL-25:S2",
+        "NL-12:S1"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 0.5
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 0.5
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q013",
+      "question": "Can I automatically book a EUR 170 hotel during a trade fair?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-11:S1",
+        "NL-11:S2"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-11:S1",
+        "NL-11:S2",
+        "NL-09:S1",
+        "NL-12:S1",
+        "NL-25:S2"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q014",
+      "question": "Is my credit card statement sufficient evidence for an expense claim?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-13:S1"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-13:S1",
+        "NL-13:S2",
+        "NL-09:S2",
+        "NL-01:S2",
+        "NL-25:S2"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q016",
+      "question": "May I store customer contracts in a public AI service?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-14:S1",
+        "NL-14:S2"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-14:S2",
+        "NL-14:S1",
+        "NL-01:S2",
+        "NL-24:S1",
+        "NL-03:S1"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q017",
+      "question": "I lost my company laptop. How should I report it?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-15:S1"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-03:S2",
+        "NL-15:S1",
+        "NL-15:S2",
+        "NL-03:S1",
+        "NL-05:S2"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 0.5
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 0.5
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q018",
+      "question": "Does P1 mean the issue will be resolved within 30 minutes?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-16:S2"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-16:S2",
+        "NL-16:S1",
+        "NL-17:S2",
+        "NL-17:S1",
+        "NL-13:S2"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q019",
+      "question": "Is overnight P1 support available to every customer?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-17:S1"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-17:S1",
+        "NL-16:S1",
+        "NL-16:S2",
+        "NL-17:S2",
+        "NL-25:S1"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q021",
+      "question": "How many active users does Atlas Team support?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-18:S2"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-18:S2",
+        "NL-19:S1",
+        "NL-18:S1",
+        "NL-19:S2",
+        "NL-20:S1"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q022",
+      "question": "Can an editor initiate a full workspace export?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-19:S1"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-19:S1",
+        "NL-07:S1",
+        "NL-06:S2",
+        "NL-19:S2",
+        "NL-07:S2"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q023",
+      "question": "What format must an Atlas CSV import use?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-20:S1"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-20:S1",
+        "NL-20:S2",
+        "NL-18:S1",
+        "NL-18:S2",
+        "NL-19:S1"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q024",
+      "question": "What happens if an import file contains duplicate external_id values?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-20:S2"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-20:S2",
+        "NL-20:S1",
+        "NL-23:S2",
+        "NL-21:S2",
+        "NL-23:S1"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q026",
+      "question": "When are regular production deployments scheduled?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-22:S2"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-22:S2",
+        "NL-08:S1",
+        "NL-02:S1",
+        "NL-08:S2",
+        "NL-06:S1"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q027",
+      "question": "How long are internal knowledge platform backups retained?",
+      "answerability": "conflicting",
+      "expected": [
+        "NL-23:S1",
+        "NL-23:S2",
+        "NL-24:S1",
+        "NL-24:S2"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-24:S1",
+        "NL-23:S1",
+        "NL-21:S2",
+        "NL-23:S2",
+        "NL-24:S2"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 0.5,
+          "complete_evidence": 0.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q028",
+      "question": "Who must approve a software subscription costing EUR 15 per month?",
+      "answerability": "answerable",
+      "expected": [
+        "NL-25:S1"
+      ],
+      "status": "evaluated",
+      "retrieved": [
+        "NL-25:S1",
+        "NL-22:S1",
+        "NL-25:S2",
+        "NL-12:S1",
+        "NL-13:S1"
+      ],
+      "metrics": {
+        "3": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "5": {
+          "recall": 1.0,
+          "complete_evidence": 1.0,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "missing_at_max_k": []
+    },
+    {
+      "id": "Q029",
+      "question": "How much annual leave am I entitled to?",
+      "answerability": "unanswerable",
+      "status": "skipped",
+      "reason": "unanswerable_requires_answer_evaluation"
+    }
+  ],
+  "configuration": {
+    "retriever": "semantic",
+    "include_archived": false,
+    "search_fields": [
+      "title",
+      "heading",
+      "text"
+    ],
+    "question_file": "evaluation/development.jsonl",
+    "question_sha256": "aae3d5d1d44ff847f6b235fcda942ade751a343a003b404611ff278291fde3d1",
+    "manifest_sha256": "f6beb2bad0b8384c45e2438db13c62c086dae82778d72fa335421b761d31a078",
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "device": "cpu",
+    "local_files_only": true,
+    "similarity": "cosine",
+    "max_sequence_length": 256
+  },
+  "timing": {
+    "index_setup_seconds": 7.7175568969978485,
+    "evaluation_seconds": 0.6201770969782956,
+    "note": "Setup includes model loading for semantic retrieval. Evaluation includes query encoding and metric calculation. These are single-run observations, not latency benchmarks."
+  }
+}
