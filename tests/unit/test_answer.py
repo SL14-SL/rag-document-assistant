@@ -1,6 +1,6 @@
 import json
 from io import BytesIO
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 from urllib.error import URLError
 
 import pytest
@@ -127,3 +127,25 @@ def test_invalid_responses_are_rejected(response):
         pytest.raises(RuntimeError),
     ):
         generate_answer([])
+
+def test_answer_report_records_current_prompt_version():
+    from rag_document_assistant.generation.answer import PROMPT_VERSION
+    from rag_document_assistant.generation.chat import answer_question
+
+    index = Mock()
+    index.search.return_value = [make_result()]
+
+    response = {
+        "model": "test-model",
+        "message": {"content": "EUR 120 [NL-09:S1]."},
+        "done": True,
+        "done_reason": "stop",
+    }
+
+    with patch(
+        "rag_document_assistant.generation.chat.generate_answer",
+        return_value=response,
+    ):
+        report = answer_question(index, "What is the limit?", model="test-model")
+
+    assert report["prompt_version"] == PROMPT_VERSION

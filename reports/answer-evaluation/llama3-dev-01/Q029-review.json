@@ -1,0 +1,33 @@
+{
+  "id": "Q029",
+  "question": "How much annual leave am I entitled to?",
+  "answerability": "unanswerable",
+  "answer": "According to the provided documents, the annual leave entitlement is not specified. The source passage from NL-08:S2 states, \"This document does not specify the annual leave entitlement.\" Therefore, the available documents do not provide enough information to answer this question.",
+  "expected_evidence": [
+    {
+      "document_id": "NL-08",
+      "section": "S2",
+      "page": 1
+    }
+  ],
+  "required_claims": [
+    {
+      "criterion": "Not specified in the document collection",
+      "met": null
+    }
+  ],
+  "citation_check": {
+    "cited_ids": [
+      "NL-08:S2"
+    ],
+    "unknown_ids": [],
+    "has_citations": true
+  },
+  "manual_review": {
+    "correct": null,
+    "complete": null,
+    "claims_supported_by_sources": null,
+    "appropriate_uncertainty_or_abstention": null,
+    "notes": ""
+  }
+}

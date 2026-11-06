@@ -1,0 +1,58 @@
+{
+  "id": "Q027",
+  "question": "How long are internal knowledge platform backups retained?",
+  "answerability": "conflicting",
+  "answer": "According to the provided source passages, the retention period for internal knowledge platform backups is [NL-24:S1] 60 calendar days, as stated in the \"Knowledge Platform Backup Plan\". However, [NL-23:S1] also suggests a retention period of 30 calendar days for the same platform. The conflict between these two documents is acknowledged in [NL-23:S2], which advises that a definitive answer must be confirmed with the system owner. Therefore, the available documents do not provide a clear answer to this question.",
+  "expected_evidence": [
+    {
+      "document_id": "NL-23",
+      "section": "S1",
+      "page": 1
+    },
+    {
+      "document_id": "NL-23",
+      "section": "S2",
+      "page": 1
+    },
+    {
+      "document_id": "NL-24",
+      "section": "S1",
+      "page": 1
+    },
+    {
+      "document_id": "NL-24",
+      "section": "S2",
+      "page": 1
+    }
+  ],
+  "required_claims": [
+    {
+      "criterion": "Conflict: 30 versus 60 calendar days",
+      "met": null
+    },
+    {
+      "criterion": "Both documents active with no precedence rule",
+      "met": null
+    },
+    {
+      "criterion": "Clarify with the system owner",
+      "met": null
+    }
+  ],
+  "citation_check": {
+    "cited_ids": [
+      "NL-23:S1",
+      "NL-23:S2",
+      "NL-24:S1"
+    ],
+    "unknown_ids": [],
+    "has_citations": true
+  },
+  "manual_review": {
+    "correct": null,
+    "complete": null,
+    "claims_supported_by_sources": null,
+    "appropriate_uncertainty_or_abstention": null,
+    "notes": ""
+  }
+}

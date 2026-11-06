@@ -1,0 +1,47 @@
+{
+  "id": "Q003",
+  "question": "May I work from Spain for two weeks, and what must I arrange beforehand?",
+  "answerability": "answerable",
+  "answer": "Workation is permitted only within the EU, and since Spain is within the EU, it is possible. However, the maximum duration for workation is ten working days per calendar year, and the request must be submitted at least 15 working days before the start date. [NL-07:S1]\n\nBefore traveling, you must obtain written approval from both the manager and People Operations. [NL-07:S2]\n\nNote: The duration of your proposed workation (two weeks) exceeds the maximum allowed duration, and the request must be submitted at least 15 working days before the start date.",
+  "expected_evidence": [
+    {
+      "document_id": "NL-07",
+      "section": "S1",
+      "page": 1
+    },
+    {
+      "document_id": "NL-07",
+      "section": "S2",
+      "page": 1
+    }
+  ],
+  "required_claims": [
+    {
+      "criterion": "Maximum ten working days per calendar year within the EU",
+      "met": null
+    },
+    {
+      "criterion": "Apply at least 15 working days in advance",
+      "met": null
+    },
+    {
+      "criterion": "Written approval from both manager and People Operations",
+      "met": null
+    }
+  ],
+  "citation_check": {
+    "cited_ids": [
+      "NL-07:S1",
+      "NL-07:S2"
+    ],
+    "unknown_ids": [],
+    "has_citations": true
+  },
+  "manual_review": {
+    "correct": null,
+    "complete": null,
+    "claims_supported_by_sources": null,
+    "appropriate_uncertainty_or_abstention": null,
+    "notes": ""
+  }
+}

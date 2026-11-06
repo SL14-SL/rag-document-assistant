@@ -1,0 +1,56 @@
+{
+  "id": "Q027",
+  "question": "How long are internal knowledge platform backups retained?",
+  "answerability": "conflicting",
+  "answer": "Backups of the internal knowledge platform are retained for 30 calendar days. [NL-23:S1]",
+  "expected_evidence": [
+    {
+      "document_id": "NL-23",
+      "section": "S1",
+      "page": 1
+    },
+    {
+      "document_id": "NL-23",
+      "section": "S2",
+      "page": 1
+    },
+    {
+      "document_id": "NL-24",
+      "section": "S1",
+      "page": 1
+    },
+    {
+      "document_id": "NL-24",
+      "section": "S2",
+      "page": 1
+    }
+  ],
+  "required_claims": [
+    {
+      "criterion": "Conflict: 30 versus 60 calendar days",
+      "met": null
+    },
+    {
+      "criterion": "Both documents active with no precedence rule",
+      "met": null
+    },
+    {
+      "criterion": "Clarify with the system owner",
+      "met": null
+    }
+  ],
+  "citation_check": {
+    "cited_ids": [
+      "NL-23:S1"
+    ],
+    "unknown_ids": [],
+    "has_citations": true
+  },
+  "manual_review": {
+    "correct": null,
+    "complete": null,
+    "claims_supported_by_sources": null,
+    "appropriate_uncertainty_or_abstention": null,
+    "notes": ""
+  }
+}
