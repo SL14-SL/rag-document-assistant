@@ -88,6 +88,7 @@ def generate_answer(
     timeout: float = 1800,
     response_schema: dict | None = None,
     max_output_tokens: int = 256,
+    seed: int | None = None,
 ) -> dict:
     """Call the local Ollama chat endpoint without streaming."""
     payload = {
@@ -105,6 +106,9 @@ def generate_answer(
         raise ValueError("max_output_tokens must be positive")
     if response_schema is not None:
         payload["format"] = response_schema
+    if seed is not None:
+        payload["options"]["seed"] = seed
+        
     request = Request(
         "http://127.0.0.1:11434/api/chat",
         data=json.dumps(payload).encode("utf-8"),
