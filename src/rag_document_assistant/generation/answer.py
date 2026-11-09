@@ -8,7 +8,7 @@ from urllib.request import Request, urlopen
 
 from rag_document_assistant.retrieval.bm25 import SearchResult
 
-PROMPT_VERSION = "grounded-v1"
+PROMPT_VERSION = "grounded-v1.1"
 
 SYSTEM_PROMPT = """
 You are an internal document assistant.
@@ -25,6 +25,9 @@ Rules:
   the available documents do not provide enough information.
 - Absence of a rule does not mean something is forbidden.
 - Do not invent approvals, exceptions, amounts or deadlines.
+- When stating a rule or permission, preserve all source conditions that
+  materially restrict its application, including prerequisites, required
+  evidence, approvals, deadlines and operating hours.
 - Keep the answer concise, normally under 150 words.
 """.strip()
 
@@ -82,7 +85,7 @@ def generate_answer(
     messages: list[dict[str, str]],
     *,
     model: str = "llama3:latest",
-    timeout: float = 300,
+    timeout: float = 1800,
     response_schema: dict | None = None,
     max_output_tokens: int = 256,
 ) -> dict:
