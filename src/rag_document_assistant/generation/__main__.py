@@ -12,6 +12,7 @@ from rag_document_assistant.generation.answer import (
     check_citations,
     generate_answer,
 )
+from rag_document_assistant.generation.sources import format_sources
 from rag_document_assistant.retrieval.semantic import (
     DEFAULT_MODEL,
     LocalSentenceEncoder,
@@ -140,6 +141,13 @@ def main() -> None:
     print(f"\nRetrieval including setup: {retrieval_seconds:.2f} seconds")
     print(f"Generation request: {generation_seconds:.2f} seconds")
     print(f"Report: {args.output}")
+    print("\nOriginal passages supplied to the model:\n")
+    print(
+        format_sources(
+            report["sources"],
+            cited_ids=set(report["citation_check"]["cited_ids"]),
+        )
+    )
 
 
 if __name__ == "__main__":
