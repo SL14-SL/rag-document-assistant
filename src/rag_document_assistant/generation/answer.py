@@ -8,7 +8,9 @@ from urllib.request import Request, urlopen
 
 from rag_document_assistant.retrieval.bm25 import SearchResult
 
-PROMPT_VERSION = "grounded-v1.1"
+DEFAULT_GENERATION_MODEL = "qwen2.5:14b"
+DEFAULT_SEED = 42
+PROMPT_VERSION = "grounded-v1.2"
 
 SYSTEM_PROMPT = """
 You are an internal document assistant.
@@ -64,6 +66,8 @@ def build_messages(
         {
             "source_id": result.section.citation_id,
             "title": result.section.title,
+            "version": result.section.version,
+            "status": result.section.status,
             "heading": result.section.heading,
             "text": result.section.text,
         }
@@ -84,11 +88,11 @@ def build_messages(
 def generate_answer(
     messages: list[dict[str, str]],
     *,
-    model: str = "llama3:latest",
+    model: str = DEFAULT_GENERATION_MODEL,
     timeout: float = 1800,
     response_schema: dict | None = None,
     max_output_tokens: int = 256,
-    seed: int | None = None,
+    seed: int | None = DEFAULT_SEED,
 ) -> dict:
     """Call the local Ollama chat endpoint without streaming."""
     payload = {
@@ -108,7 +112,7 @@ def generate_answer(
         payload["format"] = response_schema
     if seed is not None:
         payload["options"]["seed"] = seed
-        
+
     request = Request(
         "http://127.0.0.1:11434/api/chat",
         data=json.dumps(payload).encode("utf-8"),
@@ -142,4 +146,5 @@ def generate_answer(
     if result.get("done") is not True:
         raise RuntimeError("Ollama returned an incomplete response")
 
+    result["generation_request"] = payload
     return result

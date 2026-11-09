@@ -7,11 +7,13 @@ from pathlib import Path
 from time import perf_counter
 
 from rag_document_assistant.generation.answer import (
+    DEFAULT_GENERATION_MODEL,
     PROMPT_VERSION,
     build_messages,
     check_citations,
     generate_answer,
 )
+from rag_document_assistant.generation.runtime import collect_runtime_metadata
 from rag_document_assistant.generation.sources import format_sources
 from rag_document_assistant.retrieval.semantic import (
     DEFAULT_MODEL,
@@ -24,7 +26,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("question")
     parser.add_argument("--root", type=Path, default=Path.cwd())
-    parser.add_argument("--model", default="llama3:latest")
+    parser.add_argument("--model", default=DEFAULT_GENERATION_MODEL)
     parser.add_argument("--offline", action="store_true")
     parser.add_argument(
         "--output",
@@ -55,6 +57,7 @@ def main() -> None:
     retrieval_seconds = perf_counter() - started
     messages = build_messages(args.question, results)
 
+    runtime_metadata = collect_runtime_metadata(args.model)
     print("Generating an answer with local Ollama...", flush=True)
     generation_started = perf_counter()
     response = generate_answer(messages, model=args.model)
@@ -71,6 +74,8 @@ def main() -> None:
         "embedding_model": DEFAULT_MODEL,
         "prompt_version": PROMPT_VERSION,
         "messages": messages,
+        "generation_request": response.get("generation_request"),
+        "runtime_metadata": runtime_metadata,
         "sources": [
             {
                 **asdict(result.section),

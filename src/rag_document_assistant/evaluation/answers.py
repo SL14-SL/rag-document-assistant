@@ -5,7 +5,10 @@ import hashlib
 import json
 from pathlib import Path
 
-from rag_document_assistant.generation.answer import PROMPT_VERSION
+from rag_document_assistant.generation.answer import (
+    DEFAULT_GENERATION_MODEL,
+    PROMPT_VERSION,
+)
 from rag_document_assistant.generation.chat import answer_question
 from rag_document_assistant.retrieval.semantic import (
     DEFAULT_MODEL,
@@ -64,7 +67,7 @@ def prepare_review(question: dict, answer_report: dict) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path.cwd())
-    parser.add_argument("--model", default="llama3:latest")
+    parser.add_argument("--model", default=DEFAULT_GENERATION_MODEL)
     parser.add_argument("--offline", action="store_true")
     parser.add_argument("--ids", nargs="+", required=True)
     parser.add_argument("--output-dir", type=Path, required=True)

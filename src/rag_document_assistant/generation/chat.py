@@ -9,11 +9,13 @@ from time import perf_counter
 from uuid import uuid4
 
 from rag_document_assistant.generation.answer import (
+    DEFAULT_GENERATION_MODEL,
     PROMPT_VERSION,
     build_messages,
     check_citations,
     generate_answer,
 )
+from rag_document_assistant.generation.runtime import collect_runtime_metadata
 from rag_document_assistant.generation.sources import format_sources
 from rag_document_assistant.retrieval.semantic import (
     DEFAULT_MODEL,
@@ -42,6 +44,8 @@ def answer_question(
 
     messages = build_messages(question, results)
 
+    runtime_metadata = collect_runtime_metadata(model)
+
     started = perf_counter()
     response = generate_answer(messages, model=model)
     generation_seconds = perf_counter() - started
@@ -57,6 +61,8 @@ def answer_question(
         "embedding_model": DEFAULT_MODEL,
         "prompt_version": PROMPT_VERSION,
         "messages": messages,
+        "generation_request": response.get("generation_request"),
+        "runtime_metadata": runtime_metadata,
         "sources": [
             {
                 **asdict(result.section),
@@ -147,7 +153,7 @@ def print_report(report: dict) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path.cwd())
-    parser.add_argument("--model", default="llama3:latest")
+    parser.add_argument("--model", default=DEFAULT_GENERATION_MODEL)
     parser.add_argument("--offline", action="store_true")
     parser.add_argument(
         "--index",
