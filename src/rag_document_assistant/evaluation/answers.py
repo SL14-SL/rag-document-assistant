@@ -17,26 +17,36 @@ from rag_document_assistant.retrieval.semantic import (
 from rag_document_assistant.retrieval.storage import load_index
 
 
-def select_questions(path: Path, ids: list[str]) -> list[dict]:
-    """Read development questions only and preserve requested order."""
+def select_questions(
+    path: Path,
+    ids: list[str],
+    *,
+    split: str = "development",
+) -> list[dict]:
+    """Read questions from one split and preserve requested order."""
+    if split not in {"development", "validation"}:
+        raise ValueError(f"Unsupported split: {split}")
+
     questions = [
         json.loads(line)
         for line in path.read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
 
-    if any(question["split"] != "development" for question in questions):
-        raise ValueError("Only development questions are allowed")
+    if any(question["split"] != split for question in questions):
+        raise ValueError(f"Only {split} questions are allowed")
 
     by_id = {question["id"]: question for question in questions}
     if len(by_id) != len(questions):
-        raise ValueError("Duplicate question IDs in development data")
+        raise ValueError(f"Duplicate question IDs in {split} data")
     if not ids or len(ids) != len(set(ids)):
         raise ValueError("Provide unique question IDs")
 
     unknown = set(ids) - set(by_id)
     if unknown:
-        raise ValueError(f"Unknown development IDs: {', '.join(sorted(unknown))}")
+        raise ValueError(
+            f"Unknown {split} IDs: {', '.join(sorted(unknown))}"
+        )
 
     return [by_id[question_id] for question_id in ids]
 
@@ -76,11 +86,20 @@ def main() -> None:
         type=Path,
         default=Path("artifacts/index/semantic.npz"),
     )
+    parser.add_argument(
+        "--split",
+        choices=("development", "validation"),
+        default="development",
+    )
     args = parser.parse_args()
 
     root = args.root.resolve()
-    question_path = root / "evaluation" / "development.jsonl"
-    questions = select_questions(question_path, args.ids)
+    question_path = root / "evaluation" / f"{args.split}.jsonl"
+    questions = select_questions(
+        question_path,
+        args.ids,
+        split=args.split,
+    )
 
     if args.output_dir.exists() and any(args.output_dir.iterdir()):
         parser.error("Output directory is not empty; choose a new run directory")
@@ -104,6 +123,7 @@ def main() -> None:
         "question_sha256": hashlib.sha256(question_path.read_bytes()).hexdigest(),
         "index_sha256": hashlib.sha256(args.index.read_bytes()).hexdigest(),
         "review_status": "pending_manual_review",
+        "split": args.split,
     }
     (args.output_dir / "run.json").write_text(
         json.dumps(configuration, indent=2) + "\n",
