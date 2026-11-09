@@ -1,0 +1,3352 @@
+{
+  "run": {
+    "model": "qwen2.5:14b",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "prompt_version": "grounded-v1.1",
+    "question_ids": [
+      "Q001",
+      "Q002",
+      "Q003",
+      "Q004",
+      "Q006",
+      "Q007",
+      "Q008",
+      "Q009",
+      "Q011",
+      "Q012",
+      "Q013",
+      "Q014",
+      "Q016",
+      "Q017",
+      "Q018",
+      "Q019",
+      "Q021",
+      "Q022",
+      "Q023",
+      "Q024",
+      "Q026",
+      "Q027",
+      "Q028",
+      "Q029"
+    ],
+    "top_k": 5,
+    "question_sha256": "aae3d5d1d44ff847f6b235fcda942ade751a343a003b404611ff278291fde3d1",
+    "index_sha256": "f004b2d974801aed73ea0ee3fa0ea600604be05bd7149cb8a6ad8f71d4c3e870",
+    "review_status": "pending_manual_review"
+  },
+  "review_metadata": {
+    "recorded_at": "2026-11-09T08:58:41.032792+00:00",
+    "method": "Assistant-assisted qualitative source review",
+    "independent_human_review": false,
+    "source_report": "artifacts/evaluation/answers/qwen25-14b-v11-development-full-01/combined-review.json",
+    "answers_sha256": "fecdfdf71f66d2a18d5f0860372974d45d9fb623c61feec2210c51e359d778bc",
+    "scope": "One known synthetic development set, one generation per question. Not a production reliability estimate."
+  },
+  "review_summary": {
+    "total": 24,
+    "verdict_counts": {
+      "pass": 20,
+      "needs_revision": 3,
+      "scope_mismatch": 1
+    },
+    "eligible_for_pass_rate": 23,
+    "pass_rate": 0.8695652173913043,
+    "release_decision": "not_approved_for_production"
+  },
+  "questions": [
+    {
+      "id": "Q001",
+      "question": "How many days per week may I work remotely?",
+      "answerability": "answerable",
+      "answer": "Up to three remote-working days per calendar week are permitted with manager agreement [NL-06:S1].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-06",
+          "section": "S1",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "Up to three per calendar week",
+          "met": true
+        },
+        {
+          "criterion": "Manager agreement required",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-06:S1"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-06",
+          "title": "Remote Work Policy",
+          "version": "2.0",
+          "status": "active",
+          "source_path": "documents_pdf/06.pdf",
+          "section_id": "S1",
+          "heading": "Allowance",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Up to three remote-working days per calendar week are permitted with manager agreement. Required team meetings on site take priority. Unused remote-working days cannot be carried over to the following week.",
+          "citation_id": "NL-06:S1",
+          "retrieval_score": 0.7363171577453613
+        },
+        {
+          "document_id": "NL-07",
+          "title": "Working from Abroad",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/07.pdf",
+          "section_id": "S1",
+          "heading": "Workation",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Workation is permitted only within the EU for a maximum of ten working days per calendar year. Requests must be submitted at least 15 working days before the start date. Approval is not guaranteed.",
+          "citation_id": "NL-07:S1",
+          "retrieval_score": 0.4773402810096741
+        },
+        {
+          "document_id": "NL-06",
+          "title": "Remote Work Policy",
+          "version": "2.0",
+          "status": "active",
+          "source_path": "documents_pdf/06.pdf",
+          "section_id": "S2",
+          "heading": "Workspace",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Screens must be protected from viewing by third parties. Access to internal systems from outside company locations requires the company VPN. Working from another country is also subject to document NL-07.",
+          "citation_id": "NL-06:S2",
+          "retrieval_score": 0.43092045187950134
+        },
+        {
+          "document_id": "NL-08",
+          "title": "Working Hours and Availability",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/08.pdf",
+          "section_id": "S1",
+          "heading": "Collaboration",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Shared availability hours are Monday to Friday, 10:00 to 15:00 German local time. Individual part-time agreements take precedence. Working time must be recorded daily in the time-tracking system.",
+          "citation_id": "NL-08:S1",
+          "retrieval_score": 0.3946126699447632
+        },
+        {
+          "document_id": "NL-04",
+          "title": "Access Requests",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/04.pdf",
+          "section_id": "S2",
+          "heading": "Time limits",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Administrator privileges are granted for no more than seven calendar days and require a new request afterwards. Shared user accounts are prohibited. Standard access is disabled at 18:00 German local time on the final working day when an employee leaves.",
+          "citation_id": "NL-04:S2",
+          "retrieval_score": 0.3218889534473419
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.015508960001170635,
+        "generation_request_seconds": 126.33041636699636
+      },
+      "ollama_metrics": {
+        "total_duration": 126325694789,
+        "load_duration": 1189631,
+        "prompt_eval_count": 585,
+        "prompt_eval_duration": 112261839000,
+        "eval_count": 23,
+        "eval_duration": 13972782000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q002",
+      "question": "Can I carry unused remote-working days over to next week?",
+      "answerability": "answerable",
+      "answer": "No, unused remote-working days cannot be carried over to the following week [NL-06:S1].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-06",
+          "section": "S1",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "No",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-06:S1"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-06",
+          "title": "Remote Work Policy",
+          "version": "2.0",
+          "status": "active",
+          "source_path": "documents_pdf/06.pdf",
+          "section_id": "S1",
+          "heading": "Allowance",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Up to three remote-working days per calendar week are permitted with manager agreement. Required team meetings on site take priority. Unused remote-working days cannot be carried over to the following week.",
+          "citation_id": "NL-06:S1",
+          "retrieval_score": 0.7170687913894653
+        },
+        {
+          "document_id": "NL-08",
+          "title": "Working Hours and Availability",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/08.pdf",
+          "section_id": "S1",
+          "heading": "Collaboration",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Shared availability hours are Monday to Friday, 10:00 to 15:00 German local time. Individual part-time agreements take precedence. Working time must be recorded daily in the time-tracking system.",
+          "citation_id": "NL-08:S1",
+          "retrieval_score": 0.393113374710083
+        },
+        {
+          "document_id": "NL-08",
+          "title": "Working Hours and Availability",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/08.pdf",
+          "section_id": "S2",
+          "heading": "Absence",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Planned absences are entered in the team calendar. In the event of illness, notify the manager before the usual start of work. This document does not specify the annual leave entitlement.",
+          "citation_id": "NL-08:S2",
+          "retrieval_score": 0.38230252265930176
+        },
+        {
+          "document_id": "NL-06",
+          "title": "Remote Work Policy",
+          "version": "2.0",
+          "status": "active",
+          "source_path": "documents_pdf/06.pdf",
+          "section_id": "S2",
+          "heading": "Workspace",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Screens must be protected from viewing by third parties. Access to internal systems from outside company locations requires the company VPN. Working from another country is also subject to document NL-07.",
+          "citation_id": "NL-06:S2",
+          "retrieval_score": 0.32050007581710815
+        },
+        {
+          "document_id": "NL-24",
+          "title": "Knowledge Platform Backup Plan",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/24.pdf",
+          "section_id": "S1",
+          "heading": "Retention",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Backups of the internal knowledge platform are retained for 60 calendar days. Security reviews the plan annually. This retention statement does not concern Atlas customer data.",
+          "citation_id": "NL-24:S1",
+          "retrieval_score": 0.31560659408569336
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.048032460996182635,
+        "generation_request_seconds": 87.92875880000065
+      },
+      "ollama_metrics": {
+        "total_duration": 87926559527,
+        "load_duration": 2001604,
+        "prompt_eval_count": 569,
+        "prompt_eval_duration": 73267429000,
+        "eval_count": 23,
+        "eval_duration": 14517127000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q003",
+      "question": "May I work from Spain for two weeks, and what must I arrange beforehand?",
+      "answerability": "answerable",
+      "answer": "Workation is permitted only within the EU for a maximum of ten working days per calendar year [NL-07:S1]. To work from Spain for two weeks, you would need to request approval for ten working days since the maximum allowed is ten days. Requests must be submitted at least 15 working days before the start date [NL-07:S1]. Both your manager and People Operations must give written approval before travel [NL-07:S2]. Document NL-06 alone does not constitute workation approval [NL-07:S2].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-07",
+          "section": "S1",
+          "page": 1
+        },
+        {
+          "document_id": "NL-07",
+          "section": "S2",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "Maximum ten working days per calendar year within the EU",
+          "met": true
+        },
+        {
+          "criterion": "Apply at least 15 working days in advance",
+          "met": true
+        },
+        {
+          "criterion": "Written approval from both manager and People Operations",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-07:S1",
+          "NL-07:S2"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-07",
+          "title": "Working from Abroad",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/07.pdf",
+          "section_id": "S1",
+          "heading": "Workation",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Workation is permitted only within the EU for a maximum of ten working days per calendar year. Requests must be submitted at least 15 working days before the start date. Approval is not guaranteed.",
+          "citation_id": "NL-07:S1",
+          "retrieval_score": 0.572161853313446
+        },
+        {
+          "document_id": "NL-07",
+          "title": "Working from Abroad",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/07.pdf",
+          "section_id": "S2",
+          "heading": "Approvals",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Both the manager and People Operations must give written approval before travel. Working from abroad is not permitted without both approvals. Document NL-06 alone does not constitute workation approval.",
+          "citation_id": "NL-07:S2",
+          "retrieval_score": 0.33206337690353394
+        },
+        {
+          "document_id": "NL-08",
+          "title": "Working Hours and Availability",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/08.pdf",
+          "section_id": "S1",
+          "heading": "Collaboration",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Shared availability hours are Monday to Friday, 10:00 to 15:00 German local time. Individual part-time agreements take precedence. Working time must be recorded daily in the time-tracking system.",
+          "citation_id": "NL-08:S1",
+          "retrieval_score": 0.3318779468536377
+        },
+        {
+          "document_id": "NL-06",
+          "title": "Remote Work Policy",
+          "version": "2.0",
+          "status": "active",
+          "source_path": "documents_pdf/06.pdf",
+          "section_id": "S1",
+          "heading": "Allowance",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Up to three remote-working days per calendar week are permitted with manager agreement. Required team meetings on site take priority. Unused remote-working days cannot be carried over to the following week.",
+          "citation_id": "NL-06:S1",
+          "retrieval_score": 0.3294259309768677
+        },
+        {
+          "document_id": "NL-17",
+          "title": "Support Hours and Escalation",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/17.pdf",
+          "section_id": "S1",
+          "heading": "Hours",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Regular support is available Monday to Friday, 09:00 to 17:00 German local time, excluding public holidays in Hamburg. Outside this window, P1 on-call support is available only to customers with an on-call support agreement.",
+          "citation_id": "NL-17:S1",
+          "retrieval_score": 0.2840860188007355
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.025329762007459067,
+        "generation_request_seconds": 174.9082908929995
+      },
+      "ollama_metrics": {
+        "total_duration": 174906070389,
+        "load_duration": 3814197,
+        "prompt_eval_count": 599,
+        "prompt_eval_duration": 101750934000,
+        "eval_count": 116,
+        "eval_duration": 72964596000
+      },
+      "recorded_review": {
+        "verdict": "needs_revision",
+        "error_types": [
+          "unsupported_inference"
+        ],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": true,
+        "notes": "All required claims are present. The answer additionally says the user needs to request ten working days for two weeks. The actual number of working days is not established by the question or supplied evidence.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q004",
+      "question": "What equipment is provided as standard?",
+      "answerability": "answerable",
+      "answer": "The standard equipment provided includes a managed laptop, a headset, and one external monitor [NL-03:S1]. Personal devices must not be used to access internal customer data, and the laptop remains company property [NL-03:S1].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-03",
+          "section": "S1",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "Managed laptop",
+          "met": true
+        },
+        {
+          "criterion": "Headset",
+          "met": true
+        },
+        {
+          "criterion": "One external monitor",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-03:S1"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-03",
+          "title": "Standard IT Equipment",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/03.pdf",
+          "section_id": "S1",
+          "heading": "Devices",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Standard equipment includes a managed laptop, a headset and one external monitor. Personal devices must not access internal customer data. The laptop remains company property.",
+          "citation_id": "NL-03:S1",
+          "retrieval_score": 0.5819969177246094
+        },
+        {
+          "document_id": "NL-03",
+          "title": "Standard IT Equipment",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/03.pdf",
+          "section_id": "S2",
+          "heading": "Orders and returns",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Additional hardware requires manager approval. Faulty equipment is reported through the service portal. Departing employees must return all devices to IT Operations by their final working day.",
+          "citation_id": "NL-03:S2",
+          "retrieval_score": 0.34982186555862427
+        },
+        {
+          "document_id": "NL-16",
+          "title": "Support Priorities",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/16.pdf",
+          "section_id": "S1",
+          "heading": "Classification",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "P1 means a complete production outage affecting multiple customers with no workaround. P2 means a significant impairment with a workaround. P3 covers normal defects and general requests.",
+          "citation_id": "NL-16:S1",
+          "retrieval_score": 0.21335463225841522
+        },
+        {
+          "document_id": "NL-14",
+          "title": "Data Classification",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/14.pdf",
+          "section_id": "S1",
+          "heading": "Classes",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "The classification levels are public, internal and confidential. Customer contracts, credentials and personal customer data are confidential. Published product brochures are public. Internal process descriptions are internal.",
+          "citation_id": "NL-14:S1",
+          "retrieval_score": 0.21122309565544128
+        },
+        {
+          "document_id": "NL-01",
+          "title": "Company Handbook",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/01.pdf",
+          "section_id": "S1",
+          "heading": "Scope",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Nordlicht Software is a fictional company with 48 employees in Hamburg and Leipzig. This handbook applies to employees. External contractors receive only the materials approved for their assignment.",
+          "citation_id": "NL-01:S1",
+          "retrieval_score": 0.2105688750743866
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.021928482005023398,
+        "generation_request_seconds": 110.98401123000076
+      },
+      "ollama_metrics": {
+        "total_duration": 110981924518,
+        "load_duration": 2369416,
+        "prompt_eval_count": 535,
+        "prompt_eval_duration": 79296032000,
+        "eval_count": 51,
+        "eval_duration": 31522927000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q006",
+      "question": "Who approves application access?",
+      "answerability": "answerable",
+      "answer": "The manager approves the business need, and the application owner approves the required role for application access [NL-04:S1].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-04",
+          "section": "S1",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "Manager approves the business need",
+          "met": true
+        },
+        {
+          "criterion": "Application owner approves the role",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-04:S1"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-04",
+          "title": "Access Requests",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/04.pdf",
+          "section_id": "S1",
+          "heading": "Request",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Requests must specify the application, required role, business purpose and desired end date. The manager approves the business need and the application owner approves the role. IT Operations implements access only after both approvals.",
+          "citation_id": "NL-04:S1",
+          "retrieval_score": 0.6288241147994995
+        },
+        {
+          "document_id": "NL-19",
+          "title": "Atlas User Roles",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/19.pdf",
+          "section_id": "S2",
+          "heading": "Assignment",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "The workspace administrator assigns new roles. Employees also need the process in document NL-04 to access the internal company instance. Product roles do not replace internal approval.",
+          "citation_id": "NL-19:S2",
+          "retrieval_score": 0.3825264573097229
+        },
+        {
+          "document_id": "NL-22",
+          "title": "Software Change Approval",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/22.pdf",
+          "section_id": "S1",
+          "heading": "Requirements",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "A production change requires an approved pull request, successful automated checks and a documented rollback option. The author of the code must not be its sole approver.",
+          "citation_id": "NL-22:S1",
+          "retrieval_score": 0.37706777453422546
+        },
+        {
+          "document_id": "NL-04",
+          "title": "Access Requests",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/04.pdf",
+          "section_id": "S2",
+          "heading": "Time limits",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Administrator privileges are granted for no more than seven calendar days and require a new request afterwards. Shared user accounts are prohibited. Standard access is disabled at 18:00 German local time on the final working day when an employee leaves.",
+          "citation_id": "NL-04:S2",
+          "retrieval_score": 0.3669663369655609
+        },
+        {
+          "document_id": "NL-25",
+          "title": "Purchasing and Expenditure",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/25.pdf",
+          "section_id": "S1",
+          "heading": "Thresholds",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "One-off purchases up to and including EUR 250 net require manager approval. Higher amounts also require Finance approval. Recurring software subscriptions require approval from Finance and IT Operations regardless of amount.",
+          "citation_id": "NL-25:S1",
+          "retrieval_score": 0.35982272028923035
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.020450798998354003,
+        "generation_request_seconds": 106.15531088299758
+      },
+      "ollama_metrics": {
+        "total_duration": 106153322241,
+        "load_duration": 1759049,
+        "prompt_eval_count": 563,
+        "prompt_eval_duration": 90063285000,
+        "eval_count": 27,
+        "eval_duration": 15934947000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q007",
+      "question": "I lost my MFA factor. What should I do?",
+      "answerability": "answerable",
+      "answer": "If you lose your MFA factor, contact the Service Desk by telephone. IT Operations will reset the factor after verifying your identity. [NL-05:S2]",
+      "expected_evidence": [
+        {
+          "document_id": "NL-05",
+          "section": "S2",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "Contact Service Desk by telephone",
+          "met": true
+        },
+        {
+          "criterion": "Identity verification",
+          "met": true
+        },
+        {
+          "criterion": "IT Operations resets the factor",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-05:S2"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-05",
+          "title": "Passwords and MFA",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/05.pdf",
+          "section_id": "S2",
+          "heading": "Lost authentication factor",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "If a second authentication factor is lost, contact the Service Desk by telephone. IT Operations resets the factor after identity verification. Never disclose an MFA code, even to someone claiming to work for IT.",
+          "citation_id": "NL-05:S2",
+          "retrieval_score": 0.6898745894432068
+        },
+        {
+          "document_id": "NL-05",
+          "title": "Passwords and MFA",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/05.pdf",
+          "section_id": "S1",
+          "heading": "Sign-in",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Multi-factor authentication is mandatory for the central company account. Passwords must contain at least 14 characters and must not be reused for personal services. Credentials are stored in the approved password manager.",
+          "citation_id": "NL-05:S1",
+          "retrieval_score": 0.3982431888580322
+        },
+        {
+          "document_id": "NL-02",
+          "title": "Onboarding Process",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/02.pdf",
+          "section_id": "S2",
+          "heading": "First week",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "On the first working day, identity is verified and multi-factor authentication is configured. Security induction must be completed within the first five working days. Additional application permissions require the process in document NL-04.",
+          "citation_id": "NL-02:S2",
+          "retrieval_score": 0.1633407175540924
+        },
+        {
+          "document_id": "NL-15",
+          "title": "Security Incidents",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/15.pdf",
+          "section_id": "S1",
+          "heading": "Reporting",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Suspicious sign-ins, lost company devices and confidential data accidentally shared externally must be reported to Security immediately by telephone. Do not wait for the next team meeting. Record the time and observed facts.",
+          "citation_id": "NL-15:S1",
+          "retrieval_score": 0.12940359115600586
+        },
+        {
+          "document_id": "NL-24",
+          "title": "Knowledge Platform Backup Plan",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/24.pdf",
+          "section_id": "S1",
+          "heading": "Retention",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Backups of the internal knowledge platform are retained for 60 calendar days. Security reviews the plan annually. This retention statement does not concern Atlas customer data.",
+          "citation_id": "NL-24:S1",
+          "retrieval_score": 0.08946281671524048
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.01906332500220742,
+        "generation_request_seconds": 107.66066103600315
+      },
+      "ollama_metrics": {
+        "total_duration": 107658666285,
+        "load_duration": 2047663,
+        "prompt_eval_count": 574,
+        "prompt_eval_duration": 86646985000,
+        "eval_count": 35,
+        "eval_duration": 20826048000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q008",
+      "question": "What is the minimum password length?",
+      "answerability": "answerable",
+      "answer": "The minimum password length is 14 characters [NL-05:S1].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-05",
+          "section": "S1",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "14 characters",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-05:S1"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-05",
+          "title": "Passwords and MFA",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/05.pdf",
+          "section_id": "S1",
+          "heading": "Sign-in",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Multi-factor authentication is mandatory for the central company account. Passwords must contain at least 14 characters and must not be reused for personal services. Credentials are stored in the approved password manager.",
+          "citation_id": "NL-05:S1",
+          "retrieval_score": 0.5572888851165771
+        },
+        {
+          "document_id": "NL-04",
+          "title": "Access Requests",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/04.pdf",
+          "section_id": "S2",
+          "heading": "Time limits",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Administrator privileges are granted for no more than seven calendar days and require a new request afterwards. Shared user accounts are prohibited. Standard access is disabled at 18:00 German local time on the final working day when an employee leaves.",
+          "citation_id": "NL-04:S2",
+          "retrieval_score": 0.402116060256958
+        },
+        {
+          "document_id": "NL-05",
+          "title": "Passwords and MFA",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/05.pdf",
+          "section_id": "S2",
+          "heading": "Lost authentication factor",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "If a second authentication factor is lost, contact the Service Desk by telephone. IT Operations resets the factor after identity verification. Never disclose an MFA code, even to someone claiming to work for IT.",
+          "citation_id": "NL-05:S2",
+          "retrieval_score": 0.28897765278816223
+        },
+        {
+          "document_id": "NL-02",
+          "title": "Onboarding Process",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/02.pdf",
+          "section_id": "S2",
+          "heading": "First week",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "On the first working day, identity is verified and multi-factor authentication is configured. Security induction must be completed within the first five working days. Additional application permissions require the process in document NL-04.",
+          "citation_id": "NL-02:S2",
+          "retrieval_score": 0.22863167524337769
+        },
+        {
+          "document_id": "NL-15",
+          "title": "Security Incidents",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/15.pdf",
+          "section_id": "S2",
+          "heading": "Initial actions",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "If malware is suspected, disconnect the device from the network but do not wipe it yourself. Security coordinates further action. Reporting does not replace the need to revoke affected credentials.",
+          "citation_id": "NL-15:S2",
+          "retrieval_score": 0.21078762412071228
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.017657380987657234,
+        "generation_request_seconds": 98.69448246400862
+      },
+      "ollama_metrics": {
+        "total_duration": 98692335310,
+        "load_duration": 1780725,
+        "prompt_eval_count": 580,
+        "prompt_eval_duration": 86988410000,
+        "eval_count": 18,
+        "eval_duration": 11466779000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q009",
+      "question": "When must I complete security induction?",
+      "answerability": "answerable",
+      "answer": "You must complete security induction within the first five working days [NL-02:S2].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-02",
+          "section": "S2",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "Within the first five working days",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-02:S2"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-02",
+          "title": "Onboarding Process",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/02.pdf",
+          "section_id": "S2",
+          "heading": "First week",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "On the first working day, identity is verified and multi-factor authentication is configured. Security induction must be completed within the first five working days. Additional application permissions require the process in document NL-04.",
+          "citation_id": "NL-02:S2",
+          "retrieval_score": 0.46489498019218445
+        },
+        {
+          "document_id": "NL-15",
+          "title": "Security Incidents",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/15.pdf",
+          "section_id": "S1",
+          "heading": "Reporting",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Suspicious sign-ins, lost company devices and confidential data accidentally shared externally must be reported to Security immediately by telephone. Do not wait for the next team meeting. Record the time and observed facts.",
+          "citation_id": "NL-15:S1",
+          "retrieval_score": 0.33177781105041504
+        },
+        {
+          "document_id": "NL-05",
+          "title": "Passwords and MFA",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/05.pdf",
+          "section_id": "S1",
+          "heading": "Sign-in",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Multi-factor authentication is mandatory for the central company account. Passwords must contain at least 14 characters and must not be reused for personal services. Credentials are stored in the approved password manager.",
+          "citation_id": "NL-05:S1",
+          "retrieval_score": 0.2961598038673401
+        },
+        {
+          "document_id": "NL-15",
+          "title": "Security Incidents",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/15.pdf",
+          "section_id": "S2",
+          "heading": "Initial actions",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "If malware is suspected, disconnect the device from the network but do not wipe it yourself. Security coordinates further action. Reporting does not replace the need to revoke affected credentials.",
+          "citation_id": "NL-15:S2",
+          "retrieval_score": 0.2787681818008423
+        },
+        {
+          "document_id": "NL-04",
+          "title": "Access Requests",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/04.pdf",
+          "section_id": "S2",
+          "heading": "Time limits",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Administrator privileges are granted for no more than seven calendar days and require a new request afterwards. Shared user accounts are prohibited. Standard access is disabled at 18:00 German local time on the final working day when an employee leaves.",
+          "citation_id": "NL-04:S2",
+          "retrieval_score": 0.23053258657455444
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.02600746699317824,
+        "generation_request_seconds": 126.1420490439923
+      },
+      "ollama_metrics": {
+        "total_duration": 126137958375,
+        "load_duration": 2587618,
+        "prompt_eval_count": 576,
+        "prompt_eval_duration": 110059142000,
+        "eval_count": 20,
+        "eval_duration": 15518187000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q011",
+      "question": "Is the hotel limit EUR 100 or EUR 120 for a new trip?",
+      "answerability": "answerable",
+      "answer": "The hotel limit for a new trip within Germany is EUR 120 gross per night, including breakfast [NL-09:S1].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-09",
+          "section": "S1",
+          "page": 1
+        },
+        {
+          "document_id": "NL-09",
+          "section": "S2",
+          "page": 1
+        },
+        {
+          "document_id": "NL-10",
+          "section": "S2",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "EUR 120",
+          "met": true
+        },
+        {
+          "criterion": "Version 1.4 is archived and replaced",
+          "met": false
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-09:S1"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-09",
+          "title": "Travel Expense Policy",
+          "version": "2.1",
+          "status": "active",
+          "source_path": "documents_pdf/09.pdf",
+          "section_id": "S1",
+          "heading": "Hotel costs",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "For business travel within Germany, the standard hotel limit is EUR 120 gross per night, including breakfast. A higher rate requires written manager approval before booking. Document NL-11 also applies during trade fairs.",
+          "citation_id": "NL-09:S1",
+          "retrieval_score": 0.5577760338783264
+        },
+        {
+          "document_id": "NL-11",
+          "title": "Trade Fair Hotel Exception",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/11.pdf",
+          "section_id": "S1",
+          "heading": "Exception",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "If no suitable hotel within the standard limit is available at the destination during a trade fair, up to EUR 180 gross per night including breakfast may be approved. This is not an automatic increase in the hotel limit.",
+          "citation_id": "NL-11:S1",
+          "retrieval_score": 0.5445420742034912
+        },
+        {
+          "document_id": "NL-11",
+          "title": "Trade Fair Hotel Exception",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/11.pdf",
+          "section_id": "S2",
+          "heading": "Evidence",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Two price quotations and the trade fair dates must be recorded in the travel request before booking. Finance must approve in writing in addition to the manager. Without both approvals, the standard limit in document NL-09 applies.",
+          "citation_id": "NL-11:S2",
+          "retrieval_score": 0.40662962198257446
+        },
+        {
+          "document_id": "NL-12",
+          "title": "Business Travel Process",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/12.pdf",
+          "section_id": "S1",
+          "heading": "Travel request",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Every business trip requires manager approval in the service portal before booking. The request must include purpose, dates, destination and estimated total cost. Any hotel rate above the limit must be explicitly identified.",
+          "citation_id": "NL-12:S1",
+          "retrieval_score": 0.3732057511806488
+        },
+        {
+          "document_id": "NL-25",
+          "title": "Purchasing and Expenditure",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/25.pdf",
+          "section_id": "S1",
+          "heading": "Thresholds",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "One-off purchases up to and including EUR 250 net require manager approval. Higher amounts also require Finance approval. Recurring software subscriptions require approval from Finance and IT Operations regardless of amount.",
+          "citation_id": "NL-25:S1",
+          "retrieval_score": 0.35359615087509155
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.03766609299054835,
+        "generation_request_seconds": 171.54661417200987
+      },
+      "ollama_metrics": {
+        "total_duration": 171542681739,
+        "load_duration": 4048655,
+        "prompt_eval_count": 604,
+        "prompt_eval_duration": 146523440000,
+        "eval_count": 30,
+        "eval_duration": 24051380000
+      },
+      "recorded_review": {
+        "verdict": "scope_mismatch",
+        "error_types": [
+          "reference_scope_mismatch"
+        ],
+        "failed_claim_indices": [
+          1
+        ],
+        "unsupported_additions_found": false,
+        "notes": "The current EUR 120 limit is answered correctly. The reference also expects an explanation of the old version. NL-10:S2 is archived and excluded from the active index; NL-09:S2 was not among the supplied passages. Exclude this question from the overall answer pass rate.",
+        "required_claims_complete": false,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q012",
+      "question": "What is the current deadline for submitting travel receipts?",
+      "answerability": "answerable",
+      "answer": "The current deadline for submitting travel receipts is within 30 calendar days after the trip ends [NL-09:S2].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-09",
+          "section": "S2",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "30 calendar days after the trip ends",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-09:S2"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-13",
+          "title": "Expense Claim Procedure",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/13.pdf",
+          "section_id": "S1",
+          "heading": "Submission",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Each expense requires the date, amount, currency, category and a digital receipt. The submission deadline is defined by the current Travel Expense Policy. Credit card statements do not replace individual receipts.",
+          "citation_id": "NL-13:S1",
+          "retrieval_score": 0.6502638459205627
+        },
+        {
+          "document_id": "NL-09",
+          "title": "Travel Expense Policy",
+          "version": "2.1",
+          "status": "active",
+          "source_path": "documents_pdf/09.pdf",
+          "section_id": "S2",
+          "heading": "Expense claims",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Receipts must be submitted within 30 calendar days after the trip ends. This policy does not specify reimbursement rules for childcare associated with business travel. This version fully replaces version 1.4.",
+          "citation_id": "NL-09:S2",
+          "retrieval_score": 0.591503381729126
+        },
+        {
+          "document_id": "NL-13",
+          "title": "Expense Claim Procedure",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/13.pdf",
+          "section_id": "S2",
+          "heading": "Review",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Finance reviews complete claims within ten working days. Claims with missing receipts are returned for completion. This document does not specify tax-related flat-rate allowances.",
+          "citation_id": "NL-13:S2",
+          "retrieval_score": 0.5100046992301941
+        },
+        {
+          "document_id": "NL-25",
+          "title": "Purchasing and Expenditure",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/25.pdf",
+          "section_id": "S2",
+          "heading": "Ordering",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Place orders only after approval. Personal advance payments do not create an automatic right to reimbursement. Business travel is governed separately by documents NL-09, NL-11 and NL-12.",
+          "citation_id": "NL-25:S2",
+          "retrieval_score": 0.38796770572662354
+        },
+        {
+          "document_id": "NL-12",
+          "title": "Business Travel Process",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/12.pdf",
+          "section_id": "S1",
+          "heading": "Travel request",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Every business trip requires manager approval in the service portal before booking. The request must include purpose, dates, destination and estimated total cost. Any hotel rate above the limit must be explicitly identified.",
+          "citation_id": "NL-12:S1",
+          "retrieval_score": 0.3766511380672455
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.17203798999253195,
+        "generation_request_seconds": 132.20180820800306
+      },
+      "ollama_metrics": {
+        "total_duration": 132198573170,
+        "load_duration": 12191397,
+        "prompt_eval_count": 565,
+        "prompt_eval_duration": 108139710000,
+        "eval_count": 27,
+        "eval_duration": 23533018000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q013",
+      "question": "Can I automatically book a EUR 170 hotel during a trade fair?",
+      "answerability": "answerable",
+      "answer": "No, you cannot automatically book a EUR 170 hotel during a trade fair. According to [NL-11:S1], an exception allows up to EUR 180 gross per night including breakfast if no suitable hotel within the standard limit is available. This is not an automatic increase. You must provide two price quotations and the trade fair dates in the travel request, and both finance and manager must approve in writing [NL-11:S2]. Without these approvals, the standard limit of EUR 120 gross per night applies [NL-09:S1].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-11",
+          "section": "S1",
+          "page": 1
+        },
+        {
+          "document_id": "NL-11",
+          "section": "S2",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "Not automatic",
+          "met": true
+        },
+        {
+          "criterion": "Up to EUR 180 only if no suitable hotel within standard limit is available",
+          "met": true
+        },
+        {
+          "criterion": "Two price quotations and trade fair dates",
+          "met": true
+        },
+        {
+          "criterion": "Manager and Finance approval before booking",
+          "met": false
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-09:S1",
+          "NL-11:S1",
+          "NL-11:S2"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-11",
+          "title": "Trade Fair Hotel Exception",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/11.pdf",
+          "section_id": "S1",
+          "heading": "Exception",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "If no suitable hotel within the standard limit is available at the destination during a trade fair, up to EUR 180 gross per night including breakfast may be approved. This is not an automatic increase in the hotel limit.",
+          "citation_id": "NL-11:S1",
+          "retrieval_score": 0.6603542566299438
+        },
+        {
+          "document_id": "NL-11",
+          "title": "Trade Fair Hotel Exception",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/11.pdf",
+          "section_id": "S2",
+          "heading": "Evidence",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Two price quotations and the trade fair dates must be recorded in the travel request before booking. Finance must approve in writing in addition to the manager. Without both approvals, the standard limit in document NL-09 applies.",
+          "citation_id": "NL-11:S2",
+          "retrieval_score": 0.5738260746002197
+        },
+        {
+          "document_id": "NL-09",
+          "title": "Travel Expense Policy",
+          "version": "2.1",
+          "status": "active",
+          "source_path": "documents_pdf/09.pdf",
+          "section_id": "S1",
+          "heading": "Hotel costs",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "For business travel within Germany, the standard hotel limit is EUR 120 gross per night, including breakfast. A higher rate requires written manager approval before booking. Document NL-11 also applies during trade fairs.",
+          "citation_id": "NL-09:S1",
+          "retrieval_score": 0.4238991141319275
+        },
+        {
+          "document_id": "NL-12",
+          "title": "Business Travel Process",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/12.pdf",
+          "section_id": "S1",
+          "heading": "Travel request",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Every business trip requires manager approval in the service portal before booking. The request must include purpose, dates, destination and estimated total cost. Any hotel rate above the limit must be explicitly identified.",
+          "citation_id": "NL-12:S1",
+          "retrieval_score": 0.39117565751075745
+        },
+        {
+          "document_id": "NL-25",
+          "title": "Purchasing and Expenditure",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/25.pdf",
+          "section_id": "S2",
+          "heading": "Ordering",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Place orders only after approval. Personal advance payments do not create an automatic right to reimbursement. Business travel is governed separately by documents NL-09, NL-11 and NL-12.",
+          "citation_id": "NL-25:S2",
+          "retrieval_score": 0.34204235672950745
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.10019156899943482,
+        "generation_request_seconds": 95.3811419630074
+      },
+      "ollama_metrics": {
+        "total_duration": 95377614182,
+        "load_duration": 4110223,
+        "prompt_eval_count": 601,
+        "prompt_eval_duration": 774205000,
+        "eval_count": 120,
+        "eval_duration": 93151077000
+      },
+      "recorded_review": {
+        "verdict": "needs_revision",
+        "error_types": [
+          "missing_condition"
+        ],
+        "failed_claim_indices": [
+          3
+        ],
+        "unsupported_additions_found": false,
+        "notes": "Price quotations and trade fair dates are now included. The answer does not explicitly preserve the requirement to obtain the approvals before booking.",
+        "required_claims_complete": false,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q014",
+      "question": "Is my credit card statement sufficient evidence for an expense claim?",
+      "answerability": "answerable",
+      "answer": "According to the \"Expense Claim Procedure\" [NL-13:S1], a credit card statement is not sufficient evidence for an expense claim. Each expense requires a digital receipt, and credit card statements do not replace individual receipts.",
+      "expected_evidence": [
+        {
+          "document_id": "NL-13",
+          "section": "S1",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "No",
+          "met": true
+        },
+        {
+          "criterion": "An individual receipt is required",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-13:S1"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-13",
+          "title": "Expense Claim Procedure",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/13.pdf",
+          "section_id": "S1",
+          "heading": "Submission",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Each expense requires the date, amount, currency, category and a digital receipt. The submission deadline is defined by the current Travel Expense Policy. Credit card statements do not replace individual receipts.",
+          "citation_id": "NL-13:S1",
+          "retrieval_score": 0.5807482004165649
+        },
+        {
+          "document_id": "NL-13",
+          "title": "Expense Claim Procedure",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/13.pdf",
+          "section_id": "S2",
+          "heading": "Review",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Finance reviews complete claims within ten working days. Claims with missing receipts are returned for completion. This document does not specify tax-related flat-rate allowances.",
+          "citation_id": "NL-13:S2",
+          "retrieval_score": 0.46186885237693787
+        },
+        {
+          "document_id": "NL-09",
+          "title": "Travel Expense Policy",
+          "version": "2.1",
+          "status": "active",
+          "source_path": "documents_pdf/09.pdf",
+          "section_id": "S2",
+          "heading": "Expense claims",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Receipts must be submitted within 30 calendar days after the trip ends. This policy does not specify reimbursement rules for childcare associated with business travel. This version fully replaces version 1.4.",
+          "citation_id": "NL-09:S2",
+          "retrieval_score": 0.3813614249229431
+        },
+        {
+          "document_id": "NL-01",
+          "title": "Company Handbook",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/01.pdf",
+          "section_id": "S2",
+          "heading": "Contacts",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "People Operations handles working arrangements and onboarding. IT Operations handles devices and access. Finance processes expense claims. Requests are submitted through the internal service portal. Never include passwords in a ticket.",
+          "citation_id": "NL-01:S2",
+          "retrieval_score": 0.2908690571784973
+        },
+        {
+          "document_id": "NL-25",
+          "title": "Purchasing and Expenditure",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/25.pdf",
+          "section_id": "S2",
+          "heading": "Ordering",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Place orders only after approval. Personal advance payments do not create an automatic right to reimbursement. Business travel is governed separately by documents NL-09, NL-11 and NL-12.",
+          "citation_id": "NL-25:S2",
+          "retrieval_score": 0.24513038992881775
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.029115256998920813,
+        "generation_request_seconds": 100.46089706200291
+      },
+      "ollama_metrics": {
+        "total_duration": 100458485871,
+        "load_duration": 2401544,
+        "prompt_eval_count": 564,
+        "prompt_eval_duration": 70559320000,
+        "eval_count": 47,
+        "eval_duration": 29186376000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q016",
+      "question": "May I store customer contracts in a public AI service?",
+      "answerability": "answerable",
+      "answer": "No, you may not store customer contracts in a public AI service. According to [NL-14:S1], customer contracts are classified as confidential data. [NL-14:S2] states that confidential data may only be stored in approved company systems and cannot be shared with external recipients without data owner approval. Publicly accessible AI services are not considered an approved storage location for confidential data.",
+      "expected_evidence": [
+        {
+          "document_id": "NL-14",
+          "section": "S1",
+          "page": 1
+        },
+        {
+          "document_id": "NL-14",
+          "section": "S2",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "Customer contracts are confidential",
+          "met": true
+        },
+        {
+          "criterion": "Only approved company systems may store them",
+          "met": true
+        },
+        {
+          "criterion": "Public AI services are not approved storage",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-14:S1",
+          "NL-14:S2"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-14",
+          "title": "Data Classification",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/14.pdf",
+          "section_id": "S2",
+          "heading": "Handling",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Confidential data may be stored only in approved company systems. Sharing it with external recipients requires data owner approval. Publicly accessible AI services are not an approved storage location for confidential data.",
+          "citation_id": "NL-14:S2",
+          "retrieval_score": 0.5710685849189758
+        },
+        {
+          "document_id": "NL-14",
+          "title": "Data Classification",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/14.pdf",
+          "section_id": "S1",
+          "heading": "Classes",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "The classification levels are public, internal and confidential. Customer contracts, credentials and personal customer data are confidential. Published product brochures are public. Internal process descriptions are internal.",
+          "citation_id": "NL-14:S1",
+          "retrieval_score": 0.3213905096054077
+        },
+        {
+          "document_id": "NL-01",
+          "title": "Company Handbook",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/01.pdf",
+          "section_id": "S2",
+          "heading": "Contacts",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "People Operations handles working arrangements and onboarding. IT Operations handles devices and access. Finance processes expense claims. Requests are submitted through the internal service portal. Never include passwords in a ticket.",
+          "citation_id": "NL-01:S2",
+          "retrieval_score": 0.2916261553764343
+        },
+        {
+          "document_id": "NL-24",
+          "title": "Knowledge Platform Backup Plan",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/24.pdf",
+          "section_id": "S1",
+          "heading": "Retention",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Backups of the internal knowledge platform are retained for 60 calendar days. Security reviews the plan annually. This retention statement does not concern Atlas customer data.",
+          "citation_id": "NL-24:S1",
+          "retrieval_score": 0.25549429655075073
+        },
+        {
+          "document_id": "NL-03",
+          "title": "Standard IT Equipment",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/03.pdf",
+          "section_id": "S1",
+          "heading": "Devices",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Standard equipment includes a managed laptop, a headset and one external monitor. Personal devices must not access internal customer data. The laptop remains company property.",
+          "citation_id": "NL-03:S1",
+          "retrieval_score": 0.24882006645202637
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.02254377500503324,
+        "generation_request_seconds": 132.6777880019945
+      },
+      "ollama_metrics": {
+        "total_duration": 132675076853,
+        "load_duration": 2145609,
+        "prompt_eval_count": 543,
+        "prompt_eval_duration": 81392751000,
+        "eval_count": 81,
+        "eval_duration": 51109640000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q017",
+      "question": "I lost my company laptop. How should I report it?",
+      "answerability": "answerable",
+      "answer": "If you lose your company laptop, you should report it to Security immediately by telephone, without waiting for the next team meeting. Record the time and observed facts of the loss [NL-15:S1].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-15",
+          "section": "S1",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "Immediately report to Security by telephone",
+          "met": true
+        },
+        {
+          "criterion": "Record the time and observed facts",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-15:S1"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-03",
+          "title": "Standard IT Equipment",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/03.pdf",
+          "section_id": "S2",
+          "heading": "Orders and returns",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Additional hardware requires manager approval. Faulty equipment is reported through the service portal. Departing employees must return all devices to IT Operations by their final working day.",
+          "citation_id": "NL-03:S2",
+          "retrieval_score": 0.5076418519020081
+        },
+        {
+          "document_id": "NL-15",
+          "title": "Security Incidents",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/15.pdf",
+          "section_id": "S1",
+          "heading": "Reporting",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Suspicious sign-ins, lost company devices and confidential data accidentally shared externally must be reported to Security immediately by telephone. Do not wait for the next team meeting. Record the time and observed facts.",
+          "citation_id": "NL-15:S1",
+          "retrieval_score": 0.4796196520328522
+        },
+        {
+          "document_id": "NL-15",
+          "title": "Security Incidents",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/15.pdf",
+          "section_id": "S2",
+          "heading": "Initial actions",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "If malware is suspected, disconnect the device from the network but do not wipe it yourself. Security coordinates further action. Reporting does not replace the need to revoke affected credentials.",
+          "citation_id": "NL-15:S2",
+          "retrieval_score": 0.4105280637741089
+        },
+        {
+          "document_id": "NL-03",
+          "title": "Standard IT Equipment",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/03.pdf",
+          "section_id": "S1",
+          "heading": "Devices",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Standard equipment includes a managed laptop, a headset and one external monitor. Personal devices must not access internal customer data. The laptop remains company property.",
+          "citation_id": "NL-03:S1",
+          "retrieval_score": 0.38440266251564026
+        },
+        {
+          "document_id": "NL-05",
+          "title": "Passwords and MFA",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/05.pdf",
+          "section_id": "S2",
+          "heading": "Lost authentication factor",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "If a second authentication factor is lost, contact the Service Desk by telephone. IT Operations resets the factor after identity verification. Never disclose an MFA code, even to someone claiming to work for IT.",
+          "citation_id": "NL-05:S2",
+          "retrieval_score": 0.26933005452156067
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.021212534004007466,
+        "generation_request_seconds": 127.25670490998891
+      },
+      "ollama_metrics": {
+        "total_duration": 127251904629,
+        "load_duration": 1804319,
+        "prompt_eval_count": 556,
+        "prompt_eval_duration": 93376334000,
+        "eval_count": 43,
+        "eval_duration": 33331574999
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q018",
+      "question": "Does P1 mean the issue will be resolved within 30 minutes?",
+      "answerability": "answerable",
+      "answer": "No, P1 does not mean the issue will be resolved within 30 minutes. According to [NL-16:S2], the initial response target for P1 is 30 minutes, which includes acknowledgement and initial assessment, not full resolution. [NL-16:S1] defines P1 as a complete production outage affecting multiple customers with no workaround.",
+      "expected_evidence": [
+        {
+          "document_id": "NL-16",
+          "section": "S2",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "No",
+          "met": true
+        },
+        {
+          "criterion": "30-minute initial response during support hours",
+          "met": false
+        },
+        {
+          "criterion": "Not a resolution deadline",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-16:S1",
+          "NL-16:S2"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-16",
+          "title": "Support Priorities",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/16.pdf",
+          "section_id": "S2",
+          "heading": "Initial response",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "During support hours, initial response targets are 30 minutes for P1, four hours for P2 and two working days for P3. Initial response means acknowledgement and initial assessment, not full resolution.",
+          "citation_id": "NL-16:S2",
+          "retrieval_score": 0.6508296132087708
+        },
+        {
+          "document_id": "NL-16",
+          "title": "Support Priorities",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/16.pdf",
+          "section_id": "S1",
+          "heading": "Classification",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "P1 means a complete production outage affecting multiple customers with no workaround. P2 means a significant impairment with a workaround. P3 covers normal defects and general requests.",
+          "citation_id": "NL-16:S1",
+          "retrieval_score": 0.5502489805221558
+        },
+        {
+          "document_id": "NL-17",
+          "title": "Support Hours and Escalation",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/17.pdf",
+          "section_id": "S2",
+          "heading": "Escalation",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "A P1 is immediately escalated to the incident lead on duty. A P2 is escalated to the support lead after one working day without progress. Priority definitions are in document NL-16.",
+          "citation_id": "NL-17:S2",
+          "retrieval_score": 0.5090333223342896
+        },
+        {
+          "document_id": "NL-17",
+          "title": "Support Hours and Escalation",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/17.pdf",
+          "section_id": "S1",
+          "heading": "Hours",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Regular support is available Monday to Friday, 09:00 to 17:00 German local time, excluding public holidays in Hamburg. Outside this window, P1 on-call support is available only to customers with an on-call support agreement.",
+          "citation_id": "NL-17:S1",
+          "retrieval_score": 0.3661224842071533
+        },
+        {
+          "document_id": "NL-13",
+          "title": "Expense Claim Procedure",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/13.pdf",
+          "section_id": "S2",
+          "heading": "Review",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Finance reviews complete claims within ten working days. Claims with missing receipts are returned for completion. This document does not specify tax-related flat-rate allowances.",
+          "citation_id": "NL-13:S2",
+          "retrieval_score": 0.30013468861579895
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.14579799700004514,
+        "generation_request_seconds": 66.43213384700357
+      },
+      "ollama_metrics": {
+        "total_duration": 66429212790,
+        "load_duration": 3246706,
+        "prompt_eval_count": 582,
+        "prompt_eval_duration": 690649000,
+        "eval_count": 76,
+        "eval_duration": 64286385000
+      },
+      "recorded_review": {
+        "verdict": "needs_revision",
+        "error_types": [
+          "missing_condition"
+        ],
+        "failed_claim_indices": [
+          1
+        ],
+        "unsupported_additions_found": false,
+        "notes": "Correctly distinguishes initial response from resolution, but omits that the target applies during support hours.",
+        "required_claims_complete": false,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q019",
+      "question": "Is overnight P1 support available to every customer?",
+      "answerability": "answerable",
+      "answer": "No, overnight P1 support is available only to customers with an on-call support agreement. [NL-17:S1]",
+      "expected_evidence": [
+        {
+          "document_id": "NL-17",
+          "section": "S1",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "No",
+          "met": true
+        },
+        {
+          "criterion": "Outside regular hours only with an on-call support agreement",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-17:S1"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-17",
+          "title": "Support Hours and Escalation",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/17.pdf",
+          "section_id": "S1",
+          "heading": "Hours",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Regular support is available Monday to Friday, 09:00 to 17:00 German local time, excluding public holidays in Hamburg. Outside this window, P1 on-call support is available only to customers with an on-call support agreement.",
+          "citation_id": "NL-17:S1",
+          "retrieval_score": 0.6100877523422241
+        },
+        {
+          "document_id": "NL-16",
+          "title": "Support Priorities",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/16.pdf",
+          "section_id": "S1",
+          "heading": "Classification",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "P1 means a complete production outage affecting multiple customers with no workaround. P2 means a significant impairment with a workaround. P3 covers normal defects and general requests.",
+          "citation_id": "NL-16:S1",
+          "retrieval_score": 0.4692150950431824
+        },
+        {
+          "document_id": "NL-16",
+          "title": "Support Priorities",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/16.pdf",
+          "section_id": "S2",
+          "heading": "Initial response",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "During support hours, initial response targets are 30 minutes for P1, four hours for P2 and two working days for P3. Initial response means acknowledgement and initial assessment, not full resolution.",
+          "citation_id": "NL-16:S2",
+          "retrieval_score": 0.3940512537956238
+        },
+        {
+          "document_id": "NL-17",
+          "title": "Support Hours and Escalation",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/17.pdf",
+          "section_id": "S2",
+          "heading": "Escalation",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "A P1 is immediately escalated to the incident lead on duty. A P2 is escalated to the support lead after one working day without progress. Priority definitions are in document NL-16.",
+          "citation_id": "NL-17:S2",
+          "retrieval_score": 0.3648549020290375
+        },
+        {
+          "document_id": "NL-25",
+          "title": "Purchasing and Expenditure",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/25.pdf",
+          "section_id": "S1",
+          "heading": "Thresholds",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "One-off purchases up to and including EUR 250 net require manager approval. Higher amounts also require Finance approval. Recurring software subscriptions require approval from Finance and IT Operations regardless of amount.",
+          "citation_id": "NL-25:S1",
+          "retrieval_score": 0.285591721534729
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.03332359700289089,
+        "generation_request_seconds": 176.91637841700867
+      },
+      "ollama_metrics": {
+        "total_duration": 176913293603,
+        "load_duration": 2603314,
+        "prompt_eval_count": 592,
+        "prompt_eval_duration": 157954282000,
+        "eval_count": 27,
+        "eval_duration": 18637747000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q021",
+      "question": "How many active users does Atlas Team support?",
+      "answerability": "answerable",
+      "answer": "The Team plan in Atlas supports up to 20 active users [NL-18:S2].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-18",
+          "section": "S2",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "Up to 20",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-18:S2"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-18",
+          "title": "Atlas Product Overview",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/18.pdf",
+          "section_id": "S2",
+          "heading": "Plans",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "The Team plan includes up to 20 active users and daily exports. The Business plan includes up to 100 active users and hourly exports. Higher volumes require an individual agreement.",
+          "citation_id": "NL-18:S2",
+          "retrieval_score": 0.7369851469993591
+        },
+        {
+          "document_id": "NL-19",
+          "title": "Atlas User Roles",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/19.pdf",
+          "section_id": "S1",
+          "heading": "Permissions",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Readers can view tickets. Editors can view, create and edit tickets. Administrators can also manage users and settings. Only administrators may initiate a full workspace export.",
+          "citation_id": "NL-19:S1",
+          "retrieval_score": 0.575278103351593
+        },
+        {
+          "document_id": "NL-18",
+          "title": "Atlas Product Overview",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/18.pdf",
+          "section_id": "S1",
+          "heading": "Purpose",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Atlas is a fictional application for managing customer requests. It supports tickets, comments and CSV exports. Atlas does not execute automatic payments and does not replace an accounting system.",
+          "citation_id": "NL-18:S1",
+          "retrieval_score": 0.5564528107643127
+        },
+        {
+          "document_id": "NL-19",
+          "title": "Atlas User Roles",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/19.pdf",
+          "section_id": "S2",
+          "heading": "Assignment",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "The workspace administrator assigns new roles. Employees also need the process in document NL-04 to access the internal company instance. Product roles do not replace internal approval.",
+          "citation_id": "NL-19:S2",
+          "retrieval_score": 0.5270328521728516
+        },
+        {
+          "document_id": "NL-20",
+          "title": "Atlas CSV Import",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/20.pdf",
+          "section_id": "S1",
+          "heading": "Format",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "CSV files must be UTF-8 encoded and use commas as delimiters. Required columns are external_id, title and status. Valid status values are open, pending and closed. The maximum file size is 10 MB.",
+          "citation_id": "NL-20:S1",
+          "retrieval_score": 0.41408875584602356
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.04467005698825233,
+        "generation_request_seconds": 113.85435076800059
+      },
+      "ollama_metrics": {
+        "total_duration": 113848190236,
+        "load_duration": 7472179,
+        "prompt_eval_count": 555,
+        "prompt_eval_duration": 97312695000,
+        "eval_count": 22,
+        "eval_duration": 16266175000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q022",
+      "question": "Can an editor initiate a full workspace export?",
+      "answerability": "answerable",
+      "answer": "No, only administrators may initiate a full workspace export [NL-19:S1].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-19",
+          "section": "S1",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "No",
+          "met": true
+        },
+        {
+          "criterion": "Only administrators",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-19:S1"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-19",
+          "title": "Atlas User Roles",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/19.pdf",
+          "section_id": "S1",
+          "heading": "Permissions",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Readers can view tickets. Editors can view, create and edit tickets. Administrators can also manage users and settings. Only administrators may initiate a full workspace export.",
+          "citation_id": "NL-19:S1",
+          "retrieval_score": 0.4404602348804474
+        },
+        {
+          "document_id": "NL-07",
+          "title": "Working from Abroad",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/07.pdf",
+          "section_id": "S1",
+          "heading": "Workation",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Workation is permitted only within the EU for a maximum of ten working days per calendar year. Requests must be submitted at least 15 working days before the start date. Approval is not guaranteed.",
+          "citation_id": "NL-07:S1",
+          "retrieval_score": 0.2712964117527008
+        },
+        {
+          "document_id": "NL-06",
+          "title": "Remote Work Policy",
+          "version": "2.0",
+          "status": "active",
+          "source_path": "documents_pdf/06.pdf",
+          "section_id": "S2",
+          "heading": "Workspace",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Screens must be protected from viewing by third parties. Access to internal systems from outside company locations requires the company VPN. Working from another country is also subject to document NL-07.",
+          "citation_id": "NL-06:S2",
+          "retrieval_score": 0.2638739049434662
+        },
+        {
+          "document_id": "NL-19",
+          "title": "Atlas User Roles",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/19.pdf",
+          "section_id": "S2",
+          "heading": "Assignment",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "The workspace administrator assigns new roles. Employees also need the process in document NL-04 to access the internal company instance. Product roles do not replace internal approval.",
+          "citation_id": "NL-19:S2",
+          "retrieval_score": 0.2571791708469391
+        },
+        {
+          "document_id": "NL-07",
+          "title": "Working from Abroad",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/07.pdf",
+          "section_id": "S2",
+          "heading": "Approvals",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Both the manager and People Operations must give written approval before travel. Working from abroad is not permitted without both approvals. Document NL-06 alone does not constitute workation approval.",
+          "citation_id": "NL-07:S2",
+          "retrieval_score": 0.2509590983390808
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.04450464900583029,
+        "generation_request_seconds": 105.47901179699693
+      },
+      "ollama_metrics": {
+        "total_duration": 105476548279,
+        "load_duration": 2636981,
+        "prompt_eval_count": 556,
+        "prompt_eval_duration": 92762625000,
+        "eval_count": 19,
+        "eval_duration": 12459533000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q023",
+      "question": "What format must an Atlas CSV import use?",
+      "answerability": "answerable",
+      "answer": "CSV files for Atlas CSV import must be UTF-8 encoded and use commas as delimiters. Required columns are external_id, title, and status. Valid status values are open, pending, and closed. The maximum file size is 10 MB. [NL-20:S1]",
+      "expected_evidence": [
+        {
+          "document_id": "NL-20",
+          "section": "S1",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "UTF-8",
+          "met": true
+        },
+        {
+          "criterion": "Comma delimiter",
+          "met": true
+        },
+        {
+          "criterion": "Required columns external_id, title and status",
+          "met": true
+        },
+        {
+          "criterion": "Maximum 10 MB",
+          "met": true
+        },
+        {
+          "criterion": "Status open, pending or closed",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-20:S1"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-20",
+          "title": "Atlas CSV Import",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/20.pdf",
+          "section_id": "S1",
+          "heading": "Format",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "CSV files must be UTF-8 encoded and use commas as delimiters. Required columns are external_id, title and status. Valid status values are open, pending and closed. The maximum file size is 10 MB.",
+          "citation_id": "NL-20:S1",
+          "retrieval_score": 0.7611076235771179
+        },
+        {
+          "document_id": "NL-20",
+          "title": "Atlas CSV Import",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/20.pdf",
+          "section_id": "S2",
+          "heading": "Error handling",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Duplicate external_id values within a file cause rejection of the entire file. For other invalid rows, valid rows are imported and errors are logged per row. Reimporting an existing external_id updates the existing ticket.",
+          "citation_id": "NL-20:S2",
+          "retrieval_score": 0.5491529703140259
+        },
+        {
+          "document_id": "NL-18",
+          "title": "Atlas Product Overview",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/18.pdf",
+          "section_id": "S1",
+          "heading": "Purpose",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Atlas is a fictional application for managing customer requests. It supports tickets, comments and CSV exports. Atlas does not execute automatic payments and does not replace an accounting system.",
+          "citation_id": "NL-18:S1",
+          "retrieval_score": 0.5436924695968628
+        },
+        {
+          "document_id": "NL-18",
+          "title": "Atlas Product Overview",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/18.pdf",
+          "section_id": "S2",
+          "heading": "Plans",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "The Team plan includes up to 20 active users and daily exports. The Business plan includes up to 100 active users and hourly exports. Higher volumes require an individual agreement.",
+          "citation_id": "NL-18:S2",
+          "retrieval_score": 0.40309327840805054
+        },
+        {
+          "document_id": "NL-19",
+          "title": "Atlas User Roles",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/19.pdf",
+          "section_id": "S1",
+          "heading": "Permissions",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Readers can view tickets. Editors can view, create and edit tickets. Administrators can also manage users and settings. Only administrators may initiate a full workspace export.",
+          "citation_id": "NL-19:S1",
+          "retrieval_score": 0.35044682025909424
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.02032642399717588,
+        "generation_request_seconds": 126.86172824900132
+      },
+      "ollama_metrics": {
+        "total_duration": 126859485611,
+        "load_duration": 2381928,
+        "prompt_eval_count": 565,
+        "prompt_eval_duration": 88803870000,
+        "eval_count": 60,
+        "eval_duration": 37662933000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q024",
+      "question": "What happens if an import file contains duplicate external_id values?",
+      "answerability": "answerable",
+      "answer": "If an import file contains duplicate external_id values, the entire file is rejected [NL-20:S2].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-20",
+          "section": "S2",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "Entire file is rejected",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-20:S2"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-20",
+          "title": "Atlas CSV Import",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/20.pdf",
+          "section_id": "S2",
+          "heading": "Error handling",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Duplicate external_id values within a file cause rejection of the entire file. For other invalid rows, valid rows are imported and errors are logged per row. Reimporting an existing external_id updates the existing ticket.",
+          "citation_id": "NL-20:S2",
+          "retrieval_score": 0.7226507067680359
+        },
+        {
+          "document_id": "NL-20",
+          "title": "Atlas CSV Import",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/20.pdf",
+          "section_id": "S1",
+          "heading": "Format",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "CSV files must be UTF-8 encoded and use commas as delimiters. Required columns are external_id, title and status. Valid status values are open, pending and closed. The maximum file size is 10 MB.",
+          "citation_id": "NL-20:S1",
+          "retrieval_score": 0.2633083760738373
+        },
+        {
+          "document_id": "NL-23",
+          "title": "Backup Operations Handbook",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/23.pdf",
+          "section_id": "S2",
+          "heading": "Conflict",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "The retention statement concerns the same system as document NL-24. No precedence rule exists between these two active documents. A definitive answer must be confirmed with the system owner.",
+          "citation_id": "NL-23:S2",
+          "retrieval_score": 0.2355118989944458
+        },
+        {
+          "document_id": "NL-21",
+          "title": "Atlas Data Retention",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/21.pdf",
+          "section_id": "S2",
+          "heading": "Backups",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Backup copies are overwritten after 30 calendar days. A deleted ticket may therefore remain temporarily in backups. This document does not promise restoration of individual tickets.",
+          "citation_id": "NL-21:S2",
+          "retrieval_score": 0.23302200436592102
+        },
+        {
+          "document_id": "NL-23",
+          "title": "Backup Operations Handbook",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/23.pdf",
+          "section_id": "S1",
+          "heading": "Operational backups",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Backups of the internal knowledge platform are retained for 30 calendar days. IT Operations performs a restore test quarterly. This section concerns the internal knowledge platform, not the Atlas product.",
+          "citation_id": "NL-23:S1",
+          "retrieval_score": 0.22630296647548676
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.028529889008495957,
+        "generation_request_seconds": 16.68770429700089
+      },
+      "ollama_metrics": {
+        "total_duration": 16685936612,
+        "load_duration": 1606048,
+        "prompt_eval_count": 571,
+        "prompt_eval_duration": 553539000,
+        "eval_count": 24,
+        "eval_duration": 14807404000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q026",
+      "question": "When are regular production deployments scheduled?",
+      "answerability": "answerable",
+      "answer": "Regular production deployments are scheduled on Tuesdays and Thursdays between 10:00 and 14:00 German local time [NL-22:S2].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-22",
+          "section": "S2",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "Tuesdays and Thursdays",
+          "met": true
+        },
+        {
+          "criterion": "10:00 to 14:00 German local time",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-22:S2"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-22",
+          "title": "Software Change Approval",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/22.pdf",
+          "section_id": "S2",
+          "heading": "Deployment window",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Regular deployments take place on Tuesdays and Thursdays between 10:00 and 14:00 German local time. Emergency changes outside that window require incident lead approval and a retrospective review on the next working day.",
+          "citation_id": "NL-22:S2",
+          "retrieval_score": 0.5395437479019165
+        },
+        {
+          "document_id": "NL-08",
+          "title": "Working Hours and Availability",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/08.pdf",
+          "section_id": "S1",
+          "heading": "Collaboration",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Shared availability hours are Monday to Friday, 10:00 to 15:00 German local time. Individual part-time agreements take precedence. Working time must be recorded daily in the time-tracking system.",
+          "citation_id": "NL-08:S1",
+          "retrieval_score": 0.3656446039676666
+        },
+        {
+          "document_id": "NL-02",
+          "title": "Onboarding Process",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/02.pdf",
+          "section_id": "S1",
+          "heading": "Before joining",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "People Operations opens an onboarding ticket at least five working days before the start date. The manager specifies the role, team and required applications. IT Operations initially provisions standard access only.",
+          "citation_id": "NL-02:S1",
+          "retrieval_score": 0.33244258165359497
+        },
+        {
+          "document_id": "NL-08",
+          "title": "Working Hours and Availability",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/08.pdf",
+          "section_id": "S2",
+          "heading": "Absence",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Planned absences are entered in the team calendar. In the event of illness, notify the manager before the usual start of work. This document does not specify the annual leave entitlement.",
+          "citation_id": "NL-08:S2",
+          "retrieval_score": 0.2811218500137329
+        },
+        {
+          "document_id": "NL-06",
+          "title": "Remote Work Policy",
+          "version": "2.0",
+          "status": "active",
+          "source_path": "documents_pdf/06.pdf",
+          "section_id": "S1",
+          "heading": "Allowance",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Up to three remote-working days per calendar week are permitted with manager agreement. Required team meetings on site take priority. Unused remote-working days cannot be carried over to the following week.",
+          "citation_id": "NL-06:S1",
+          "retrieval_score": 0.2782808840274811
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.021785671007819474,
+        "generation_request_seconds": 115.22433753500809
+      },
+      "ollama_metrics": {
+        "total_duration": 115222200651,
+        "load_duration": 6217190,
+        "prompt_eval_count": 579,
+        "prompt_eval_duration": 91944878000,
+        "eval_count": 37,
+        "eval_duration": 22966618000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q027",
+      "question": "How long are internal knowledge platform backups retained?",
+      "answerability": "conflicting",
+      "answer": "There is a disagreement between the documents regarding the retention period for internal knowledge platform backups. Document NL-24:S1 states that backups are retained for 60 calendar days, while document NL-23:S1 specifies a retention period of 30 calendar days. Both documents are marked as active and neither provides a precedence rule over the other. Therefore, a definitive answer must be confirmed with the system owner. [NL-23:S2, NL-24:S2]",
+      "expected_evidence": [
+        {
+          "document_id": "NL-23",
+          "section": "S1",
+          "page": 1
+        },
+        {
+          "document_id": "NL-23",
+          "section": "S2",
+          "page": 1
+        },
+        {
+          "document_id": "NL-24",
+          "section": "S1",
+          "page": 1
+        },
+        {
+          "document_id": "NL-24",
+          "section": "S2",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "Conflict: 30 versus 60 calendar days",
+          "met": true
+        },
+        {
+          "criterion": "Both documents active with no precedence rule",
+          "met": true
+        },
+        {
+          "criterion": "Clarify with the system owner",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-23:S1",
+          "NL-23:S2",
+          "NL-24:S1",
+          "NL-24:S2"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-24",
+          "title": "Knowledge Platform Backup Plan",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/24.pdf",
+          "section_id": "S1",
+          "heading": "Retention",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Backups of the internal knowledge platform are retained for 60 calendar days. Security reviews the plan annually. This retention statement does not concern Atlas customer data.",
+          "citation_id": "NL-24:S1",
+          "retrieval_score": 0.8137215971946716
+        },
+        {
+          "document_id": "NL-23",
+          "title": "Backup Operations Handbook",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/23.pdf",
+          "section_id": "S1",
+          "heading": "Operational backups",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Backups of the internal knowledge platform are retained for 30 calendar days. IT Operations performs a restore test quarterly. This section concerns the internal knowledge platform, not the Atlas product.",
+          "citation_id": "NL-23:S1",
+          "retrieval_score": 0.7778772115707397
+        },
+        {
+          "document_id": "NL-21",
+          "title": "Atlas Data Retention",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/21.pdf",
+          "section_id": "S2",
+          "heading": "Backups",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Backup copies are overwritten after 30 calendar days. A deleted ticket may therefore remain temporarily in backups. This document does not promise restoration of individual tickets.",
+          "citation_id": "NL-21:S2",
+          "retrieval_score": 0.5181088447570801
+        },
+        {
+          "document_id": "NL-23",
+          "title": "Backup Operations Handbook",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/23.pdf",
+          "section_id": "S2",
+          "heading": "Conflict",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "The retention statement concerns the same system as document NL-24. No precedence rule exists between these two active documents. A definitive answer must be confirmed with the system owner.",
+          "citation_id": "NL-23:S2",
+          "retrieval_score": 0.500195324420929
+        },
+        {
+          "document_id": "NL-24",
+          "title": "Knowledge Platform Backup Plan",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/24.pdf",
+          "section_id": "S2",
+          "heading": "Clarification",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "This plan and the Backup Operations Handbook are both marked active. The plan specifies no precedence rule over the handbook. Refer conflicting statements to the system owner.",
+          "citation_id": "NL-24:S2",
+          "retrieval_score": 0.49309825897216797
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.03284725299454294,
+        "generation_request_seconds": 72.01711982699635
+      },
+      "ollama_metrics": {
+        "total_duration": 72014947024,
+        "load_duration": 2296283,
+        "prompt_eval_count": 545,
+        "prompt_eval_duration": 549498000,
+        "eval_count": 100,
+        "eval_duration": 70157226000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": "Retention values are explicitly attributed to source IDs in prose. Not all IDs use individual square brackets. Treat as presentation, not missing source attribution."
+      }
+    },
+    {
+      "id": "Q028",
+      "question": "Who must approve a software subscription costing EUR 15 per month?",
+      "answerability": "answerable",
+      "answer": "A software subscription costing EUR 15 per month is a recurring purchase, so it requires approval from Finance and IT Operations regardless of the amount [NL-25:S1].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-25",
+          "section": "S1",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "Finance and IT Operations",
+          "met": true
+        },
+        {
+          "criterion": "Regardless of amount",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-25:S1"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-25",
+          "title": "Purchasing and Expenditure",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/25.pdf",
+          "section_id": "S1",
+          "heading": "Thresholds",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "One-off purchases up to and including EUR 250 net require manager approval. Higher amounts also require Finance approval. Recurring software subscriptions require approval from Finance and IT Operations regardless of amount.",
+          "citation_id": "NL-25:S1",
+          "retrieval_score": 0.7190568447113037
+        },
+        {
+          "document_id": "NL-22",
+          "title": "Software Change Approval",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/22.pdf",
+          "section_id": "S1",
+          "heading": "Requirements",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "A production change requires an approved pull request, successful automated checks and a documented rollback option. The author of the code must not be its sole approver.",
+          "citation_id": "NL-22:S1",
+          "retrieval_score": 0.3637927174568176
+        },
+        {
+          "document_id": "NL-25",
+          "title": "Purchasing and Expenditure",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/25.pdf",
+          "section_id": "S2",
+          "heading": "Ordering",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Place orders only after approval. Personal advance payments do not create an automatic right to reimbursement. Business travel is governed separately by documents NL-09, NL-11 and NL-12.",
+          "citation_id": "NL-25:S2",
+          "retrieval_score": 0.31913816928863525
+        },
+        {
+          "document_id": "NL-12",
+          "title": "Business Travel Process",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/12.pdf",
+          "section_id": "S1",
+          "heading": "Travel request",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Every business trip requires manager approval in the service portal before booking. The request must include purpose, dates, destination and estimated total cost. Any hotel rate above the limit must be explicitly identified.",
+          "citation_id": "NL-12:S1",
+          "retrieval_score": 0.3163132071495056
+        },
+        {
+          "document_id": "NL-13",
+          "title": "Expense Claim Procedure",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/13.pdf",
+          "section_id": "S1",
+          "heading": "Submission",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Each expense requires the date, amount, currency, category and a digital receipt. The submission deadline is defined by the current Travel Expense Policy. Credit card statements do not replace individual receipts.",
+          "citation_id": "NL-13:S1",
+          "retrieval_score": 0.3095356225967407
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.06598377399495803,
+        "generation_request_seconds": 157.0835264680063
+      },
+      "ollama_metrics": {
+        "total_duration": 157081201612,
+        "load_duration": 4033773,
+        "prompt_eval_count": 574,
+        "prompt_eval_duration": 133666027999,
+        "eval_count": 37,
+        "eval_duration": 23144092000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    },
+    {
+      "id": "Q029",
+      "question": "How much annual leave am I entitled to?",
+      "answerability": "unanswerable",
+      "answer": "The available documents do not provide enough information to specify the annual leave entitlement [NL-08:S2].",
+      "expected_evidence": [
+        {
+          "document_id": "NL-08",
+          "section": "S2",
+          "page": 1
+        }
+      ],
+      "required_claims": [
+        {
+          "criterion": "Not specified in the document collection",
+          "met": true
+        }
+      ],
+      "citation_check": {
+        "cited_ids": [
+          "NL-08:S2"
+        ],
+        "unknown_ids": [],
+        "has_citations": true
+      },
+      "manual_review": {
+        "correct": null,
+        "complete": null,
+        "claims_supported_by_sources": null,
+        "appropriate_uncertainty_or_abstention": null,
+        "notes": ""
+      },
+      "status": "content_review_completed",
+      "prompt_version": "grounded-v1.1",
+      "model": "qwen2.5:14b",
+      "sources": [
+        {
+          "document_id": "NL-08",
+          "title": "Working Hours and Availability",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/08.pdf",
+          "section_id": "S2",
+          "heading": "Absence",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Planned absences are entered in the team calendar. In the event of illness, notify the manager before the usual start of work. This document does not specify the annual leave entitlement.",
+          "citation_id": "NL-08:S2",
+          "retrieval_score": 0.4082077443599701
+        },
+        {
+          "document_id": "NL-07",
+          "title": "Working from Abroad",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/07.pdf",
+          "section_id": "S1",
+          "heading": "Workation",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Workation is permitted only within the EU for a maximum of ten working days per calendar year. Requests must be submitted at least 15 working days before the start date. Approval is not guaranteed.",
+          "citation_id": "NL-07:S1",
+          "retrieval_score": 0.32157444953918457
+        },
+        {
+          "document_id": "NL-06",
+          "title": "Remote Work Policy",
+          "version": "2.0",
+          "status": "active",
+          "source_path": "documents_pdf/06.pdf",
+          "section_id": "S1",
+          "heading": "Allowance",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Up to three remote-working days per calendar week are permitted with manager agreement. Required team meetings on site take priority. Unused remote-working days cannot be carried over to the following week.",
+          "citation_id": "NL-06:S1",
+          "retrieval_score": 0.3000802993774414
+        },
+        {
+          "document_id": "NL-04",
+          "title": "Access Requests",
+          "version": "1.0",
+          "status": "active",
+          "source_path": "documents_pdf/04.pdf",
+          "section_id": "S2",
+          "heading": "Time limits",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "Administrator privileges are granted for no more than seven calendar days and require a new request afterwards. Shared user accounts are prohibited. Standard access is disabled at 18:00 German local time on the final working day when an employee leaves.",
+          "citation_id": "NL-04:S2",
+          "retrieval_score": 0.23938405513763428
+        },
+        {
+          "document_id": "NL-09",
+          "title": "Travel Expense Policy",
+          "version": "2.1",
+          "status": "active",
+          "source_path": "documents_pdf/09.pdf",
+          "section_id": "S1",
+          "heading": "Hotel costs",
+          "page_start": 1,
+          "page_end": 1,
+          "text": "For business travel within Germany, the standard hotel limit is EUR 120 gross per night, including breakfast. A higher rate requires written manager approval before booking. Document NL-11 also applies during trade fairs.",
+          "citation_id": "NL-09:S1",
+          "retrieval_score": 0.23177999258041382
+        }
+      ],
+      "done_reason": "stop",
+      "timing": {
+        "search_seconds": 0.027293400999042206,
+        "generation_request_seconds": 117.48086067999247
+      },
+      "ollama_metrics": {
+        "total_duration": 117478298926,
+        "load_duration": 2937949,
+        "prompt_eval_count": 585,
+        "prompt_eval_duration": 99978354000,
+        "eval_count": 23,
+        "eval_duration": 16338489000
+      },
+      "recorded_review": {
+        "verdict": "pass",
+        "error_types": [],
+        "failed_claim_indices": [],
+        "unsupported_additions_found": false,
+        "notes": "Required claims are covered; no material unsupported addition identified in this review.",
+        "required_claims_complete": true,
+        "citation_format_note": ""
+      }
+    }
+  ]
+}
