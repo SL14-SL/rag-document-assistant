@@ -14,6 +14,25 @@ Answers are displayed alongside the original passages supplied to the
 model, including document titles, versions, page references and PDF
 downloads.
 
+## Application preview
+
+### Answer with source evidence
+
+![Answer with original source passage and PDF download](docs/images/answer-with-sources.png)
+
+### Conflicting documents
+
+The assistant identifies contradictory retention periods and refers
+the question to the system owner.
+
+![Conflicting backup retention policies](docs/images/conflicting-sources.png)
+
+### Insufficient information
+
+The assistant states when the supplied documents do not establish
+an answer.
+
+![Explicit information gap for annual leave entitlement](docs/images/insufficient-information.png)
 ## Features
 
 - PDF ingestion with document, section and page metadata.
