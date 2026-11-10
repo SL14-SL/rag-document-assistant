@@ -1,6 +1,10 @@
 # Document Assistant with Source Citations and Evaluation
 
 [![CI](https://github.com/SL14-SL/rag-document-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/SL14-SL/rag-document-assistant/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+[![Ruff](https://img.shields.io/badge/Lint-Ruff-D7FF64?logo=ruff&logoColor=black)](https://docs.astral.sh/ruff/)
+[![Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![uv](https://img.shields.io/badge/Dependencies-uv-DE5FE9)](https://docs.astral.sh/uv/)
 
 An English-language RAG portfolio application for querying fictional
 company documents. It combines local PDF retrieval with either local
