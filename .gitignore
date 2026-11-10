@@ -12,6 +12,7 @@ dist/
 .env
 .env.*
 !.env.example
+.streamlit/secrets.toml
 
 # Generated artifacts and downloaded models
 artifacts/

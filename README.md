@@ -1,48 +1,266 @@
-# Nordlicht — Local Document Assistant Dataset v0.3 (English, PDF edition)
+# Document Assistant with Source Citations and Evaluation
 
-25 synthetic English-language company documents, supplied as editable Markdown and text-based PDFs, and 30 questions with reference evidence. Created for a portfolio project. All policies are fictional and are not legal, tax or operational advice. You may modify and publish these materials as part of your project; no claim of exclusive rights in AI-generated output is made.
+An English-language RAG portfolio application for querying fictional
+company documents. It combines local PDF retrieval with either local
+Ollama generation or an explicitly selected OpenAI API backend.
 
-## Getting started (WSL)
+Answers are displayed alongside the original passages supplied to the
+model, including document titles, versions, page references and PDF
+downloads.
 
-Extract the archive into a new project directory. Read documents/09.md and documents/10.md to compare the current and archived travel policies. Compare documents/23.md and documents/24.md for an intentionally unresolved conflict.
+## Features
 
-Run `python3 scripts/validate_dataset.py` from this directory. This uses the Python standard library only, installs nothing and makes no network requests.
+- PDF ingestion with document, section and page metadata.
+- BM25 baseline and semantic retrieval.
+- A persisted semantic index and an in-memory search model.
+- Local generation through Ollama.
+- Optional OpenAI generation through the Responses API.
+- Streamlit interface with explicit provider selection.
+- Original source passages and downloadable source PDFs.
+- Saved requests, answers, timings and provider metadata.
+- Retrieval evaluation and manual answer-quality review.
+- Unit tests and a GitHub Actions lint/test workflow.
 
-## Implementation sequence
+Each question is independent. Previous questions and answers are not
+included in subsequent requests.
 
-1. Load documents_pdf/*.pdf while preserving document metadata, page numbers and section IDs. Markdown files are editable authoring sources, not a second retrieval corpus.
-2. Search active documents for current questions; keep archived documents available for historical questions.
-3. Implement local retrieval returning original passages and citation IDs such as NL-09:S1.
-4. Evaluate retrieval using development.jsonl before adding a language model.
-5. Connect a local model to selected passages and validate citation IDs.
-6. Assess answer quality separately using required_claims and actual evidential support.
+## Architecture
 
-Not yet included: a search application, a language model, model installation or a production PDF ingestion pipeline. PDF extraction was checked during dataset creation. Each evidence record includes a verified, one-based PDF page number and a stable section identifier. Do not index both Markdown and PDF copies.
+1. Extract sections from the PDFs.
+2. Build a semantic index of active document sections.
+3. Retrieve the five most relevant sections for a question.
+4. Send the question and source passages to the selected language model.
+5. Check whether detected source IDs belong to the supplied passages.
+6. Display the answer and all supplied source passages.
 
-## Evaluation and limitations
+The search model and index remain loaded between questions in Streamlit.
+Generation providers share the same prompt construction and retrieval
+pipeline. Provider failures do not trigger an automatic fallback.
 
-There are 24 development questions and six held-out validation questions. This small split is an initial smoke test, not a robust general benchmark. Documents and questions were jointly AI-assisted; the validation set is therefore not independent. Add separately authored, manually reviewed test questions before final portfolio evaluation. Do not use validation questions for prompt tuning.
+## Requirements
 
-required_claims are semantic criteria, not exact-match strings. Different wording can be correct. The conflict question requires both contradictory sources. For unanswerable questions, an explicit information gap is appropriate; absence of a reimbursement rule does not prove reimbursement is forbidden.
+- Python 3.12.
+- uv.
+- Ollama with `qwen2.5:14b` for local generation.
+- An OpenAI API key and available API credit for API generation.
 
-Recall@k measures retrieval of annotated evidence sections. A valid citation ID alone does not prove that a source supports a claim. Review answers manually before introducing automated judges. Results on this known synthetic dataset do not establish reliability on real company documents.
+The first installation downloads Python packages. Semantic retrieval
+also requires an initial download of
+`sentence-transformers/all-MiniLM-L6-v2`.
 
-## Document snapshot
+Local generation was tested on an Intel i7-8665U laptop with approximately
+32 GB RAM and CPU-only inference. It is functional but slow.
 
-Fictional evaluation date: 6 November 2026. All active documents take effect on 1 October 2026. The archived travel policy was replaced on that date. manifest.json records file hashes; update it after intentional document changes.
+## Installation
 
-## English edition
+From the repository root:
 
-Document content, evaluation questions, criteria, metadata and guidance are in English. German locations, EUR amounts and German local time are retained as the fictional company context. Document and section identifiers remain unchanged from v0.1. This edition replaces the earlier German-language package.
+```bash
+uv sync --locked --dev
+uv run python scripts/validate_dataset.py
+```
 
-## PDF generation
+## Prepare the local index
 
-The ready-to-use files are in documents_pdf/. Each is one A4 page because the initial documents are short; these are not a benchmark for complex layouts, scanned pages, tables or multi-page extraction. They contain a selectable text layer, document metadata, section headings and a visible page number. Archived status is explicit.
+Extract PDF sections:
 
-You do not need to install anything to use the supplied PDFs. To regenerate them after editing Markdown, install the build dependency with `uv add --dev reportlab`, then run `uv run python scripts/build_pdfs.py`. This updates PDF hashes in the manifest. If you change Markdown, update its manifest hash deliberately as well. Recheck evaluation references and page numbers after content or layout changes; the generator does not update evaluation annotations automatically.
+```bash
+uv run python -m rag_document_assistant.ingestion
+```
 
-The initial build checked text extraction for all 25 PDFs and verified all evidence page numbers. These checks do not establish that the future retrieval or answer-generation system is correct.
+Build the semantic index:
 
-## Updating an existing project
+```bash
+uv run python -m rag_document_assistant.retrieval.build_index
+```
 
-Copy documents_pdf/, evaluation/, scripts/, manifest.json and this README into the project. The Markdown source documents are unchanged. Keep your existing pyproject.toml, uv.lock, src/, tests/ and .git directory. The archive contains only dataset files, not a replacement Python project.
+The initial build may download the embedding model. After it is cached,
+the index can be rebuilt offline:
+
+```bash
+HF_HUB_OFFLINE=1 uv run python \
+    -m rag_document_assistant.retrieval.build_index \
+    --offline
+```
+
+The indexed corpus contains 48 sections from 24 active documents.
+The archived policy is excluded from the active search index.
+
+## Run the application
+
+```bash
+HF_HUB_OFFLINE=1 uv run streamlit run app.py \
+    --server.address 127.0.0.1
+```
+
+Open http://localhost:8501.
+
+### Local Ollama
+
+Ensure Ollama is running and install the tested model:
+
+```bash
+ollama pull qwen2.5:14b
+```
+
+Select **Local Ollama** in the sidebar.
+
+After the initial downloads, retrieval and generation can run locally
+without an external model API.
+
+### OpenAI API
+
+Set `OPENAI_API_KEY` in the same terminal before starting Streamlit.
+
+For zsh, execute this line, paste the key at the hidden prompt and press
+Enter:
+
+```bash
+read -rs "OPENAI_API_KEY?OpenAI API key: "
+```
+
+Then:
+
+```bash
+export OPENAI_API_KEY
+printf '\n'
+```
+
+Start Streamlit and select **OpenAI API** in the sidebar.
+
+The configured API model is `gpt-5.4-2026-03-05`.
+
+Questions and the five retrieved passages are sent to OpenAI. PDFs are
+not uploaded by this implementation. API requests incur usage charges.
+
+`HF_HUB_OFFLINE=1` applies to the local embedding model; it does not
+disable selected OpenAI requests.
+
+Never commit API keys or Streamlit secrets.
+
+## Example questions
+
+- How many days per week may I work remotely?
+- Can I book a hotel in Germany for EUR 140 per night?
+- Does P1 mean the issue will be resolved within 30 minutes?
+- What happens if an import file contains duplicate external_id values?
+- How long are internal knowledge platform backups retained?
+- How much annual leave am I entitled to?
+
+The corpus deliberately includes exceptions, conflicting policies and
+information gaps.
+
+## Evaluation
+
+The dataset contains 30 questions: 24 development questions and six
+validation questions.
+
+### Retrieval baseline
+
+On the 22 development questions eligible for the retrieval metric,
+semantic retrieval achieved:
+
+- Evidence recall@5: 1.000.
+- Complete evidence@5: 1.000.
+- MRR@5: 0.955.
+
+These scores describe retrieval of annotated sections, not answer quality.
+The historical-policy case and the unanswerable case were excluded from
+that retrieval metric.
+
+### Local versus API generation
+
+A development comparison used identical prompt messages and source
+passages for all 24 questions.
+
+| Measure | Local Qwen 2.5 14B | OpenAI GPT-5.4 |
+| --- | --- | --- |
+| Content pass, including editorial notes | 22 | 22 |
+| Needs revision | 1 | 1 |
+| Insufficient historical source coverage | 1 | 1 |
+| Median generation request time | 146.26 seconds | 1.80 seconds |
+
+These are manual, assistant-assisted content assessments. They do not
+certify perfect citation formatting or production readiness.
+
+The comparison demonstrates a latency advantage for the API on the
+tested CPU-only laptop. It does not demonstrate a higher content pass
+rate on this small development set.
+
+See
+[the comparison report](reports/answer-evaluation/local-vs-openai-v12.md).
+
+### Validation
+
+The local grounded-v1.2 candidate met all predefined content criteria
+on four of six validation questions. Two answers were correct but
+incomplete under the existing rubric.
+
+See
+[the validation review](reports/answer-evaluation/qwen25-14b-v12-validation.md).
+
+The validation questions have now been inspected. Future changes informed
+by these results require fresh held-out questions for an independent
+final evaluation.
+
+## Known limitations
+
+- Generated answers can omit necessary conditions or process steps.
+- Valid source IDs do not establish factual support or completeness.
+- Showing original passages supports review but does not repair an answer.
+- Historical questions may require archived sources absent from the
+  active index.
+- The dataset and questions were jointly AI-assisted and are small.
+- PDFs are short, text-based documents, normally one page each.
+- Scanned documents, OCR, complex tables and diverse real-world layouts
+  have not been evaluated.
+- The application has no user authentication or document-level access
+  control and is intended for a local portfolio demonstration.
+- Evaluation results do not establish reliability on real company data.
+
+## Development checks
+
+```bash
+uv run ruff check app.py src tests scripts
+uv run pytest -q
+```
+
+Tests use substitutes for model and API calls. They do not require a
+running Ollama service, downloaded embedding weights or an API key.
+
+The CI workflow installs locked dependencies and runs lint and tests.
+It does not execute the answer-quality evaluation or paid API requests.
+
+## Repository structure
+
+- `app.py`: Streamlit interface.
+- `src/rag_document_assistant/ingestion/`: PDF loading.
+- `src/rag_document_assistant/retrieval/`: search and index persistence.
+- `src/rag_document_assistant/generation/`: prompts and generation backends.
+- `src/rag_document_assistant/evaluation/`: evaluation tools.
+- `documents/`: editable Markdown authoring sources.
+- `documents_pdf/`: PDF retrieval corpus.
+- `evaluation/`: questions, evidence references and content criteria.
+- `reports/`: versioned evaluation findings.
+- `scripts/`: dataset and comparison utilities.
+- `tests/`: automated tests.
+- `artifacts/`: generated indexes and answer reports; ignored by Git.
+
+Markdown and PDF files represent the same documents. Do not index both
+copies.
+
+## Dataset
+
+Nordlicht Software and all policies in this repository are fictional.
+The corpus contains 25 English-language documents, including one archived
+policy.
+
+The fictional document snapshot is 6 November 2026. Active policies take
+effect on 1 October 2026.
+
+`manifest.json` records document metadata and file hashes. Intentional
+document changes require updated hashes and a review of evidence
+references.
+
+The materials are for demonstration and are not legal, tax or
+operational advice.
