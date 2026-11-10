@@ -117,8 +117,18 @@ def display_report(report: dict) -> None:
                 "prompt_version": report["prompt_version"],
                 "runtime_metadata": report.get("runtime_metadata"),
                 "generation_options": (
-                    report.get("generation_request") or {}
-                ).get("options"),
+                    (report.get("generation_request") or {}).get("options")
+                    if report.get("provider", "ollama") == "ollama"
+                    else {
+                        key: (report.get("generation_request") or {}).get(key)
+                        for key in (
+                            "temperature",
+                            "reasoning",
+                            "max_output_tokens",
+                            "store",
+                        )
+                    }
+                ),
                 "citation_check": check,
                 "provider": report.get("provider", "ollama"),
                 "api_usage": (report.get("api_response") or {}).get("usage"),
