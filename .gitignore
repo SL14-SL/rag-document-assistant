@@ -21,3 +21,6 @@ models/
 
 # Windows download metadata
 *:Zone.Identifier
+
+# Fiverr-specific gallery images
+docs/images/fiverr_*.png
