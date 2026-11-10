@@ -15,6 +15,9 @@ from rag_document_assistant.generation.answer import (
     check_citations,
     generate_answer,
 )
+from rag_document_assistant.generation.openai_backend import (
+    generate_openai_answer,
+)
 from rag_document_assistant.generation.runtime import collect_runtime_metadata
 from rag_document_assistant.generation.sources import format_sources
 from rag_document_assistant.retrieval.semantic import (
@@ -30,8 +33,11 @@ def answer_question(
     question: str,
     *,
     model: str,
+    provider: str = "ollama",
 ) -> dict:
     """Answer one independent question using an already loaded index."""
+    if provider not in {"ollama", "openai"}:
+        raise ValueError(f"Unsupported provider: {provider}")
     if not question.strip():
         raise ValueError("Question must not be empty")
 
@@ -44,10 +50,17 @@ def answer_question(
 
     messages = build_messages(question, results)
 
-    runtime_metadata = collect_runtime_metadata(model)
+    runtime_metadata = (
+        collect_runtime_metadata(model)
+        if provider == "ollama"
+        else None
+    )
 
     started = perf_counter()
-    response = generate_answer(messages, model=model)
+    if provider == "ollama":
+        response = generate_answer(messages, model=model)
+    else:
+        response = generate_openai_answer(messages, model=model)
     generation_seconds = perf_counter() - started
 
     answer = response["message"]["content"]
@@ -89,6 +102,8 @@ def answer_question(
             )
             if key in response
         },
+        "provider": provider,
+        "api_response": response.get("api_response"),
     }
 
 

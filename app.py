@@ -6,6 +6,7 @@ import streamlit as st
 
 from rag_document_assistant.generation.answer import DEFAULT_GENERATION_MODEL
 from rag_document_assistant.generation.chat import answer_question, save_report
+from rag_document_assistant.generation.openai_backend import OPENAI_MODEL
 from rag_document_assistant.retrieval.semantic import (
     DEFAULT_MODEL,
     LocalSentenceEncoder,
@@ -32,6 +33,10 @@ def get_search_index(index_modified_ns: int):
 def display_report(report: dict) -> None:
     st.subheader("Generated answer")
     st.caption(f"Question: {report['question']}")
+    st.caption(
+        f"Provider: {report.get('provider', 'ollama')} | "
+        f"Model: {report['model']}"
+    )
     st.write(report["answer"])
 
     check = report["citation_check"]
@@ -115,6 +120,8 @@ def display_report(report: dict) -> None:
                     report.get("generation_request") or {}
                 ).get("options"),
                 "citation_check": check,
+                "provider": report.get("provider", "ollama"),
+                "api_usage": (report.get("api_response") or {}).get("usage"),
             }
         )
 
@@ -133,15 +140,37 @@ def main() -> None:
     st.title("Document Assistant")
     st.write("Ask questions about the fictional Nordlicht company documents.")
     st.info(
-        "Portfolio demo using a local language model. Generated answers "
-        "may omit important conditions. Review the original passages "
-        "before acting on an answer."
+        "Portfolio demo. Generated answers may omit important conditions. "
+        "Review the original passages before acting on an answer."
     )
 
     with st.sidebar:
-        st.header("Local configuration")
-        st.write(f"Model: {DEFAULT_GENERATION_MODEL}")
-        st.write("Search: semantic retrieval, top five passages")
+        st.header("Generation")
+
+        provider_label = st.selectbox(
+            "Answer provider",
+            options=("Local Ollama", "OpenAI API"),
+        )
+        provider = (
+            "ollama" if provider_label == "Local Ollama" else "openai"
+        )
+        model = (
+            DEFAULT_GENERATION_MODEL
+            if provider == "ollama"
+            else OPENAI_MODEL
+        )
+
+        st.write(f"Model: {model}")
+        st.write("Search: local semantic retrieval, top five passages")
+
+        if provider == "openai":
+            st.warning(
+                "Questions and retrieved source passages are sent to "
+                "OpenAI. Each submitted question incurs API charges."
+            )
+        else:
+            st.caption("Answer generation runs through local Ollama.")
+
         st.caption(
             "Each question is independent. Previous answers are not "
             "included in subsequent requests."
@@ -164,8 +193,12 @@ def main() -> None:
 
             try:
                 with st.spinner(
-                    "Searching documents and generating a local answer. "
-                    "This may take several minutes."
+                    "Searching documents and generating an answer"
+                    + (
+                        " locally. This may take several minutes."
+                        if provider == "ollama"
+                        else " via OpenAI."
+                    )
                 ):
                     index = get_search_index(
                         INDEX_PATH.stat().st_mtime_ns
@@ -173,7 +206,8 @@ def main() -> None:
                     report = answer_question(
                         index,
                         question.strip(),
-                        model=DEFAULT_GENERATION_MODEL,
+                        model=model,
+                        provider=provider,
                     )
 
                 st.session_state["report"] = report
