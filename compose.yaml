@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: .
+    image: rag-document-assistant:dev
+    ports:
+      - "127.0.0.1:8501:8501"
+    environment:
+      OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
+      OLLAMA_BASE_URL: "${OLLAMA_BASE_URL:-http://host.docker.internal:11434}"
+    volumes:
+      - answer-reports:/app/artifacts/answers
+    init: true
+
+volumes:
+  answer-reports:

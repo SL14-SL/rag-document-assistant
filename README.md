@@ -163,6 +163,78 @@ disable selected OpenAI requests.
 
 Never commit API keys or Streamlit secrets.
 
+## Run with Docker
+
+Docker packages the Streamlit application, Python dependencies,
+embedding model and prepared index. Ollama and its generation models
+remain outside the container.
+
+Build and start:
+
+```bash
+docker compose up -d --build
+```
+
+Open http://localhost:8501.
+
+The first build downloads dependencies and the embedding model.
+It does not generate answers or make paid API requests.
+
+### OpenAI generation
+
+Set `OPENAI_API_KEY` in your terminal before starting Compose, then
+select OpenAI API in the application.
+
+The key is passed at runtime and is not included in the image.
+After changing the key, recreate the app container:
+
+```bash
+docker compose up -d --force-recreate app
+```
+
+### Local Ollama generation
+
+Start Ollama on the host and ensure `qwen2.5:14b` is installed.
+Compose connects through `http://host.docker.internal:11434` by default.
+
+This connection was tested with Docker Desktop and Ollama running
+under WSL. Other Docker environments may require additional host
+network configuration.
+
+Override the address when needed:
+
+```bash
+OLLAMA_BASE_URL=http://your-ollama-host:11434 docker compose up -d
+```
+
+Outside Docker, the application defaults to `http://127.0.0.1:11434`.
+Generation and runtime metadata queries use the same configured address.
+
+### Health, reports and shutdown
+
+```bash
+docker compose ps
+curl --fail http://localhost:8501/_stcore/health
+docker compose logs --tail=50 app
+```
+
+The health endpoint checks the web server, not model availability
+or answer quality.
+
+Answer reports are stored in the `answer-reports` named volume,
+which survives container recreation. Removing volumes explicitly
+will delete those reports.
+
+The application runs as a non-root user.
+
+Stop the application:
+
+```bash
+docker compose down
+```
+
+Document changes require rebuilding the image.
+
 ## Example questions
 
 - How many days per week may I work remotely?

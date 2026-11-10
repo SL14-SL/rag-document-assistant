@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from urllib.error import URLError
 from urllib.request import Request, urlopen
 
+from rag_document_assistant.generation.ollama_config import get_ollama_base_url
 from rag_document_assistant.retrieval.bm25 import SearchResult
 
 DEFAULT_GENERATION_MODEL = "qwen2.5:14b"
@@ -114,7 +115,7 @@ def generate_answer(
         payload["options"]["seed"] = seed
 
     request = Request(
-        "http://127.0.0.1:11434/api/chat",
+        f"{get_ollama_base_url()}/api/chat",
         data=json.dumps(payload).encode("utf-8"),
         headers={"Content-Type": "application/json"},
         method="POST",

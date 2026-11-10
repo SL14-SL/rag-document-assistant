@@ -5,11 +5,12 @@ from datetime import UTC, datetime
 from urllib.error import URLError
 from urllib.request import urlopen
 
-OLLAMA_URL = "http://127.0.0.1:11434"
+from rag_document_assistant.generation.ollama_config import get_ollama_base_url
 
 
 def _get_json(endpoint: str) -> dict:
-    with urlopen(f"{OLLAMA_URL}{endpoint}", timeout=5) as response:
+    url = f"{get_ollama_base_url()}{endpoint}"
+    with urlopen(url, timeout=5) as response:
         payload = json.loads(response.read())
 
     if not isinstance(payload, dict):
