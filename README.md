@@ -1,5 +1,7 @@
 # Document Assistant with Source Citations and Evaluation
 
+[![CI](https://github.com/SL14-SL/rag-document-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/SL14-SL/rag-document-assistant/actions/workflows/ci.yml)
+
 An English-language RAG portfolio application for querying fictional
 company documents. It combines local PDF retrieval with either local
 Ollama generation or an explicitly selected OpenAI API backend.
