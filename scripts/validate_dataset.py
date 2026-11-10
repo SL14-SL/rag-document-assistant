@@ -1,6 +1,6 @@
-from pathlib import Path
 import hashlib
 import json
+from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
 manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
@@ -26,4 +26,7 @@ for path in sorted((root / "evaluation").glob("*.jsonl")):
             assert "## " + ref["section"] + ":" in text, ref
         count += 1
 assert count == 30
-print("OK: 25 documents, 25 PDFs, 30 unique questions; all evidence references and file hashes are valid.")
+print(
+    "OK: 25 documents, 25 PDFs, 30 unique questions; all evidence references "
+    "and file hashes are valid."
+)
