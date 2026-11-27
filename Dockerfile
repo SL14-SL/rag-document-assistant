@@ -19,6 +19,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked --no-dev --no-editable
 
 COPY app.py manifest.json ./
+COPY .streamlit/ ./.streamlit/
 COPY documents/ ./documents/
 COPY documents_pdf/ ./documents_pdf/
 

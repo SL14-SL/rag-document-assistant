@@ -14,6 +14,13 @@ Answers are displayed alongside the original passages supplied to the
 model, including document titles, versions, page references and PDF
 downloads.
 
+## Project overview
+
+Download the one-page project summary:
+
+- [English – Case Study (PDF)](docs/rag_document_assistant_case_study_en.pdf)
+- [Deutsch – Projektübersicht (PDF)](docs/rag_document_assistant_case_study_de.pdf)
+
 ## Application preview
 
 ### Answer with source evidence
@@ -40,11 +47,13 @@ an answer.
 - A persisted semantic index and an in-memory search model.
 - Local generation through Ollama.
 - Optional OpenAI generation through the Responses API.
-- Streamlit interface with explicit provider selection.
 - Original source passages and downloadable source PDFs.
 - Saved requests, answers, timings and provider metadata.
 - Retrieval evaluation and manual answer-quality review.
-- Unit tests and a GitHub Actions lint/test workflow.
+- Automated software tests and continuous integration.
+- Streamlit interface with a light theme, provider selection and question reset.
+- Docker deployment with a prebuilt semantic index.
+- Automated container build and smoke checks.
 
 Each question is independent. Previous questions and answers are not
 included in subsequent requests.
@@ -300,7 +309,7 @@ The validation questions have now been inspected. Future changes informed
 by these results require fresh held-out questions for an independent
 final evaluation.
 
-## Known limitations
+## System scope and design boundaries
 
 - Generated answers can omit necessary conditions or process steps.
 - Valid source IDs do not establish factual support or completeness.
@@ -322,11 +331,33 @@ uv run ruff check app.py src tests scripts
 uv run pytest -q
 ```
 
+### Validation results
+
+Latest functional verification: 2026-11-27.
+
+| Validation | Result |
+| --- | --- |
+| Ruff linting | Passed |
+| Automated software tests | 108 passed |
+| Docker image build | Passed |
+| Container health check | Passed |
+| OpenAI answer with source evidence | Passed |
+| OpenAI conflicting document handling | Passed |
+| OpenAI insufficient information handling | Passed |
+| Docker local Ollama generation | Passed |
+| Source PDF download | Passed |
+| Question reset | Passed |
+
+Functional verification complements the automated software tests
+and the separate retrieval and answer-quality evaluations.
+
 Tests use substitutes for model and API calls. They do not require a
 running Ollama service, downloaded embedding weights or an API key.
 
-The CI workflow installs locked dependencies and runs lint and tests.
-It does not execute the answer-quality evaluation or paid API requests.
+GitHub Actions workflows verify code quality, automated software tests,
+Docker image builds and container smoke checks.
+
+They do not execute live answer-quality evaluations or paid API requests.
 
 ## Repository structure
 
@@ -342,6 +373,9 @@ It does not execute the answer-quality evaluation or paid API requests.
 - `scripts/`: dataset and comparison utilities.
 - `tests/`: automated tests.
 - `artifacts/`: generated indexes and answer reports; ignored by Git.
+- `.streamlit/`: application theme configuration.
+- `src/rag_document_assistant/ui/`: shared interface styling.
+- `docs/`: application screenshots and bilingual project summaries.
 
 Markdown and PDF files represent the same documents. Do not index both
 copies.

@@ -12,6 +12,7 @@ from rag_document_assistant.retrieval.semantic import (
     LocalSentenceEncoder,
 )
 from rag_document_assistant.retrieval.storage import load_index
+from rag_document_assistant.ui.theme import apply_ui_theme
 
 ROOT = Path(__file__).resolve().parent
 INDEX_PATH = ROOT / "artifacts" / "index" / "semantic.npz"
@@ -140,6 +141,13 @@ def display_report(report: dict) -> None:
         st.caption(f"Saved report: {report_path}")
 
 
+def reset_question() -> None:
+    """Clear the current question and displayed answer."""
+    st.session_state["question"] = ""
+    st.session_state.pop("report", None)
+    st.session_state.pop("report_path", None)
+
+
 def main() -> None:
     st.set_page_config(
         page_title="Document Assistant",
@@ -147,8 +155,15 @@ def main() -> None:
         layout="wide",
     )
 
+    apply_ui_theme()
+
     st.title("Document Assistant")
-    st.write("Ask questions about the fictional Nordlicht company documents.")
+    st.markdown(
+        '<p class="app-subtitle">'
+        "Ask questions about the fictional Nordlicht company documents."
+        "</p>",
+        unsafe_allow_html=True,
+    )
     st.info(
         "Portfolio demo. Generated answers may omit important conditions. "
         "Review the original passages before acting on an answer."
@@ -191,8 +206,23 @@ def main() -> None:
             "Your question",
             placeholder="Can I book a hotel in Germany for EUR 140 per night?",
             max_chars=2000,
+            key="question",
         )
-        submitted = st.form_submit_button("Ask", type="primary")
+
+        ask_column, reset_column, _ = st.columns([1, 2, 5])
+
+        with ask_column:
+            submitted = st.form_submit_button(
+                "Ask",
+                type="primary",
+            )
+
+        with reset_column:
+            st.form_submit_button(
+                "New question",
+                type="secondary",
+                on_click=reset_question,
+            )
 
     if submitted:
         if not question.strip():

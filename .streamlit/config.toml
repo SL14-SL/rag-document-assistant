@@ -1,0 +1,24 @@
+[theme]
+base = "light"
+primaryColor = "#008569"
+backgroundColor = "#F2F6F4"
+secondaryBackgroundColor = "#DFEFE8"
+textColor = "#112F26"
+font = "sans serif"
+
+borderColor = "#C5CECA"
+showWidgetBorder = true
+showSidebarBorder = true
+
+codeBackgroundColor = "#FFFFFF"
+dataframeBorderColor = "#C5CECA"
+dataframeHeaderBackgroundColor = "#DFEFE8"
+
+blueColor = "#008569"
+blueBackgroundColor = "#DFEFE8"
+blueTextColor = "#112F26"
+
+[theme.sidebar]
+backgroundColor = "#DFEFE8"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#112F26"
