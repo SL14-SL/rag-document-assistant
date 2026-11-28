@@ -23,3 +23,6 @@ docs/
 scripts/
 
 **/*:Zone.Identifier
+
+# Confidential customer documents and generated indexes
+/customer_data/

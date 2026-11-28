@@ -11,27 +11,45 @@ from rag_document_assistant.retrieval.semantic import (
     DEFAULT_MODEL,
     LocalSentenceEncoder,
 )
-from rag_document_assistant.retrieval.storage import load_index
+from rag_document_assistant.retrieval.storage import (
+    corpus_fingerprint,
+    load_index,
+)
+from rag_document_assistant.ui.config import (
+    AppConfig,
+    load_app_config,
+)
 from rag_document_assistant.ui.theme import apply_ui_theme
 
 ROOT = Path(__file__).resolve().parent
-INDEX_PATH = ROOT / "artifacts" / "index" / "semantic.npz"
-REPORT_DIRECTORY = ROOT / "artifacts" / "answers" / "streamlit"
 
 
 @st.cache_resource(show_spinner=False)
-def get_search_index(index_modified_ns: int):
-    """Keep the encoder and index loaded between questions."""
+def get_search_index(
+    corpus_root: Path,
+    index_path: Path,
+    index_modified_ns: int,
+    fingerprint: str,
+):
+    """Keep the encoder and validated index loaded between questions.
+
+    index_modified_ns and fingerprint are cache keys used to
+    invalidate the cached index when the index or corpus changes.
+    """
     encoder = LocalSentenceEncoder(local_files_only=True)
+
     return load_index(
-        INDEX_PATH,
-        root=ROOT,
+        index_path,
+        root=corpus_root,
         model_name=DEFAULT_MODEL,
         encoder=encoder,
     )
 
 
-def display_report(report: dict) -> None:
+def display_report(
+    report: dict,
+    config: AppConfig,
+) -> None:
     st.subheader("Generated answer")
     st.caption(f"Question: {report['question']}")
     st.caption(
@@ -95,8 +113,14 @@ def display_report(report: dict) -> None:
             st.write(source["text"])
             st.caption(f"Source file: {source['source_path']}")
 
-            pdf_path = (ROOT / source["source_path"]).resolve()
-            if pdf_path.is_relative_to(ROOT) and pdf_path.is_file():
+            pdf_path = (
+                config.corpus_root / source["source_path"]
+            ).resolve()
+
+            if (
+                pdf_path.is_relative_to(config.corpus_root)
+                and pdf_path.is_file()
+            ):
                 st.download_button(
                     "Download source PDF",
                     data=pdf_path.read_bytes(),
@@ -156,29 +180,63 @@ def main() -> None:
     )
 
     apply_ui_theme()
+    try:
+        config = load_app_config(ROOT)
+    except (OSError, ValueError) as exc:
+        st.error(f"Configuration error: {exc}")
+        st.stop()
+        return
+
+    previous_config = st.session_state.get("app_config")
+
+    if previous_config != config:
+        reset_question()
+        st.session_state["app_config"] = config
 
     st.title("Document Assistant")
-    st.markdown(
-        '<p class="app-subtitle">'
+
+    subtitle = (
         "Ask questions about the fictional Nordlicht company documents."
-        "</p>",
+        if config.is_demo
+        else "Ask questions about your indexed documents."
+    )
+
+    st.markdown(
+        f'<p class="app-subtitle">{subtitle}</p>',
         unsafe_allow_html=True,
     )
-    st.info(
-        "Portfolio demo. Generated answers may omit important conditions. "
-        "Review the original passages before acting on an answer."
-    )
+
+    if config.is_demo:
+        st.info(
+            "Portfolio demo. Generated answers may omit important conditions. "
+            "Review the original passages before acting on an answer."
+        )
+    else:
+        st.info(
+            "Answers are generated from retrieved document passages. "
+            "Review the original sources before acting on an answer."
+        )
 
     with st.sidebar:
         st.header("Generation")
 
-        provider_label = st.selectbox(
-            "Answer provider",
-            options=("Local Ollama", "OpenAI API"),
-        )
-        provider = (
-            "ollama" if provider_label == "Local Ollama" else "openai"
-        )
+        provider_labels = {
+            "ollama": "Local Ollama",
+            "openai": "OpenAI API",
+        }
+
+        if len(config.allowed_providers) == 1:
+            provider = config.allowed_providers[0]
+
+            st.write(
+                f"Answer provider: {provider_labels[provider]}"
+            )
+        else:
+            provider = st.selectbox(
+                "Answer provider",
+                options=config.allowed_providers,
+                format_func=lambda value: provider_labels[value],
+            )
         model = (
             DEFAULT_GENERATION_MODEL
             if provider == "ollama"
@@ -204,7 +262,11 @@ def main() -> None:
     with st.form("question_form"):
         question = st.text_area(
             "Your question",
-            placeholder="Can I book a hotel in Germany for EUR 140 per night?",
+            placeholder=(
+                "Can I book a hotel in Germany for EUR 140 per night?"
+                if config.is_demo
+                else "Enter a question about your documents."
+            ),
             max_chars=2000,
             key="question",
         )
@@ -240,8 +302,20 @@ def main() -> None:
                         else " via OpenAI."
                     )
                 ):
+                    if provider not in config.allowed_providers:
+                        raise ValueError(
+                            "The selected provider is not permitted"
+                        )
+
+                    fingerprint = corpus_fingerprint(
+                        config.corpus_root
+                    )
+
                     index = get_search_index(
-                        INDEX_PATH.stat().st_mtime_ns
+                        config.corpus_root,
+                        config.index_path,
+                        config.index_path.stat().st_mtime_ns,
+                        fingerprint,
                     )
                     report = answer_question(
                         index,
@@ -253,9 +327,13 @@ def main() -> None:
                 st.session_state["report"] = report
 
                 try:
-                    path = save_report(report, REPORT_DIRECTORY)
+                    path = save_report(
+                        report,
+                        config.report_directory,
+                    )
+
                     st.session_state["report_path"] = str(
-                        path.relative_to(ROOT)
+                        path.relative_to(config.corpus_root)
                     )
                 except OSError:
                     st.warning(
@@ -266,7 +344,10 @@ def main() -> None:
                 st.error(f"Request failed: {exc}")
 
     if "report" in st.session_state:
-        display_report(st.session_state["report"])
+        display_report(
+            st.session_state["report"],
+            config,
+        )
 
 
 if __name__ == "__main__":

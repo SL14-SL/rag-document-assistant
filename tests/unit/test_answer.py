@@ -149,3 +149,37 @@ def test_answer_report_records_current_prompt_version():
         report = answer_question(index, "What is the limit?", model="test-model")
 
     assert report["prompt_version"] == PROMPT_VERSION
+
+
+def test_generic_document_citations_are_recognized():
+    result = check_citations(
+        "Employees require approval [DOC-001:S1].",
+        {"DOC-001:S1"},
+    )
+
+    assert result.cited_ids == ("DOC-001:S1",)
+    assert result.unknown_ids == ()
+    assert result.has_citations is True
+
+
+def test_unknown_generic_document_citation_is_detected():
+    result = check_citations(
+        "Employees require approval [DOC-999:S1].",
+        {"DOC-001:S1"},
+    )
+
+    assert result.unknown_ids == ("DOC-999:S1",)
+
+
+def test_mixed_document_citations_are_recognized():
+    result = check_citations(
+        "The documents disagree [NL-09:S1] [DOC-001:S2].",
+        {"NL-09:S1", "DOC-001:S2"},
+    )
+
+    assert set(result.cited_ids) == {
+        "NL-09:S1",
+        "DOC-001:S2",
+    }
+    assert result.unknown_ids == ()
+    assert result.has_citations is True

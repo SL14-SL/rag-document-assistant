@@ -24,3 +24,6 @@ models/
 
 # Fiverr-specific gallery images
 docs/images/fiverr_*.png
+
+# Confidential customer documents and generated indexes
+/customer_data/

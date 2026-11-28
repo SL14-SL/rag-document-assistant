@@ -1,13 +1,19 @@
-"""PDF ingestion for the controlled Nordlicht document format, without OCR."""
+"""PDF ingestion for controlled and generic document formats, without OCR."""
+
+from __future__ import annotations
 
 import hashlib
 import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 from pypdf import PdfReader
 
+if TYPE_CHECKING:
+    from rag_document_assistant.retrieval.semantic import LocalSentenceEncoder
+    
 SECTION = re.compile(r"^(S\d+):\s+(.+)$")
 
 
@@ -97,8 +103,15 @@ def parse_sections(
     return sections
 
 
-def load_corpus(root: Path, *, include_archived: bool = False) -> list[DocumentSection]:
-    """Read only manifest-listed PDFs; Markdown and evaluation data are never input."""
+def load_corpus(
+    root: Path,
+    *,
+    include_archived: bool = False,
+    encoder: LocalSentenceEncoder | None = None,
+    offline: bool = False,
+) -> list[DocumentSection]:
+    """Load manifest-listed PDFs in controlled or generic format."""
+
     root = root.resolve()
     entries = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
     if not isinstance(entries, list) or not entries:
@@ -115,6 +128,37 @@ def load_corpus(root: Path, *, include_archived: bool = False) -> list[DocumentS
             raise DocumentLoadError(f"{document_id}: unknown status {status}")
         if status == "archived" and not include_archived:
             continue
+        document_format = entry.get("format", "nordlicht")
+
+        if document_format == "generic":
+            from rag_document_assistant.ingestion.generic_pdf_loader import (
+                load_generic_document,
+            )
+
+            if encoder is None:
+                from rag_document_assistant.retrieval.semantic import (
+                    LocalSentenceEncoder,
+                )
+
+                encoder = LocalSentenceEncoder(
+                    local_files_only=offline,
+                )
+
+            sections.extend(
+                load_generic_document(
+                    root,
+                    entry,
+                    tokenizer=encoder.model.tokenizer,
+                    max_seq_length=encoder.model.max_seq_length,
+                )
+            )
+            continue
+
+        if document_format != "nordlicht":
+            raise DocumentLoadError(
+                f"{document_id}: unsupported document format "
+                f"{document_format}"
+            )
         path = (root / entry["pdf_path"]).resolve()
         if not path.is_relative_to(root):
             raise DocumentLoadError(f"{document_id}: source path leaves project directory")

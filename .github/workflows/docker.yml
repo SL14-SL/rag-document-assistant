@@ -29,16 +29,68 @@ jobs:
       - name: Build application image
         run: docker compose build
 
-      - name: Start application
+      - name: Start demo application
         run: docker compose up -d --wait --wait-timeout 120
 
-      - name: Check container
+      - name: Check demo container
         run: docker compose exec -T app python < scripts/container_smoke_test.py
 
-      - name: Show container logs on failure
+      - name: Show demo container logs on failure
         if: failure()
         run: docker compose logs --no-color
 
-      - name: Stop application
+      - name: Stop demo application
         if: always()
         run: docker compose down
+
+      - name: Configure customer deployment
+        run: |
+          echo "RAG_UID=$(id -u)" >> "$GITHUB_ENV"
+          echo "RAG_GID=$(id -g)" >> "$GITHUB_ENV"
+          echo "RAG_DATA_DIR=$GITHUB_WORKSPACE/customer_data/ci_smoke" >> "$GITHUB_ENV"
+          echo "RAG_PROVIDER=ollama" >> "$GITHUB_ENV"
+
+      - name: Create synthetic customer PDFs
+        run: |
+          mkdir -p "$RAG_DATA_DIR/artifacts/answers"
+
+          python3 -m venv "$RUNNER_TEMP/pdf-fixture-venv"
+
+          "$RUNNER_TEMP/pdf-fixture-venv/bin/python" \
+            -m pip install reportlab
+
+          "$RUNNER_TEMP/pdf-fixture-venv/bin/python" \
+            scripts/build_customer_test_pdfs.py \
+            --root "$RAG_DATA_DIR"
+
+      - name: Generate customer manifest
+        run: |
+          docker compose -f compose.customer.yaml run --rm prepare \
+            -m rag_document_assistant.ingestion.manifest \
+            --root /customer_data
+
+      - name: Build customer semantic index offline
+        run: |
+          docker compose -f compose.customer.yaml run --rm prepare \
+            -m rag_document_assistant.retrieval.build_index \
+            --root /customer_data \
+            --offline \
+            --output /customer_data/artifacts/index/semantic.npz
+
+      - name: Start customer application
+        run: |
+          docker compose -f compose.customer.yaml up \
+            -d --no-build --wait --wait-timeout 120
+
+      - name: Check customer container
+        run: |
+          docker compose -f compose.customer.yaml exec -T app \
+            python < scripts/customer_container_smoke_test.py
+
+      - name: Show customer container logs on failure
+        if: failure()
+        run: docker compose -f compose.customer.yaml logs --no-color
+
+      - name: Stop customer application
+        if: always()
+        run: docker compose -f compose.customer.yaml down
