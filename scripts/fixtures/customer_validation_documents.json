@@ -1,0 +1,1329 @@
+{
+  "company": "Westbridge Manufacturing",
+  "documents": [
+    {
+      "filename": "supplier_qualification.pdf",
+      "title": "Supplier Qualification",
+      "pages": [
+        {
+          "heading": "Initial screening",
+          "paragraphs": [
+            "Procurement checks company registration, insurance and beneficial ownership before opening a supplier record."
+          ]
+        },
+        {
+          "heading": "Risk classification",
+          "paragraphs": [
+            "Suppliers of safety-critical components are high risk; stationery suppliers are low risk unless an adverse finding exists."
+          ]
+        },
+        {
+          "heading": "Financial review",
+          "paragraphs": [
+            "A finance analyst reviews liquidity and credit references for contracts above EUR 80,000."
+          ]
+        },
+        {
+          "heading": "Site audits",
+          "paragraphs": [
+            "High-risk suppliers require an on-site audit before the first production order. Remote reviews do not replace this audit."
+          ]
+        },
+        {
+          "heading": "Approval authority",
+          "paragraphs": [
+            "The procurement manager approves low-risk suppliers; quality and procurement managers jointly approve high-risk suppliers."
+          ]
+        },
+        {
+          "heading": "Trial shipments",
+          "paragraphs": [
+            "Trial lots are limited to 100 units and must be segregated until quality releases them."
+          ]
+        },
+        {
+          "heading": "Annual review",
+          "paragraphs": [
+            "High-risk suppliers are reassessed every 12 months; low-risk suppliers every 36 months."
+          ]
+        },
+        {
+          "heading": "Suspension",
+          "paragraphs": [
+            "A confirmed counterfeit component triggers immediate supplier suspension and a review of open orders."
+          ]
+        },
+        {
+          "heading": "Reinstatement",
+          "paragraphs": [
+            "Reinstatement requires verified corrective actions and written approval from the quality director."
+          ]
+        },
+        {
+          "heading": "Records",
+          "paragraphs": [
+            "Supplier approval records are retained for seven years after the relationship ends."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "purchase_approval.pdf",
+      "title": "Purchase Approval",
+      "pages": [
+        {
+          "heading": "Requisition",
+          "paragraphs": [
+            "Every requisition identifies a cost centre, delivery location and business justification."
+          ]
+        },
+        {
+          "heading": "Budget check",
+          "paragraphs": [
+            "The budget owner confirms available funds before procurement solicits quotations."
+          ]
+        },
+        {
+          "heading": "Approval limits",
+          "paragraphs": [
+            "Purchases up to EUR 5,000 require department manager approval. Purchases above EUR 5,000 and up to EUR 25,000 require finance manager approval. Above EUR 25,000 requires the finance director."
+          ]
+        },
+        {
+          "heading": "Competitive quotes",
+          "paragraphs": [
+            "Orders above EUR 10,000 require three written quotations unless a documented sole-source exception is approved by procurement."
+          ]
+        },
+        {
+          "heading": "Emergency purchases",
+          "paragraphs": [
+            "Emergency orders may proceed with verbal finance director approval; written confirmation is required within one business day."
+          ]
+        },
+        {
+          "heading": "Order changes",
+          "paragraphs": [
+            "An increase exceeding ten percent of the approved order value requires a new approval at the revised total."
+          ]
+        },
+        {
+          "heading": "Segregation",
+          "paragraphs": [
+            "A requester cannot approve their own requisition or confirm receipt of their own expense claim."
+          ]
+        },
+        {
+          "heading": "Blanket orders",
+          "paragraphs": [
+            "Blanket orders expire after twelve months and must specify a maximum cumulative value."
+          ]
+        },
+        {
+          "heading": "Invoice matching",
+          "paragraphs": [
+            "Accounts payable matches order, receipt and invoice before releasing payment."
+          ]
+        },
+        {
+          "heading": "Exceptions register",
+          "paragraphs": [
+            "Procurement records approved deviations with justification, approver and expiry date."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "supplier_contracts.pdf",
+      "title": "Supplier Contracts",
+      "pages": [
+        {
+          "heading": "Contract ownership",
+          "paragraphs": [
+            "The procurement contract owner maintains a register of renewal dates and responsible stakeholders."
+          ]
+        },
+        {
+          "heading": "Legal review",
+          "paragraphs": [
+            "Contracts containing unlimited liability must be reviewed by legal before signature."
+          ]
+        },
+        {
+          "heading": "Delivery terms",
+          "paragraphs": [
+            "The purchase order must identify the agreed delivery point and party responsible for freight."
+          ]
+        },
+        {
+          "heading": "Price adjustments",
+          "paragraphs": [
+            "Suppliers must submit price adjustment requests at least 60 calendar days before the proposed effective date."
+          ]
+        },
+        {
+          "heading": "Confidentiality",
+          "paragraphs": [
+            "Technical drawings may only be shared with subcontractors after written permission."
+          ]
+        },
+        {
+          "heading": "Subcontracting",
+          "paragraphs": [
+            "A change to the approved manufacturing site requires prior written quality approval."
+          ]
+        },
+        {
+          "heading": "Renewals",
+          "paragraphs": [
+            "Contract owners begin renewal reviews 90 calendar days before expiry."
+          ]
+        },
+        {
+          "heading": "Termination",
+          "paragraphs": [
+            "Material breach notices allow 30 calendar days to cure unless immediate termination is permitted by the contract."
+          ]
+        },
+        {
+          "heading": "Disputes",
+          "paragraphs": [
+            "Commercial disputes are escalated to the contract owner before external mediation is considered.",
+            "The contract owner first identifies the disputed obligation and collects the relevant purchase order, signed agreement, amendments and correspondence. Informal statements made during negotiations are separated from executed contractual commitments. The owner records the factual sequence of events without making assumptions about responsibility. Procurement checks whether the dispute affects other outstanding orders or a planned production run. If a delivery interruption is likely, planning assesses available inventory and alternative sources while the commercial issue is investigated. The supplier receives a written description of the concern and an opportunity to respond. The contract owner records the proposed resolution and identifies any internal approval needed before agreeing to it. A request for a credit note is treated separately from a request to change the contract terms. Finance verifies the accounting treatment of any proposed credit or settlement. Legal reviews proposals that would waive a contractual right or create a new liability. The business owner evaluates whether a proposed concession would affect a customer commitment. Meeting notes distinguish agreed actions from items that remain under discussion. Each action has an owner and a target date. Sensitive correspondence is kept in the controlled contract repository rather than forwarded to unrelated recipients. The owner reviews the dispute at the regular procurement meeting until the issue is resolved or escalated. When agreement is reached, the final written record identifies the affected orders, the agreed remedy and the parties responsible for implementation. A verbal understanding is not treated as an amendment to the agreement. If the dispute reveals unclear wording, procurement records the improvement for the next contract renewal. The contract register is updated only after the relevant approval and signature requirements are satisfied. Closure requires confirmation that the agreed remedy has been implemented, not merely that a settlement proposal was accepted."
+          ]
+        },
+        {
+          "heading": "Archiving",
+          "paragraphs": [
+            "Executed contracts and amendments are stored together in the controlled contract repository."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "production_planning.pdf",
+      "title": "Production Planning",
+      "pages": [
+        {
+          "heading": "Demand forecast",
+          "paragraphs": [
+            "Planning consolidates customer orders and forecast demand each Monday morning."
+          ]
+        },
+        {
+          "heading": "Frozen schedule",
+          "paragraphs": [
+            "The next 48 hours of the production schedule are frozen; changes require production manager approval."
+          ]
+        },
+        {
+          "heading": "Capacity",
+          "paragraphs": [
+            "Work centres reserve ten percent of weekly capacity for unplanned interruptions."
+          ]
+        },
+        {
+          "heading": "Material availability",
+          "paragraphs": [
+            "A work order may be released only when all mandatory components are available or an approved substitute is recorded."
+          ]
+        },
+        {
+          "heading": "Priority orders",
+          "paragraphs": [
+            "Expedited orders must identify the displaced work order and revised customer delivery commitment."
+          ]
+        },
+        {
+          "heading": "Batch sizing",
+          "paragraphs": [
+            "Planning uses economic batch sizes unless shelf life or customer traceability requires smaller lots."
+          ]
+        },
+        {
+          "heading": "Changeovers",
+          "paragraphs": [
+            "Sequence planners group compatible product families to reduce cleaning and tooling changes.",
+            "The sequence planner starts with the released orders and their required completion dates. Orders with compatible tooling and material characteristics are grouped where doing so does not compromise a customer commitment. The planner checks the available work centre capacity against the expected setup and processing durations. The estimate includes cleaning, inspection and any required trial operation following a changeover. A change from a dark coating to a light coating may require additional cleaning even if the products use the same equipment. The planner consults the line leader when the standard setup estimate does not reflect a known equipment condition. Special fixtures are reserved before the sequence is published so that two lines do not depend on the same fixture at the same time. Material staging is coordinated with warehouse personnel to prevent premature opening of sensitive packages. Quality requirements are considered when deciding whether two orders can be combined into one production campaign. A customer-specific inspection or segregation requirement may prevent an otherwise efficient grouping. The planner records the reason for any deliberate deviation from the normal sequence. When a machine becomes unavailable, the alternative work centre is checked for approved capability before orders are moved. The planner also verifies that the required operators and inspection resources will be available at the revised time. The line leader communicates the final sequence during the shift handover. Operators do not rearrange the order solely to reduce their own setup effort. Unexpected setup delays are recorded with the actual duration and the observed cause. The planning team compares these records with the assumptions used in the scheduling system. Repeated differences are investigated before standard setup times are changed. The purpose of the review is to improve the accuracy of future plans, not to conceal missed commitments by retrospectively changing the original schedule."
+          ]
+        },
+        {
+          "heading": "Shortages",
+          "paragraphs": [
+            "Material shortages are reviewed at the daily planning meeting and assigned an owner."
+          ]
+        },
+        {
+          "heading": "Schedule adherence",
+          "paragraphs": [
+            "Weekly adherence compares completed work orders against the frozen schedule."
+          ]
+        },
+        {
+          "heading": "Planning records",
+          "paragraphs": [
+            "Schedule changes retain the previous version and the reason for revision."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "machine_maintenance.pdf",
+      "title": "Machine Maintenance",
+      "pages": [
+        {
+          "heading": "Scope",
+          "paragraphs": [
+            "Maintenance covers production machinery, guards and fixed utility connections."
+          ]
+        },
+        {
+          "heading": "Responsibilities",
+          "paragraphs": [
+            "Operators perform routine checks; trained maintenance technicians perform repairs."
+          ]
+        },
+        {
+          "heading": "Daily checks",
+          "paragraphs": [
+            "Operators inspect guards, leaks and abnormal noise before the first use of each shift."
+          ]
+        },
+        {
+          "heading": "Preventive intervals",
+          "paragraphs": [
+            "Hydraulic presses require preventive servicing every 500 operating hours or six months, whichever occurs first."
+          ]
+        },
+        {
+          "heading": "Emergency repair",
+          "paragraphs": [
+            "A machine with a failed safety interlock must be isolated immediately and cannot operate under a temporary bypass."
+          ]
+        },
+        {
+          "heading": "Spare parts",
+          "paragraphs": [
+            "Critical spare parts are replenished when stock falls below two units.",
+            "The spare parts coordinator reviews the asset register to identify parts whose absence would prevent safe restoration of a machine. The register distinguishes consumable items from assemblies that must be ordered against an equipment serial number. A replacement bearing, for example, may be physically similar to a stocked bearing but have a different operating temperature rating. The technician checks the approved part specification before issuing the item. When a part is removed from stock, the work order records the quantity and the asset on which it was installed. Returned unused parts are inspected for contamination and damage before being put back into available stock. Parts removed from failed equipment are not returned to available inventory unless a qualified technician has evaluated their condition and documented the result. The coordinator checks supplier lead times during the monthly maintenance planning meeting. A long lead time may justify additional stock even when historical consumption is low. Purchasing decisions also consider whether the manufacturer has announced the end of support for the asset. Where an approved replacement is unavailable, engineering evaluates compatibility before any alternative is installed. A temporary substitute is recorded with a defined removal date and operating restrictions. The production supervisor receives the restrictions before the equipment is returned to the line. Storage conditions are checked against manufacturer instructions, particularly for seals, lubricants and electronic modules. Electronic components are kept in protective packaging until installation. The coordinator investigates unexplained differences between the physical count and the inventory system, rather than adjusting the balance without evidence. Obsolete components are separated from serviceable stock so that technicians cannot select them accidentally. The quarterly stock review identifies items that can be transferred to another facility and items that require disposal. The maintenance manager approves changes to the critical spares list and records the reason for each change. The list is reviewed whenever equipment is commissioned, retired or substantially modified."
+          ]
+        },
+        {
+          "heading": "Documentation",
+          "paragraphs": [
+            "Maintenance records identify the asset, fault, work performed, technician and completion date."
+          ]
+        },
+        {
+          "heading": "External service",
+          "paragraphs": [
+            "External technicians must receive a site induction and be accompanied in restricted areas."
+          ]
+        },
+        {
+          "heading": "Restart approval",
+          "paragraphs": [
+            "After safety-related repairs, maintenance and production supervisors must both sign the restart record before operation."
+          ]
+        },
+        {
+          "heading": "Escalation",
+          "paragraphs": [
+            "Downtime exceeding four hours is reported to the production manager with an estimated recovery time."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "shift_operations.pdf",
+      "title": "Shift Operations",
+      "pages": [
+        {
+          "heading": "Shift handover",
+          "paragraphs": [
+            "Outgoing supervisors record open work orders, equipment faults and quality holds before leaving."
+          ]
+        },
+        {
+          "heading": "Staffing",
+          "paragraphs": [
+            "Each active line requires at least one trained line leader and the staffing level specified in its work instruction."
+          ]
+        },
+        {
+          "heading": "Absence cover",
+          "paragraphs": [
+            "Temporary replacements may perform only tasks listed in their verified competency record."
+          ]
+        },
+        {
+          "heading": "Start checks",
+          "paragraphs": [
+            "Line leaders confirm tooling, material identity and current instructions before starting a batch."
+          ]
+        },
+        {
+          "heading": "Break coverage",
+          "paragraphs": [
+            "Machines requiring continuous supervision must be handed to a trained operator during breaks."
+          ]
+        },
+        {
+          "heading": "Production counts",
+          "paragraphs": [
+            "Operators record good units, scrap and rework separately at the end of each shift."
+          ]
+        },
+        {
+          "heading": "Process deviation",
+          "paragraphs": [
+            "An out-of-control process is stopped and reported to quality before adjustments are attempted."
+          ]
+        },
+        {
+          "heading": "Cleaning",
+          "paragraphs": [
+            "Work surfaces are cleared of previous product labels before a new batch begins."
+          ]
+        },
+        {
+          "heading": "Overtime handover",
+          "paragraphs": [
+            "Extended shifts require an explicit handover of remaining tasks and fatigue concerns."
+          ]
+        },
+        {
+          "heading": "Daily review",
+          "paragraphs": [
+            "Supervisors review safety, quality and output exceptions at the next daily meeting."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "equipment_calibration.pdf",
+      "title": "Equipment Calibration",
+      "pages": [
+        {
+          "heading": "Register",
+          "paragraphs": [
+            "Each measuring device has a unique asset number and a recorded calibration due date."
+          ]
+        },
+        {
+          "heading": "Calibration interval",
+          "paragraphs": [
+            "Digital torque wrenches are calibrated every six months unless a shorter interval is specified."
+          ]
+        },
+        {
+          "heading": "Reference standards",
+          "paragraphs": [
+            "Reference instruments must have traceable calibration certificates covering the measurement range."
+          ]
+        },
+        {
+          "heading": "Overdue equipment",
+          "paragraphs": [
+            "An overdue instrument must be removed from service and marked unavailable until calibration is completed."
+          ]
+        },
+        {
+          "heading": "Out of tolerance",
+          "paragraphs": [
+            "Quality assesses all measurements made since the last valid calibration when a device fails calibration."
+          ]
+        },
+        {
+          "heading": "Environmental conditions",
+          "paragraphs": [
+            "Precision measurements are performed after instruments acclimatise to the inspection room."
+          ]
+        },
+        {
+          "heading": "Loan equipment",
+          "paragraphs": [
+            "Borrowed instruments require certificate verification before use on released products."
+          ]
+        },
+        {
+          "heading": "Labels",
+          "paragraphs": [
+            "Calibration labels display asset identifier, last calibration date and next due date."
+          ]
+        },
+        {
+          "heading": "Repair",
+          "paragraphs": [
+            "An instrument repaired or adjusted outside normal operation must be recalibrated before use."
+          ]
+        },
+        {
+          "heading": "Certificates",
+          "paragraphs": [
+            "Calibration certificates are retained for the instrument lifetime plus three years."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "quality_inspection.pdf",
+      "title": "Quality Inspection",
+      "pages": [
+        {
+          "heading": "Inspection plan",
+          "paragraphs": [
+            "Quality defines characteristics, sampling frequency and acceptance criteria before production release."
+          ]
+        },
+        {
+          "heading": "Incoming inspection",
+          "paragraphs": [
+            "Safety-critical incoming lots remain on hold until required inspection results are accepted."
+          ]
+        },
+        {
+          "heading": "First article",
+          "paragraphs": [
+            "A first article inspection is required after a tooling change or a new product introduction."
+          ]
+        },
+        {
+          "heading": "Sampling",
+          "paragraphs": [
+            "For routine noncritical lots, inspectors select samples randomly across the batch rather than from the top layer."
+          ]
+        },
+        {
+          "heading": "Critical defects",
+          "paragraphs": [
+            "A single critical defect triggers rejection of the entire inspected lot and a nonconformance record."
+          ]
+        },
+        {
+          "heading": "Measurement records",
+          "paragraphs": [
+            "Inspection records identify the instrument used, measured value, tolerance and inspector."
+          ]
+        },
+        {
+          "heading": "Release authority",
+          "paragraphs": [
+            "Only an authorised quality inspector may release a lot from inspection hold."
+          ]
+        },
+        {
+          "heading": "Retesting",
+          "paragraphs": [
+            "Retesting requires a documented reason and does not erase the original failed result."
+          ]
+        },
+        {
+          "heading": "Customer witness",
+          "paragraphs": [
+            "Customer witness inspections are scheduled before the contractual notification deadline."
+          ]
+        },
+        {
+          "heading": "Record retention",
+          "paragraphs": [
+            "Final inspection records are retained for ten years after product shipment."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "nonconformance_management.pdf",
+      "title": "Nonconformance Management",
+      "pages": [
+        {
+          "heading": "Identification",
+          "paragraphs": [
+            "Any employee may raise a nonconformance report for suspect material or process output."
+          ]
+        },
+        {
+          "heading": "Containment",
+          "paragraphs": [
+            "Suspect material must be labelled and physically segregated before investigation begins."
+          ]
+        },
+        {
+          "heading": "Notification",
+          "paragraphs": [
+            "Critical nonconformances must be reported to the quality manager within one hour of discovery."
+          ]
+        },
+        {
+          "heading": "Disposition",
+          "paragraphs": [
+            "The material review board approves use-as-is, rework or scrap decisions; operators cannot approve them independently."
+          ]
+        },
+        {
+          "heading": "Customer concession",
+          "paragraphs": [
+            "A deviation from a contractual specification requires written customer concession before shipment."
+          ]
+        },
+        {
+          "heading": "Root cause",
+          "paragraphs": [
+            "The investigator documents the verified cause rather than merely restating the observed defect."
+          ]
+        },
+        {
+          "heading": "Corrective action",
+          "paragraphs": [
+            "Critical corrective action plans must be submitted within five business days of issue identification."
+          ]
+        },
+        {
+          "heading": "Effectiveness",
+          "paragraphs": [
+            "Quality verifies corrective action effectiveness against subsequent production results."
+          ]
+        },
+        {
+          "heading": "Closure",
+          "paragraphs": [
+            "A record may close only after disposition and required effectiveness checks are documented."
+          ]
+        },
+        {
+          "heading": "Trend analysis",
+          "paragraphs": [
+            "Recurring defect families are reviewed monthly to identify systemic improvement opportunities."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "product_traceability.pdf",
+      "title": "Product Traceability",
+      "pages": [
+        {
+          "heading": "Lot identification",
+          "paragraphs": [
+            "Each production lot receives a unique identifier before its first operation."
+          ]
+        },
+        {
+          "heading": "Component linkage",
+          "paragraphs": [
+            "Safety-critical component serial numbers are linked to the finished product serial number."
+          ]
+        },
+        {
+          "heading": "Rework linkage",
+          "paragraphs": [
+            "Rework retains the original lot identifier and adds a separate operation record."
+          ]
+        },
+        {
+          "heading": "Split lots",
+          "paragraphs": [
+            "When a lot is split, each child identifier retains a reference to the parent lot.",
+            "A split may occur when part of a production lot is assigned to a separate operation, inspection route or customer order. The employee initiating the split verifies the original lot identifier against the manufacturing record before creating the child records. The quantity assigned to each child is recorded together with the remaining quantity in the parent. The sum of the quantities is reconciled before the transaction is completed. Scrap discovered during the operation is recorded separately and is not silently removed from the reconciliation. Each child receives a label that can be read at its subsequent work centre. The label identifies the child lot without obscuring the relationship to the parent. Existing inspection results remain associated with the material to which they apply. When a subsequent inspection covers only one child lot, its result must not be applied automatically to the other children. The system records the operation history independently for each child after the split. If two children are later brought together for an approved operation, their individual identities remain recoverable. Quality reviews the proposed transaction when the material has an unresolved nonconformance or a customer-specific segregation requirement. A split does not remove an existing hold. Employees must not create a new identifier merely to bypass an inspection status. During reconciliation, the supervisor checks for duplicate labels and missing transactions. A discrepancy is investigated before the affected material is released to the next operation. Electronic corrections retain the original transaction and the reason for the adjustment. Paper records are linked to the corresponding electronic record if a temporary system outage requires manual documentation. When the system becomes available, the manual transactions are entered in chronological order and verified against the physical inventory. The traceability review uses these records to reconstruct the movement of material without relying on the recollection of individual operators."
+          ]
+        },
+        {
+          "heading": "Mixing",
+          "paragraphs": [
+            "Components from different approved lots may be combined only if each contribution remains traceable."
+          ]
+        },
+        {
+          "heading": "Shipment linkage",
+          "paragraphs": [
+            "Dispatch records associate shipped serial numbers with customer order and destination."
+          ]
+        },
+        {
+          "heading": "Recall search",
+          "paragraphs": [
+            "Quality must be able to identify affected customer shipments within four hours of a recall request."
+          ]
+        },
+        {
+          "heading": "Traceability gaps",
+          "paragraphs": [
+            "Products with missing mandatory traceability records remain on hold pending investigation."
+          ]
+        },
+        {
+          "heading": "Label replacement",
+          "paragraphs": [
+            "Replacement labels require verification against the manufacturing record by a second person."
+          ]
+        },
+        {
+          "heading": "Retention",
+          "paragraphs": [
+            "Product genealogy records are retained for fifteen years after shipment."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "working_hours.pdf",
+      "title": "Working Hours",
+      "pages": [
+        {
+          "heading": "Standard week",
+          "paragraphs": [
+            "The standard full-time working week is 38 hours excluding unpaid breaks."
+          ]
+        },
+        {
+          "heading": "Time recording",
+          "paragraphs": [
+            "Employees record actual start, finish and unpaid break times in the time system."
+          ]
+        },
+        {
+          "heading": "Flexible start",
+          "paragraphs": [
+            "Office employees may begin between 07:00 and 09:30 subject to departmental coverage."
+          ]
+        },
+        {
+          "heading": "Overtime approval",
+          "paragraphs": [
+            "Overtime must be approved in advance by the line manager except during an immediate safety response."
+          ]
+        },
+        {
+          "heading": "Rest periods",
+          "paragraphs": [
+            "Shift planners must provide at least eleven consecutive hours between scheduled shifts."
+          ]
+        },
+        {
+          "heading": "Corrections",
+          "paragraphs": [
+            "Employees submit time corrections to their supervisor with the reason and affected date."
+          ]
+        },
+        {
+          "heading": "Remote work",
+          "paragraphs": [
+            "Remote work arrangements require a separate written agreement with the department manager."
+          ]
+        },
+        {
+          "heading": "Weekend coverage",
+          "paragraphs": [
+            "Weekend rosters are published at least seven calendar days before the scheduled work."
+          ]
+        },
+        {
+          "heading": "Public holidays",
+          "paragraphs": [
+            "Holiday staffing follows the approved local site calendar and applicable employment rules."
+          ]
+        },
+        {
+          "heading": "Monthly review",
+          "paragraphs": [
+            "Managers approve the previous month's time records by the third business day."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "employee_training.pdf",
+      "title": "Employee Training",
+      "pages": [
+        {
+          "heading": "Induction",
+          "paragraphs": [
+            "New employees complete safety induction before entering production areas unaccompanied."
+          ]
+        },
+        {
+          "heading": "Competency matrix",
+          "paragraphs": [
+            "Department managers maintain a matrix of authorised tasks and required qualifications."
+          ]
+        },
+        {
+          "heading": "Forklift refresher",
+          "paragraphs": [
+            "Forklift operators complete refresher training every two years and after a relevant safety incident."
+          ]
+        },
+        {
+          "heading": "Training requests",
+          "paragraphs": [
+            "External course requests identify the business need, cost and intended competency outcome."
+          ]
+        },
+        {
+          "heading": "Assessment",
+          "paragraphs": [
+            "Practical competency is verified by an authorised assessor before independent work begins."
+          ]
+        },
+        {
+          "heading": "Expired qualifications",
+          "paragraphs": [
+            "Employees with expired mandatory qualifications cannot perform the affected task independently."
+          ]
+        },
+        {
+          "heading": "Temporary personnel",
+          "paragraphs": [
+            "Agency workers must meet the same task-specific competency requirements as permanent employees."
+          ]
+        },
+        {
+          "heading": "Training evidence",
+          "paragraphs": [
+            "Training records include course title, date, trainer and assessment outcome."
+          ]
+        },
+        {
+          "heading": "Role changes",
+          "paragraphs": [
+            "A transfer to a new role triggers a competency gap review before task assignment."
+          ]
+        },
+        {
+          "heading": "Annual planning",
+          "paragraphs": [
+            "Managers submit the next year's training priorities during the fourth quarter."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "travel_expenses.pdf",
+      "title": "Travel Expenses",
+      "pages": [
+        {
+          "heading": "Travel request",
+          "paragraphs": [
+            "Business travel requires manager approval before nonrefundable reservations are made."
+          ]
+        },
+        {
+          "heading": "Rail travel",
+          "paragraphs": [
+            "Standard class rail is the default; higher classes require documented accessibility or operational justification."
+          ]
+        },
+        {
+          "heading": "Hotel limits",
+          "paragraphs": [
+            "Domestic hotel accommodation is limited to EUR 135 per night including breakfast. Higher rates require written manager approval before booking and a documented business reason."
+          ]
+        },
+        {
+          "heading": "Air travel",
+          "paragraphs": [
+            "Economy class applies to flights unless an approved medical accommodation specifies otherwise."
+          ]
+        },
+        {
+          "heading": "Meal receipts",
+          "paragraphs": [
+            "Reimbursable meals require itemised receipts and the names of external business guests where applicable."
+          ]
+        },
+        {
+          "heading": "Mileage",
+          "paragraphs": [
+            "Approved private vehicle use is reimbursed according to the current finance mileage schedule."
+          ]
+        },
+        {
+          "heading": "Expense submission",
+          "paragraphs": [
+            "Expense claims must be submitted within 30 calendar days after the trip ends."
+          ]
+        },
+        {
+          "heading": "Currency conversion",
+          "paragraphs": [
+            "Foreign currency expenses use the transaction rate shown on the payment statement when available."
+          ]
+        },
+        {
+          "heading": "Personal expenses",
+          "paragraphs": [
+            "Personal entertainment and minibar purchases are not reimbursable."
+          ]
+        },
+        {
+          "heading": "Missing receipts",
+          "paragraphs": [
+            "A missing receipt declaration requires finance approval and does not guarantee reimbursement."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "access_management.pdf",
+      "title": "Access Management",
+      "pages": [
+        {
+          "heading": "Account requests",
+          "paragraphs": [
+            "System owners approve access requests specifying role, business purpose and required duration."
+          ]
+        },
+        {
+          "heading": "Least privilege",
+          "paragraphs": [
+            "Default access is limited to the permissions necessary for the assigned job."
+          ]
+        },
+        {
+          "heading": "Privileged access",
+          "paragraphs": [
+            "Administrative accounts must be separate from ordinary accounts and use multifactor authentication."
+          ]
+        },
+        {
+          "heading": "Temporary access",
+          "paragraphs": [
+            "Temporary privileged access expires after eight hours unless a new approval is recorded."
+          ]
+        },
+        {
+          "heading": "Leavers",
+          "paragraphs": [
+            "IT disables accounts by the employee's recorded termination time following HR notification."
+          ]
+        },
+        {
+          "heading": "Role transfers",
+          "paragraphs": [
+            "Existing permissions are reviewed when an employee changes department."
+          ]
+        },
+        {
+          "heading": "Service accounts",
+          "paragraphs": [
+            "Service accounts have named owners and credentials stored in the approved secrets system."
+          ]
+        },
+        {
+          "heading": "Review cadence",
+          "paragraphs": [
+            "Privileged access is reviewed quarterly and standard access annually."
+          ]
+        },
+        {
+          "heading": "Shared accounts",
+          "paragraphs": [
+            "Shared interactive accounts are prohibited unless a documented technical exception is approved."
+          ]
+        },
+        {
+          "heading": "Access evidence",
+          "paragraphs": [
+            "Approval and revocation records are retained for three years."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "data_backup.pdf",
+      "title": "Data Backup",
+      "pages": [
+        {
+          "heading": "Scope",
+          "paragraphs": [
+            "Backup schedules cover designated business systems and approved shared storage."
+          ]
+        },
+        {
+          "heading": "Frequency",
+          "paragraphs": [
+            "Production database backups run nightly; configuration backups run after approved changes."
+          ]
+        },
+        {
+          "heading": "Retention",
+          "paragraphs": [
+            "Production ERP nightly backups are retained for 35 calendar days under this policy."
+          ]
+        },
+        {
+          "heading": "Encryption",
+          "paragraphs": [
+            "Backup copies are encrypted in transit and at rest using centrally managed keys."
+          ]
+        },
+        {
+          "heading": "Restore tests",
+          "paragraphs": [
+            "IT performs a documented restoration test for each critical system every quarter."
+          ]
+        },
+        {
+          "heading": "Failed jobs",
+          "paragraphs": [
+            "Failed backup jobs generate an alert to the infrastructure team before the next business day."
+          ]
+        },
+        {
+          "heading": "Offsite copies",
+          "paragraphs": [
+            "Critical backup copies are stored in a separate failure domain from the primary system."
+          ]
+        },
+        {
+          "heading": "Access",
+          "paragraphs": [
+            "Backup restoration privileges are restricted to designated infrastructure administrators."
+          ]
+        },
+        {
+          "heading": "Deletion",
+          "paragraphs": [
+            "Expired backup copies are removed by the approved lifecycle process unless a legal hold applies."
+          ]
+        },
+        {
+          "heading": "Evidence",
+          "paragraphs": [
+            "Backup and restore test results are reviewed at the monthly IT operations meeting."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "incident_response.pdf",
+      "title": "Incident Response",
+      "pages": [
+        {
+          "heading": "Classification",
+          "paragraphs": [
+            "Security events are classified by business impact, scope and likelihood of compromise."
+          ]
+        },
+        {
+          "heading": "Reporting",
+          "paragraphs": [
+            "Suspected credential compromise is reported to the service desk immediately."
+          ]
+        },
+        {
+          "heading": "Critical escalation",
+          "paragraphs": [
+            "A confirmed critical security incident is escalated to the incident commander within 30 minutes."
+          ]
+        },
+        {
+          "heading": "Containment",
+          "paragraphs": [
+            "The incident commander authorises isolation of affected systems after considering operational safety."
+          ]
+        },
+        {
+          "heading": "Evidence",
+          "paragraphs": [
+            "Investigators preserve relevant logs and document collection times and custody transfers."
+          ]
+        },
+        {
+          "heading": "Recovery backup rule",
+          "paragraphs": [
+            "Production ERP nightly backups are retained for 90 calendar days under this recovery policy. Both this policy and the Data Backup policy are currently active; neither specifies precedence."
+          ]
+        },
+        {
+          "heading": "Recovery approval",
+          "paragraphs": [
+            "The system owner and incident commander jointly approve return to normal service."
+          ]
+        },
+        {
+          "heading": "Communications",
+          "paragraphs": [
+            "External incident communications require approval from the designated communications lead."
+          ]
+        },
+        {
+          "heading": "Post-incident review",
+          "paragraphs": [
+            "A review is completed within ten business days after incident closure."
+          ]
+        },
+        {
+          "heading": "Exercises",
+          "paragraphs": [
+            "The incident response team conducts a tabletop exercise at least annually."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "inventory_management.pdf",
+      "title": "Inventory Management",
+      "pages": [
+        {
+          "heading": "Item master",
+          "paragraphs": [
+            "Each inventory item has a unique code, unit of measure and storage classification."
+          ]
+        },
+        {
+          "heading": "Cycle counts",
+          "paragraphs": [
+            "High-value A-class items are counted monthly; B-class quarterly and C-class annually."
+          ]
+        },
+        {
+          "heading": "Reorder points",
+          "paragraphs": [
+            "Planning reviews reorder points when supplier lead times or demand patterns materially change."
+          ]
+        },
+        {
+          "heading": "Adjustments",
+          "paragraphs": [
+            "Inventory adjustments above EUR 1,000 require finance manager approval."
+          ]
+        },
+        {
+          "heading": "Quarantine",
+          "paragraphs": [
+            "Quarantined stock is excluded from available-to-promise calculations."
+          ]
+        },
+        {
+          "heading": "Shelf life",
+          "paragraphs": [
+            "Items with expiry dates are issued in earliest-expiry-first order unless quality authorises an exception."
+          ]
+        },
+        {
+          "heading": "Transfers",
+          "paragraphs": [
+            "Transfers between warehouses require confirmation at both dispatch and receipt."
+          ]
+        },
+        {
+          "heading": "Obsolescence",
+          "paragraphs": [
+            "Slow-moving stock is reviewed quarterly for reuse, return or disposal opportunities."
+          ]
+        },
+        {
+          "heading": "Negative stock",
+          "paragraphs": [
+            "Negative inventory balances must be investigated before the daily reconciliation is closed."
+          ]
+        },
+        {
+          "heading": "Records",
+          "paragraphs": [
+            "Count sheets and approved stock adjustments are stored with the reconciliation record."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "goods_receiving.pdf",
+      "title": "Goods Receiving",
+      "pages": [
+        {
+          "heading": "Arrival",
+          "paragraphs": [
+            "Receiving staff verify carrier identity and delivery reference before unloading."
+          ]
+        },
+        {
+          "heading": "Quantity check",
+          "paragraphs": [
+            "Actual quantities are compared with the packing list and purchase order."
+          ]
+        },
+        {
+          "heading": "Damage",
+          "paragraphs": [
+            "Visible delivery damage must be photographed before the goods are moved into storage."
+          ]
+        },
+        {
+          "heading": "Critical lots",
+          "paragraphs": [
+            "Safety-critical components are routed directly to inspection hold and cannot be issued to production before quality release."
+          ]
+        },
+        {
+          "heading": "Documentation",
+          "paragraphs": [
+            "Missing required certificates are recorded and the affected goods remain on hold."
+          ]
+        },
+        {
+          "heading": "Discrepancies",
+          "paragraphs": [
+            "Quantity discrepancies are reported to procurement within one business day."
+          ]
+        },
+        {
+          "heading": "Temperature",
+          "paragraphs": [
+            "Temperature-sensitive deliveries require a recorded transport temperature check at receipt."
+          ]
+        },
+        {
+          "heading": "Booking",
+          "paragraphs": [
+            "Accepted receipts are posted to the inventory system on the day of arrival."
+          ]
+        },
+        {
+          "heading": "Returns",
+          "paragraphs": [
+            "Rejected deliveries require a return authorisation and segregated staging location."
+          ]
+        },
+        {
+          "heading": "Retention",
+          "paragraphs": [
+            "Receiving records are linked to purchase orders and retained under the purchasing records schedule."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "dispatch.pdf",
+      "title": "Dispatch",
+      "pages": [
+        {
+          "heading": "Order verification",
+          "paragraphs": [
+            "Dispatch verifies customer order, shipping address and approved delivery instructions."
+          ]
+        },
+        {
+          "heading": "Release check",
+          "paragraphs": [
+            "No product may be shipped while an inspection or nonconformance hold remains active."
+          ]
+        },
+        {
+          "heading": "Packaging",
+          "paragraphs": [
+            "Packaging must meet the product protection specification and customer labelling requirements."
+          ]
+        },
+        {
+          "heading": "Carrier selection",
+          "paragraphs": [
+            "Only approved carriers may transport finished goods unless logistics grants a documented exception."
+          ]
+        },
+        {
+          "heading": "Export documents",
+          "paragraphs": [
+            "Export shipments require completed customs documentation before carrier handover."
+          ]
+        },
+        {
+          "heading": "Loading",
+          "paragraphs": [
+            "Loading staff verify package count and secure cargo against movement."
+          ]
+        },
+        {
+          "heading": "Cutoff",
+          "paragraphs": [
+            "Standard dispatch orders released before 14:00 are scheduled for same-day carrier collection, subject to capacity."
+          ]
+        },
+        {
+          "heading": "Proof of handover",
+          "paragraphs": [
+            "The carrier acknowledges package count and visible condition at collection."
+          ]
+        },
+        {
+          "heading": "Tracking",
+          "paragraphs": [
+            "Tracking references are recorded against the customer shipment record."
+          ]
+        },
+        {
+          "heading": "Delivery confirmation",
+          "paragraphs": [
+            "Unconfirmed deliveries are investigated when the agreed delivery window has passed."
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "transport_claims.pdf",
+      "title": "Transport Claims",
+      "pages": [
+        {
+          "heading": "Scope",
+          "paragraphs": [
+            "Transport claims cover loss, shortage and damage occurring during contracted carriage."
+          ]
+        },
+        {
+          "heading": "Visible damage",
+          "paragraphs": [
+            "Visible damage is noted on the carrier receipt before signing and supported by photographs."
+          ]
+        },
+        {
+          "heading": "Concealed damage",
+          "paragraphs": [
+            "Concealed damage must be reported to logistics within two business days of discovery."
+          ]
+        },
+        {
+          "heading": "Carrier notification",
+          "paragraphs": [
+            "Logistics sends the initial carrier claim notification within five business days of receiving the damage report."
+          ]
+        },
+        {
+          "heading": "Evidence package",
+          "paragraphs": [
+            "The claim package includes shipment reference, photographs, invoice and carrier documentation."
+          ]
+        },
+        {
+          "heading": "Preservation",
+          "paragraphs": [
+            "Damaged goods and packaging are retained until the carrier authorises disposal or inspection is completed."
+          ]
+        },
+        {
+          "heading": "Valuation",
+          "paragraphs": [
+            "Finance verifies the claimed value against the invoice and applicable contractual terms."
+          ]
+        },
+        {
+          "heading": "Settlement",
+          "paragraphs": [
+            "Only the logistics manager may accept a carrier settlement on behalf of the company."
+          ]
+        },
+        {
+          "heading": "Escalation",
+          "paragraphs": [
+            "Unresolved claims are reviewed after 30 calendar days and escalated to the contract owner."
+          ]
+        },
+        {
+          "heading": "Closure",
+          "paragraphs": [
+            "Claims close after settlement or documented rejection and reconciliation of any financial adjustment."
+          ]
+        }
+      ]
+    }
+  ]
+}
