@@ -30,17 +30,35 @@ def main() -> None:
     if not args.query.strip():
         parser.error("query must not be empty")
 
-    sections = load_corpus(args.root, include_archived=args.include_archived)
-
     if args.method == "semantic":
         from rag_document_assistant.retrieval.semantic import (
             LocalSentenceEncoder,
             SemanticIndex,
         )
 
-        encoder = LocalSentenceEncoder(local_files_only=args.offline)
-        index = SemanticIndex(sections, encoder=encoder)
+        encoder = LocalSentenceEncoder(
+            local_files_only=args.offline,
+        )
+
+        sections = load_corpus(
+            args.root,
+            include_archived=args.include_archived,
+            encoder=encoder,
+            offline=args.offline,
+        )
+
+        index = SemanticIndex(
+            sections,
+            encoder=encoder,
+        )
+
     else:
+        sections = load_corpus(
+            args.root,
+            include_archived=args.include_archived,
+            offline=args.offline,
+        )
+
         index = BM25Index(sections)
 
     results = index.search(args.query, top_k=args.top_k)

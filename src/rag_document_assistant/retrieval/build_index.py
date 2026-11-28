@@ -29,9 +29,21 @@ def main() -> None:
 
     started = perf_counter()
     fingerprint = corpus_fingerprint(args.root)
-    sections = load_corpus(args.root)
-    encoder = LocalSentenceEncoder(local_files_only=args.offline)
-    index = SemanticIndex(sections, encoder=encoder)
+
+    encoder = LocalSentenceEncoder(
+        local_files_only=args.offline,
+    )
+
+    sections = load_corpus(
+        args.root,
+        encoder=encoder,
+        offline=args.offline,
+    )
+
+    index = SemanticIndex(
+        sections,
+        encoder=encoder,
+    )
 
     if corpus_fingerprint(args.root) != fingerprint:
         raise RuntimeError("Corpus changed during index creation; retry")

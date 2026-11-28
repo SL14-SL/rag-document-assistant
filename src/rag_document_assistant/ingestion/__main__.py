@@ -13,8 +13,17 @@ def main() -> None:
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument("--include-archived", action="store_true")
     parser.add_argument("--output", type=Path, default=Path("artifacts/sections.jsonl"))
+    parser.add_argument(
+        "--offline",
+        action="store_true",
+        help="Load the embedding model from local files only",
+    )
     args = parser.parse_args()
-    sections = load_corpus(args.root, include_archived=args.include_archived)
+    sections = load_corpus(
+        args.root,
+        include_archived=args.include_archived,
+        offline=args.offline,
+    )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("w", encoding="utf-8") as stream:
         for section in sections:

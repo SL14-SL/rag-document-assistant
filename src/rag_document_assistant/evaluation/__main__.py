@@ -48,7 +48,6 @@ def main() -> None:
     if any(question["split"] != "development" for question in questions):
         raise ValueError("Expected development questions only")
 
-    sections = load_corpus(root)
     configuration = {
         "retriever": args.method,
         "include_archived": False,
@@ -70,8 +69,20 @@ def main() -> None:
             SemanticIndex,
         )
 
-        encoder = LocalSentenceEncoder(local_files_only=args.offline)
-        index = SemanticIndex(sections, encoder=encoder)
+        encoder = LocalSentenceEncoder(
+            local_files_only=args.offline,
+        )
+
+        sections = load_corpus(
+            root,
+            encoder=encoder,
+            offline=args.offline,
+        )
+
+        index = SemanticIndex(
+            sections,
+            encoder=encoder,
+        )
         configuration.update(
             model=DEFAULT_MODEL,
             device="cpu",
@@ -80,6 +91,11 @@ def main() -> None:
             max_sequence_length=encoder.model.max_seq_length,
         )
     else:
+        sections = load_corpus(
+            root,
+            offline=args.offline,
+        )
+
         index = BM25Index(sections)
         configuration.update(k1=index.k1, b=index.b)
 
