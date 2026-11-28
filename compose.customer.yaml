@@ -1,0 +1,52 @@
+services:
+  app:
+    build:
+      context: .
+    image: rag-document-assistant:dev
+    user: "${RAG_UID:-1000}:${RAG_GID:-1000}"
+    ports:
+      - "127.0.0.1:8501:8501"
+    environment:
+      HOME: /tmp
+      RAG_CORPUS_ROOT: /customer_data
+      RAG_PROVIDER: "${RAG_PROVIDER:-ollama}"
+      OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
+      OLLAMA_BASE_URL: "${OLLAMA_BASE_URL:-http://host.docker.internal:11434}"
+    volumes:
+      - type: bind
+        source: "${RAG_DATA_DIR:-./customer_data}"
+        target: /customer_data
+        read_only: true
+        bind:
+          create_host_path: false
+
+      - type: bind
+        source: "${RAG_DATA_DIR:-./customer_data}/artifacts/answers"
+        target: /customer_data/artifacts/answers
+        bind:
+          create_host_path: false
+    init: true
+
+  prepare:
+    image: rag-document-assistant:dev
+    user: "${RAG_UID:-1000}:${RAG_GID:-1000}"
+    profiles:
+      - tools
+    environment:
+      HOME: /tmp
+    volumes:
+      - type: bind
+        source: "${RAG_DATA_DIR:-./customer_data}"
+        target: /customer_data
+        bind:
+          create_host_path: false
+    entrypoint:
+      - python
+    command:
+      - "-m"
+      - "rag_document_assistant.ingestion.manifest"
+      - "--help"
+    network_mode: none
+    healthcheck:
+      disable: true
+    init: true
